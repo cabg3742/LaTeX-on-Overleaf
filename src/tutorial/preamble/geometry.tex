@@ -1,0 +1,28 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {167},
+    lastline    = {202},
+    firstnumber = {167},
+    caption     = {[Geometry settings]Geometry settings.},
+    label       = {lst:tutorial/preamble/geometry}
+]{tools/settings.tex}
+
+The \texttt{geometry} \gls{package} defines the size and margins of our document. We can then set the length of other dimensions, such as the margin separation, the margin push, etc. A visual representation of those changes can be seen in figure \ref{fig:tutorial/preamble/geometry} generated with the \texttt{layout} \gls{package}.
+
+\Glspl{package} such as \texttt{changepage}, \texttt{lscape}, and \texttt{pdflscape} are all superseded by the \gls{macro} defined in the last few lines. It overloads geometry \glspl{command} to add the ability to define new layouts that can be loaded on individual pages or sets of pages:
+\begin{itemize}
+    \item create layout with \texttt{\textbackslash{}newgeometry\{\}};
+    \item save layout with \texttt{\textbackslash{}savegeometry\{\}};
+    \item restore original layout with \texttt{\textbackslash{}restoregeometry};
+    \item load new layout with \texttt{\textbackslash{}loadgeometry\{\}}.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \thispagestyle{udes}
+    \layout
+    \thispagestyle{udes}
+    \vspace{4.5\baselineskip}
+    \caption[Document layout information]{Document layout information.}
+    \label{fig:tutorial/preamble/geometry}
+\end{figure}

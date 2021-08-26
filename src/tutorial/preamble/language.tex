@@ -1,0 +1,14 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {23},
+    lastline    = {27},
+    firstnumber = {23},
+    caption     = {[Language settings]Language settings.},
+    label       = {lst:tutorial/preamble/language}
+]{tools/settings.tex}
+
+The \texttt{babel} \gls{package} is generally recommended for monolingual documents since it is better maintained than alternatives and plays nicer with \texttt{biblatex} and \texttt{csquotes} (see \S~\ref{sec:tutorial/preamble/bib}). The \texttt{polyglossia} \gls{package} can be used for multilingual documents, although I have no experience with it. The \gls{command} \texttt{\textbackslash{}selectlanguage\{\}} has allowed me to switch between English and French without major issues.
+
+With \texttt{babel}, you can select as many languages as you wish to support, with the \texttt{main} \gls{parameter} being the one that modifies \LaTeX{} presets and \glspl{macro} extensively. It calls a language \guil{driver} for each of them. All \guil{drivers} come with a different set of rules and \glspl{parameter}.
+
+Then, we use the \texttt{csquotes} \gls{package} to provide inline and display \glspl{environment} for quotes that follow the rules of the chosen main language.

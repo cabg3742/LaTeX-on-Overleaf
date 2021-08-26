@@ -1,0 +1,47 @@
+% File:                 local_physics.sty
+% Author(s):            Gabriel Cabana
+% Creation date:        2021-02-27
+% Last modification:    2021-03-30
+% Description:          Definition of "local_physics" package.
+
+%%% PRELIMINARY DECLARATIONS %%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{local_physics}[2021/03/30]
+
+%%% BRA-KET NOTATION %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Vertical bar + angle bracket (bra)
+\newcommand{\ket}[1]{\left | #1 \right >}  %entre|>
+
+% Angle bracket + vertical bar (ket)
+\newcommand{\bra}[1]{\left < #1 \right |}
+
+% Angle brackets + vertical bars (dyad)
+\newcommand{\dyad}[2]{\ket{#1}\bra{#2}}
+
+% Angle brackets + vertical bars (expectation value)
+\newcommand{\expval}[3]{\mean{#1\abs{#2\vphantom{#1#3}}#3}}
+
+% Angle brackets + vertical bars (bra-ket)
+\newcommand{\braket}[2]{\bra{#1\vphantom{#2}}\left.#2\vphantom{#1}\right>}
+
+%%% OTHERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Brackets (commutator)
+\newcommand{\commutator}[2]{\insb{#1 \, , #2}}
+
+% Braces (anticommutator)
+\newcommand{\anticommutator}[2]{\incb{#1 \, , #2}}
+
+% Unit vectors
+\newcommand{\hi}{\hat{\imath}}
+\newcommand{\hj}{\hat{\jmath}}
+\newcommand{\hk}{\hat{k}}
+
+% Quod erat demonstrandum
+\newcommand{\QED}{\quad_\square}
+
+% Traces
+\newcommand{\tracep}[2]{\mathrm{Tr}_{#1} \left\{ #2 \right\} } 
+\newcommand{\trace}[1]{\ensuremath{\mathrm{Tr} \left\{#1 \right\}}}

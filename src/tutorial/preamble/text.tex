@@ -1,0 +1,14 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {387},
+    lastline    = {394},
+    firstnumber = {387},
+    caption     = {[Text settings]Text settings.},
+    label       = {lst:tutorial/preamble/text}
+]{tools/settings.tex}
+
+The \texttt{\textbackslash{}tolerance} \gls{command} sets the allowed stretching. \TeX{} assigns \guil{badness} \glspl{value} to whatever operation it has to make in order to find the best spot to to break to the next line. The sum of the \glspl{value} for each line gives us a total \guil{badness} that gets compared to the tolerance: the first result below the tolerance is the chosen line break. You can read more about this process in \citename{book:knuth-typesetting-a}{author}'s book on \TeX{} \parencite{book:knuth-typesetting-a}.
+
+The \texttt{\textbackslash{}hyphenpenalty} \gls{command} sets the \guil{badness} level above which \TeX{} can look into hyphenation to reduce the line breaking error. Setting it to the maximum value of 10,000 avoids hyphenation entirely.
+
+The \texttt{\textbackslash{}parindent}, \texttt{\textbackslash{}parskip}, and \texttt{\textbackslash{}linespread} lengths respectively define the paragraph indentation, the extra vertical space in between paragraphs, and the line spacing.

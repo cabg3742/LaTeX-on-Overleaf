@@ -1,0 +1,31 @@
+Glossary entries, just like \glspl{source}, are kept in a database to separate the information from the styling. We can \glsdisp{reference}{refer} to them with a handful of \glspl{command}:
+\begin{itemize}
+    \item \texttt{\textbackslash{}gls\{\}}:~\glsdisp{reference}{refers} to a glossary entry;
+    \item \texttt{\textbackslash{}Gls\{\}}:~\glsdisp{reference}{refers} to a glossary entry and capitalize the first letter;
+    \item \texttt{\textbackslash{}glspl\{\}}:~\glsdisp{reference}{refers} to a glossary entry in plural form. It defaults to adding the letter \guil{s}. For complex entries, it is advised to define it yourself;
+    \item \texttt{\textbackslash{}Glspl\{\}}:~\glsdisp{reference}{refers} to a glossary entry in plural form and capitalize the first letter;
+    \item \texttt{\textbackslash{}glsname\{\}}:~\glsdisp{reference}{refers} to only the name of a glossary entry;
+    \item \texttt{\textbackslash{}Glsname\{\}}:~\glsdisp{reference}{refers} to only the name of a glossary entry and capitalize the first letter;
+    \item \texttt{\textbackslash{}glsdesc\{\}}:~\glsdisp{reference}{refers} to only the description of a glossary entry;
+    \item \texttt{\textbackslash{}Glsdesc\{\}}:~\glsdisp{reference}{refers} to only the description of a glossary entry and capitalize the first letter;
+    \item \texttt{\textbackslash{}glsdisp\{\}\{\}}:~\glsdisp{reference}{refers} to a glossary entry and change the displayed text (useful for conjugation). The first argument is the \gls{label}, and the second is the text shown in the document.
+\end{itemize}
+
+It is recommended to use \texttt{\textbackslash{}gls\{\}} or \texttt{\textbackslash{}glspl\{\}} and their capitalized variants since these will automatically modify the first occurrence in your text (especially useful for acronyms---see \S~\ref{sec:tutorial/latex/crossref/acronyms}). Choose \texttt{\textbackslash{}glsname\{\}} or \texttt{\textbackslash{}glsdesc\{\}} and their capitalized variants if you need to manually control the output (table header, figure caption, etc.).
+
+All the above \glspl{command} can create \glspl{hyperlink} to your glossary entry, which helps navigate the document to find occurrences and guide the reader to the description of a technical term, for instance. However, we do not always need a \gls{hyperlink}. We may need to avoid it entirely if it's included in a \gls{hyperlink} already, e.g., a section title: if we leave the glossary \glsdisp{hyperlink}{link} in, part of the title in the \gls{ToC} will not refer to the section, but instead to the glossary. To prevent this in those edge cases, we can use the following \glspl{command}:
+\begin{itemize}
+    \item \texttt{\textbackslash{}glsentrytext\{\}}:~\glsdisp{reference}{refers} to only the name of a glossary entry without \gls{hyperlink} functionality;
+    \item \texttt{\textbackslash{}Glsentrytext\{\}}:~\glsdisp{reference}{refers} to only the name of a glossary entry without \gls{hyperlink} functionality and capitalize the first letter;
+    \item \texttt{\textbackslash{}glsentrydesc\{\}}:~\glsdisp{reference}{refers} to only the description of a glossary entry without \gls{hyperlink} functionality;
+    \item \texttt{\textbackslash{}glsentrydesc\{\}}:~\glsdisp{reference}{refers} to only the description of a glossary entry without \gls{hyperlink} functionality and capitalize the first letter.
+\end{itemize}
+
+When defining your glossary entry, you only have to define a couple fields inside the entry (example at \S~\ref{sec:tutorial/templates/glossary}):
+\begin{itemize}
+    \item \texttt{name=\{\}}:~the word you're adding in the glossary;
+    \item \texttt{description=\{\}}:~introduces the reader to the meaning of your entry;
+    \item \texttt{see=[]\{\}}:~\glsdisp{reference}{refers} to another glossary entry if needed. If you're not a fan of the \gls{command}'s behavior, you can also \glsdisp{reference}{refer} to another entry by using \texttt{\textbackslash{}glsseelist\{\}} in the entry's description.
+\end{itemize}
+
+\noindent For more options and \glspl{macro}, feel free to consult the \gls{CTAN} documentation \parencite{web:ctan-glossaries}.

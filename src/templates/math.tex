@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SINGLE EQUATION                            %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent Single equation:
+
+\begin{equation}
+    f\inp{x}
+        = \sum\limits_{n=0}^{\infty} \frac{1}{n!}
+          \left.\deriv{n}{f}{x}\right|_{x=x_0} \inp{x - x_0}^n
+    \label{eq:mylabel_01}
+\end{equation}
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Template: single equation]Template: single equation.},
+    label    = {lst:tutorial/templates/math/single}
+]
+\begin{equation}
+    f\inp{x}
+        = \sum\limits_{n=0}^{\infty} \frac{1}{n!}
+          \left.\deriv{n}{f}{x}\right|_{x=x_0} \inp{x - x_0}^n
+    \label{eq:mylabel_01}
+\end{equation}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SET OF EQUATIONS                           %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent Set of equations:
+
+\begin{equation}
+    \setlength{\jot}{5pt}
+    \begin{aligned}
+        \sin\inp{\alpha\pm\beta}
+            &= \sin\inp{\alpha}\cos\inp{\beta} \pm \cos\inp{\alpha}\sin\inp{\beta}
+            \\
+        \cos\inp{\alpha\pm\beta}
+            &= \cos\inp{\alpha}\cos\inp{\beta} \mp \sin\inp{\alpha}\sin\inp{\beta}
+            \\
+        \tan\inp{\alpha\pm\beta}
+            &= \frac{\tan\inp{\alpha} \pm \tan\inp{\beta}}{1 \mp \tan\inp{\alpha}\tan\inp{\beta}}
+    \end{aligned}
+    \label{eq:mylabel_02}
+\end{equation}
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Template: set of equation]Template: set of equations.},
+    label    = {lst:tutorial/templates/math/set}
+]
+\begin{equation}
+    \setlength{\jot}{5pt}
+    \begin{aligned}
+        \sin\inp{\alpha\pm\beta}
+            &= \sin\inp{\alpha}\cos\inp{\beta} \pm \cos\inp{\alpha}\sin\inp{\beta}
+            \\
+        \cos\inp{\alpha\pm\beta}
+            &= \cos\inp{\alpha}\cos\inp{\beta} \mp \sin\inp{\alpha}\sin\inp{\beta}
+            \\
+        \tan\inp{\alpha\pm\beta}
+            &= \frac{\tan\inp{\alpha} \pm \tan\inp{\beta}}{1 \mp \tan\inp{\alpha}\tan\inp{\beta}}
+    \end{aligned}
+    \label{eq:mylabel_02}
+\end{equation}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MATH DEVELOPMENT                           %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent Mathematical development:
+
+{
+\setlength{\jot}{10pt}
+\begin{align}
+    \frac{Q}{C}
+        &= \deriv{}{T}{t} + \frac{T}{RC}
+        \nonumber\\
+    &\Rightarrow \mathcal{L}\inp{\frac{Q}{C}}
+        = \mathcal{L}\inp{\deriv{}{T}{t} + \frac{T}{RC}}
+        \nonumber\\
+    &\Rightarrow \frac{Q}{C}
+        = sT\inp{s} + \frac{T\inp{s}}{RC}
+        \nonumber\\
+    &\Rightarrow T\inp{s}
+        = \frac{\sfrac{Q}{C}}{s + \sfrac{1}{RC}}
+        \nonumber\\
+    &\Rightarrow T\inp{s}
+        = RQ\inp{\frac{1}{RCs + 1}}
+        \label{eq:mylabel_03}
+\end{align}
+}
+
+\begin{lstlisting}[%
+    language = {LaTeX},
+    caption  = {[Template: mathematical development]Template: mathematical development.},
+    label    = {lst:tutorial/templates/math/dev}
+]
+{
+\setlength{\jot}{10pt}
+\begin{align}
+    \frac{Q}{C}
+        &= \deriv{}{T}{t} + \frac{T}{RC}
+        \nonumber\\
+    &\Rightarrow \mathcal{L}\inp{\frac{Q}{C}}
+        = \mathcal{L}\inp{\deriv{}{T}{t} + \frac{T}{RC}}
+        \nonumber\\
+    &\Rightarrow \frac{Q}{C}
+        = sT\inp{s} + \frac{T\inp{s}}{RC}
+        \nonumber\\
+    &\Rightarrow T\inp{s}
+        = \frac{\sfrac{Q}{C}}{s + \sfrac{1}{RC}}
+        \nonumber\\
+    &\Rightarrow T\inp{s}
+        = RQ\inp{\frac{1}{RCs + 1}}
+        \label{eq:mylabel_03}
+\end{align}
+}
+\end{lstlisting}

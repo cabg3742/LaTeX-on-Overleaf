@@ -1,0 +1,166 @@
+\begingroup
+    \setlength{\columnA}{\dimexpr .16\linewidth}
+    \setlength{\columnB}{\dimexpr .16\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CT{\columnA}|%
+          \CT{\columnB}|%
+          \LT{\columnC}|%
+        }
+        
+        \hline
+        \textbf{Version}
+            &\textbf{Date}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        0.1
+            &2021-05-05
+            &First draft:
+             \newline -- Introduction;
+             \newline -- Text formatting \glspl{macro};
+             \newline -- \glsdisp{reference}{Referencing} \glspl{macro};
+             \newline -- List examples;
+             \newline -- Figure examples;
+             \newline -- Special characters;
+             \newline -- Custom \glspl{macro}.
+        \\\hline
+        
+        0.2
+            &2021-05-13
+            &-- Split document in multiple \TeX{} files and sections;
+             \newline -- Added math \glspl{macro} and equation examples;
+             \newline -- Added table examples.
+        \\\hline
+        
+        0.3
+            &2021-05-14
+            &Added templates:
+             \newline -- Equations;
+             \newline -- Figures;
+             \newline -- Lists;
+             \newline -- Tables.
+        \\\hline
+        
+        0.4
+            &2021-05-15
+            &Added section and template for acronyms.
+        \\\hline
+        
+        0.5
+            &2021-05-27
+            &-- Split cover and \gls{ToC} in different pages;
+             \newline -- Added background image to cover page, \gls{ToC}, and lists;
+             \newline -- Added \gls{LoF};
+             \newline -- Added \gls{LoT};
+             \newline -- Empty sections for architecture and preamble.
+        \\\hline
+        
+        0.6
+            &2021-05-31
+            &-- Regrouped sections into new \guil{\LaTeX{} basics} section;
+             \newline -- \LaTeX{} on Overleaf section:
+                \newline \quad \tabitem Engine;
+                \newline \quad \tabitem Format;
+                \newline \quad \tabitem Distribution;
+                \newline \quad \tabitem Editor.
+             \newline -- Architecture section:
+                 \newline \quad \tabitem Root files;
+                 \newline \quad \tabitem Custom \glspl{package} folder;
+                 \newline \quad \tabitem Data folder;
+                 \newline \quad \tabitem Custom \glspl{definition} folder;
+                 \newline \quad \tabitem Sections folder;
+                 \newline \quad \tabitem Tools folder.
+             \newline -- Templates section:
+                 \newline \quad \tabitem Equations;
+                 \newline \quad \tabitem Figures;
+                 \newline \quad \tabitem Lists;
+                 \newline \quad \tabitem Tables;
+                 \newline \quad \tabitem TikZ drawings.
+        \\\hline
+        
+        0.7
+            &2021-06-04
+            &-- Added bibliography;
+             \newline -- \LaTeX{} basics section:
+                 \newline \quad \tabitem Special characters;
+                 \newline \quad \tabitem Text formatting and sizing;
+                 \newline \quad \tabitem Sections;
+                 \newline \quad \tabitem Links and \glspl{reference};
+                 \newline \quad \tabitem Lists;
+                 \newline \quad \tabitem Mathematical equations;
+                 \newline \quad \tabitem Figures;
+                 \newline \quad \tabitem Tables;
+                 \newline \quad \tabitem Custom \glspl{macro}.
+        \\\hline
+        
+        0.8
+            &2021-06-22
+            &-- Added custom column widths in \guil{Custom \glspl{macro}} section;
+             \newline -- Added special letters in \guil{Special characters} section;
+             \newline -- Added spacing \glspl{macro} in \guil{Text} section;
+             \newline -- Added code listings in \guil{\LaTeX{} basics} section;
+             \newline -- Modified tables for better column widths;
+             \newline -- Added TikZ templates;
+             \newline -- Modified global code listing style;
+             \newline -- Added custom acronym / glossary list style;
+             \newline -- Added \LaTeX{} language for code listings;
+             \newline -- Added \gls{LoL}.
+        \\\hline
+        
+        0.9
+            &2021-08-22
+            &-- Added file types in \guil{\LaTeX{} on Overleaf} section;
+             \newline -- Added \texttt{loadgeometry} \gls{command} for landscape;
+             \newline -- Added more \glspl{macro} for glossary and acronym entries;
+             \newline -- Added templates for \glspl{source};
+             \newline -- Added templates for glossary and acronym entries;
+             \newline -- Preamble section:
+             \newline \quad \tabitem Document \gls{class};
+             \newline \quad \tabitem Footnotes;
+             \newline \quad \tabitem Language;
+             \newline \quad \tabitem Bibliography.
+        \\\hline
+        
+        0.10
+            &2021-08-23
+            &Preamble section:
+             \newline -- Date and time;
+             \newline -- Fonts;
+             \newline -- Geometry;
+             \newline -- Typesetting;
+             \newline -- \gls{ToC} and lists;
+             \newline -- Figures;
+             \newline -- Colors;
+             \newline -- TikZ;
+             \newline -- Text;
+             \newline -- \Glspl{conditional};
+             \newline -- Header and footer;
+             \newline -- Tables;
+             \newline -- Mathematics and arithmetic;
+             \newline -- \Glspl{hyperlink};
+             \newline -- Counters and numbering;
+             \newline -- Sections;
+             \newline -- Lists;
+             \newline -- Glossary;
+             \newline -- Custom \glspl{package};
+             \newline -- Miscellaneous.
+        \\\hline
+        
+        1.0
+            &2021-08-26
+            &-- Revision of the \glsname{ToC} style;
+             \newline -- Revision of \glspl{source};
+             \newline -- Added \texttt{hologo} \gls{package} for \TeX{} logos;
+             \newline -- Empty section for \guil{\TeX{}nician basics};
+             \newline -- Added glossary to set the terminology;
+             \newline -- Revision of the page breaks and spacing between sections.
+        \\\hline
+    \end{longtable}
+\endgroup

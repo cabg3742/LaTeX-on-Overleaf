@@ -1,0 +1,714 @@
+% File:                 settings.tex
+% Author(s):            Gabriel Cabana
+% Creation date:        2021-02-27
+% Last modification:    2021-08-23
+% Description:          Preamble.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT CLASS                             %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[letterpaper,12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FOOTNOTES                                  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[multiple,bottom,flushmargin,hang]{footmisc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LANGUAGE                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[american,main=french]{babel}
+
+%%% Recommended for use with "babel" and "polyglossia"
+%%% to quote according to main language.
+\usepackage{csquotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BIBLIOGRAPHY                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[
+    % backend   = biber,
+    % style     = authoryear-comp,
+    citestyle = numeric-comp,
+    sorting   = none,
+    alldates  = ymd
+]{biblatex}
+
+%%% Add bibliography databases
+\addbibresource{tools/ref.bib}
+\addbibresource{src/templates/template.bib}
+
+%%% Allow URL linebreaks in bibliography
+\setcounter{biburllcpenalty}{1}
+\setcounter{biburlucpenalty}{1}
+
+%%% Replace parentheses with context-aware brackets/parentheses
+\makeatletter
+    \newrobustcmd*{\parentexttrack}[1]{%
+        \begingroup
+            \blx@blxinit
+            \blx@setsfcodes
+            \blx@bibopenparen#1\blx@bibcloseparen
+        \endgroup
+    }
+    \AtEveryCite{%
+        \let\parentext     = \parentexttrack%
+        \let\bibopenparen  = \bibopenbracket%
+        \let\bibcloseparen = \bibclosebracket
+    }
+\makeatother
+
+%%% Modify citation to add hyperref to the author field
+% \DeclareCiteCommand{\cite}
+%     {\usebibmacro{prenote}}
+%     {\usebibmacro{citeindex}%
+%         \printtext[bibhyperref]{\usebibmacro{cite}}
+%     }
+%     {\multicitedelim}
+%     {\usebibmacro{postnote}}
+% \DeclareCiteCommand*{\cite}
+%     {\usebibmacro{prenote}}
+%     {\usebibmacro{citeindex}%
+%         \printtext[bibhyperref]{\usebibmacro{citeyear}}
+%     }
+%     {\multicitedelim}
+%     {\usebibmacro{postnote}}
+% \DeclareCiteCommand{\parencite}[\mkbibparens]
+%     {\usebibmacro{prenote}}
+%     {\usebibmacro{citeindex}%
+%         \printtext[bibhyperref]{\usebibmacro{cite}}
+%     }
+%     {\multicitedelim}
+%     {\usebibmacro{postnote}}
+% \DeclareCiteCommand*{\parencite}[\mkbibparens]
+%     {\usebibmacro{prenote}}
+%     {\usebibmacro{citeindex}%
+%         \printtext[bibhyperref]{\usebibmacro{citeyear}}
+%     }
+%     {\multicitedelim}
+%     {\usebibmacro{postnote}}
+% \DeclareCiteCommand{\footcite}[\mkbibfootnote]
+%     {\usebibmacro{prenote}}
+%     {\usebibmacro{citeindex}%
+%         \printtext[bibhyperref]{ \usebibmacro{cite}}
+%     }
+%     {\multicitedelim}
+%     {\usebibmacro{postnote}}
+% \DeclareCiteCommand{\footcitetext}[\mkbibfootnotetext]
+%     {\usebibmacro{prenote}}
+%     {\usebibmacro{citeindex}%
+%         \printtext[bibhyperref]{\usebibmacro{cite}}
+%     }
+%     {\multicitedelim}
+%     {\usebibmacro{postnote}}
+% \DeclareCiteCommand{\textcite}
+%     {\boolfalse{cbx:parens}}
+%     {\usebibmacro{citeindex}%
+%         \printtext[bibhyperref]{\usebibmacro{textcite}}
+%     }
+%     {\ifbool{cbx:parens}
+%         {\bibcloseparen\global\boolfalse{cbx:parens}}
+%         {}%
+%         \multicitedelim
+%     }
+%     {\usebibmacro{textcite:postnote}}
+  
+%%% Add comma between author and year
+% \renewcommand*{\nameyeardelim}{\addcomma\space}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DATE & TIME                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime2}
+\DTMsetdatestyle{iso}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FONTS                                      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage[latin1]{inputenc} % Older Windows machines
+% \usepackage[utf8]{inputenc}   % Most 64-bit processors
+% \usepackage{ae}               % T1 font emulation using CM fonts
+\usepackage[T1]{fontenc}      % Font encoding
+\usepackage{fontspec}         % XeLaTeX or LuaLaTeX
+
+%%% Change font
+\setromanfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Adventor}
+\setmonofont{TeX Gyre Cursor}
+
+%%% Allow bold + small caps for Computer Modern
+% \setmainfont{cmun}[
+%   Extension      = .otf,
+%   UprightFont    = *rm,
+%   ItalicFont     = *ti,
+%   BoldFont       = *bx,
+%   BoldItalicFont = *bi,
+% ]
+
+%%% Add symbols
+% \usepackage{CJKutf8}  % Chinese characters (loads inputenc.sty)
+\usepackage{latexsym} % Support for LaTeX symbol fonts
+\usepackage{textcomp} % Support for Text Companion fonts
+\usepackage{hologo}   % Collection of TeX-related logos
+\usepackage{pifont}   % Support for PostScript symbol fonts
+    \newcommand{\cmark}{\text{\ding{51}}} % Checkmark
+    \newcommand{\xmark}{\text{\ding{55}}} % X-Mark
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% GEOMETRY                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry}
+    \geometry{
+        left   = 1in,
+        right  = 1in,
+        top    = 1in,
+        bottom = 1in
+    }
+
+\setlength{\headheight}{15pt}
+\setlength{\marginparsep}{6pt}
+\setlength{\marginparpush}{\marginparsep}
+\setlength{\marginparwidth}{\dimexpr 1in-\marginparsep-\marginparpush} 
+    
+%%% Change page layout in the middle of a document
+% \usepackage{changepage}
+
+%%% Show summary of document layout
+\usepackage{layout}
+    
+%%% Rotation
+% \usepackage{lscape} % Rotate content
+% \usepackage{pdflscape} % Rotate page
+
+%%% Change geometry with landscape parameter
+\makeatletter
+\def\ifGm@preamble#1{\@firstofone}
+\appto\restoregeometry{%
+  \pdfpagewidth=\paperwidth
+  \pdfpageheight=\paperheight}
+\apptocmd\newgeometry{%
+  \pdfpagewidth=\paperwidth
+  \pdfpageheight=\paperheight}{}{}
+\apptocmd\loadgeometry{%
+  \pdfpagewidth=\paperwidth
+  \pdfpageheight=\paperheight}{}{}  
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TYPESET SOURCE CODE                        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{listings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TOC / LOF/ LOT SETUP                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[titles]{tocloft}
+
+%%% Add list of listings to tocloft
+\makeatletter
+    \begingroup
+        \let\newcounter\@gobble\let\setcounter\@gobbletwo
+        \globaldefs\@ne \let\c@loldepth\@ne
+        \newlistof{listings}{lol}{\lstlistlistingname}
+    \endgroup
+    \let\l@lstlisting\l@listings
+    % \AtBeginDocument{\addtocontents{lol}{\protect}}
+\makeatother
+
+%%% Change title style
+% \renewcommand{\cfttoctitlefont}{\normalfont\Large\bfseries\scshape}
+% \renewcommand{\cftloftitlefont}{\normalfont\Large\bfseries\scshape}
+% \renewcommand{\cftlottitlefont}{\normalfont\Large\bfseries\scshape}
+% \renewcommand{\cftloltitlefont}{\normalfont\Large\bfseries\scshape}
+
+% \setlength{\cftbeforetoctitleskip}{6pt}
+
+%%% Change number column width
+\renewcommand{\cftlistingsnumwidth}{\cftfignumwidth}
+
+\renewcommand{\cftsecfont}{\bfseries} % Change section display
+% \renewcommand{\cftsubsecfont}{\scshape} % Change subsection display
+% \renewcommand{\cftsubsubsecfont}{\scshape} % Change subsubsection display
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Add dots
+% \renewcommand{\cftdot}{} % Remove dots
+
+% \setlength{\cftsecindent}{0em}
+% \setlength{\cftsubsecindent}{1.5em}
+% \setlength{\cftsubsubsecindent}{3.75em}
+\setlength{\cftfigindent}{0pt}
+\setlength{\cfttabindent}{0pt}
+\setlength{\cftlistingsindent}{0pt}
+
+\setlength{\cftbeforesecskip}{6pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+\setlength{\cftbeforesubsubsecskip}{0pt}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FIGURES                                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Optional arguments for "\includegraphics".
+%%% Extension of "graphics".
+\usepackage{graphicx}
+
+%%% Captions
+\usepackage[labelsep=quad]{caption} % Floating environments
+\usepackage[labelformat=simple]{subcaption} % Subfigures and subtables
+
+\usepackage{float}      % Improved interface for floating objects
+\usepackage{morefloats} % Increased number of floats
+% \usepackage{wrapfig}    % Wrap figures in text
+
+%%% Page fraction for float environments vs text
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+% \renewcommand\floatpagefraction{0.8}
+
+%%% Global figure size
+\newcommand{\figsize}{0.85}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% COLOR                                      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[table,dvipsnames,svgnames,x11names]{xcolor}
+\usepackage[most]{tcolorbox} % Colored boxes
+
+\tcbset{%
+    on line, 
+    highlight math style = {enhanced},
+    boxsep   = 4pt,
+    left     = 0pt,
+    right    = 0pt,
+    top      = 0pt,
+    bottom   = 0pt,
+    colframe = white,
+    colback  = gray!50
+}
+
+%%% Atom One Light Theme
+\definecolor{AtomOneLightBlack}{HTML}{383A42}
+\definecolor{AtomOneLightGray}{HTML}{A0A1A7}
+\definecolor{AtomOneLightYellow}{HTML}{C18401}
+\definecolor{AtomOneLightOrange}{HTML}{E45649}
+\definecolor{AtomOneLightRed}{HTML}{AB2525}
+\definecolor{AtomOneLightPurple}{HTML}{A626A4}
+\definecolor{AtomOneLightBlue}{HTML}{4078F2}
+\definecolor{AtomOneLightGreen}{HTML}{50A14F}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TIKZ                                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Graphic elements
+% \usepackage{tikz}
+% \usepackage[RPvoltages]{circuitikz} % Loads TikZ
+\usepackage{forest} % Loads TikZ
+
+%%% Node positioning, arithmetic, and others
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+% \usetikzlibrary{shapes}
+% \usetikzlibrary{arrows}
+% \usetikzlibrary{patterns}
+% \usetikzlibrary{tikzmark}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{matrix}
+\usetikzlibrary{fit}
+\usetikzlibrary{backgrounds}
+    
+%%% Scientific graphs
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17} % Version for TeX Live 2020
+
+% \makeatletter
+%     \newdimen\multi@col@width
+%     \newdimen\multi@col@margin
+%     \newcount\multi@col@count
+%     \multi@col@width=0pt
+
+%     \tikzset{
+%         multicol/.code = {%
+%             \global\multi@col@count=#1\relax
+%             \global\let\orig@pgfmatrixendcode=\pgfmatrixendcode
+%             \global\let\orig@pgfmatrixemptycode=\pgfmatrixemptycode
+%             \def\pgfmatrixendcode##1{%
+%                 \orig@pgfmatrixendcode##1%
+%                 \pgfutil@tempdima=\pgf@picmaxx
+%                 \global\multi@col@margin=\pgf@picminx
+%                 \advance\pgfutil@tempdima by -\pgf@picminx
+%                 \divide\pgfutil@tempdima by #1\relax
+%                 \global\multi@col@width=\pgfutil@tempdima
+%                 \pgf@picmaxx=.5\multi@col@width
+%                 \pgf@picminx=-.5\multi@col@width
+%                 \global\pgf@picmaxx=\pgf@picmaxx
+%                 \global\pgf@picminx=\pgf@picminx
+%                 \gdef\multi@adjust@position{%
+%                     \setbox\pgf@matrix@cell=\hbox\bgroup
+%                     \hfil\hskip-1.5\multi@col@margin
+%                     \hfil\hskip-.5\multi@col@width
+%                     \box\pgf@matrix@cell
+%                     \egroup
+%                 }%
+%                 \gdef\multi@temp{\aftergroup\multi@adjust@position}%
+%                 \aftergroup\multi@temp
+%             }
+%             \gdef\pgfmatrixemptycode{%
+%                 \orig@pgfmatrixemptycode
+%                 \global\advance\multi@col@count by -1\relax
+%                 \global\pgf@picmaxx=.5\multi@col@width
+%                 \global\pgf@picminx=-.5\multi@col@width
+%                 \ifnum\multi@col@count=1\relax
+%                     \global\let\pgfmatrixemptycode=\orig@pgfmatrixemptycode
+%                 \fi
+%             }
+%         }
+%     }
+% \makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TEXT                                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Affects line breaks
+\tolerance     = 1000  % Allows all stretched inter-word spaces
+% \hyphenpenalty = 10000 % No hyphenation
+
+%%% Paragraph indent, skip, and line spacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{6pt}
+\linespread{1.3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONDITIONALS                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xifthen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER / FOOTER                            %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TABLE                                      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multirow}     % Multi-row cells
+\usepackage{multicol}     % Multi-column cells
+\usepackage{longtable}    % Multi-page tables
+\usepackage{booktabs}     % Table optimization
+\usepackage{array}        % Extension of column formats
+% \usepackage{nicematrix}   % Nicer tables with colored cells
+% \usepackage{makecell}     % Column head and mutilined cells
+% \usepackage{supertabular} % Multi-page tables
+
+%%% Booktabs rule separation
+% \setlength{\aboverulesep}{0pt}
+% \setlength{\belowrulesep}{0pt}
+
+%%% Padding
+\renewcommand{\arraystretch}{\baselinestretch}
+\setlength{\tabcolsep}{0.01\linewidth}
+
+%%% Spacing at the end of a table head
+\makeatletter
+    \def\endhead{\bottomrule[\arrayrulewidth] \LT@end@hd@ft\LT@head}
+\makeatother
+\makeatletter
+    \def\endfirsthead{\bottomrule[\arrayrulewidth] \LT@end@hd@ft\LT@firsthead}
+\makeatother
+
+%%% Column types
+\newcolumntype{\LC}[1]{%
+    >{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}
+}
+\newcolumntype{\CC}[1]{%
+    >{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}
+}
+\newcolumntype{\RC}[1]{%
+    >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}
+}
+
+\newcolumntype{\LB}[1]{%
+    >{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#1}
+}
+\newcolumntype{\CB}[1]{%
+    >{\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#1}
+}
+\newcolumntype{\RB}[1]{%
+    >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#1}
+}
+
+\newcolumntype{\LT}[1]{%
+    >{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}
+}
+\newcolumntype{\CT}[1]{%
+    >{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}
+}
+\newcolumntype{\RT}[1]{%
+    >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}
+}
+
+%%% Custom lengths
+\newlength{\vbar}
+\setlength{\vbar}{\arrayrulewidth}
+\newlength{\doublevbar}
+\setlength{\doublevbar}{\dimexpr 2pt+2\arrayrulewidth}
+\newlength{\columnA}
+\newlength{\columnB}
+\newlength{\columnC}
+\newlength{\columnD}
+\newlength{\columnE}
+\newlength{\columnF}
+\newlength{\columnG}
+\newlength{\columnH}
+\newlength{\columnI}
+\newlength{\columnJ}
+\newlength{\columnK}
+\newlength{\columnL}
+\newlength{\columnM}
+\newlength{\columnN}
+\newlength{\columnO}
+\newlength{\columnP}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MATH, SCIENCE AND ARITHMETIC               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{mathtools} % Extension of "amsmath"
+\usepackage{amssymb}   % Math symbols
+\usepackage{upgreek}   % Upright greek symbols
+\usepackage{esint}     % Integral symbols for CM fonts
+\usepackage{siunitx}   % Units in math mode
+\usepackage{nicefrac}  % Fraction alternative
+\usepackage{cancel}    % Cancellation symbols
+% \usepackage{newtxmath} % Math symbols
+% \usepackage{bm}        % Bold math symbols
+% \usepackage{mdsymbol}  % Math symbols for Adobe Myriad Pro font
+% \usepackage{MnSymbol}  % Math symbols for Adobe Minion Pro font
+% \usepackage{icomma}    % Comma as decimal separator
+
+\usepackage{xintfrac}  % Operations on long numbers
+% \usepackage{fp}        % Floating point arithmetic
+
+%%% Define all typographic dimensions
+\def\onecm {1}
+\def\onemm {1/10}
+\def\onein {2.54}
+\def\onept {2.54/72.27}
+\def\onebp {2.54/72}
+\def\onepc {\xintMul {12}{\onept}}
+\def\oneex {\xintMul {\the\numexpr\dimexpr 1ex\relax\relax}{\onesp}}
+\def\oneem {\xintMul {\the\numexpr\dimexpr 1em\relax\relax}{\onesp}} 
+\def\onedd {\xintMul {1238/1157}{\onept}}
+\def\onecc {\xintMul {12}{\onedd}}
+\def\onesp {\xintMul {1/65536}{\onept}}
+
+%%% Create conversion functions
+\makeatletter
+    \def\convertexactly #1\to #2%
+        {\xintIrr{\convertexactly@ #1\to {#2}}}%
+    \def\convertwithrounding #1#2\to #3%
+        {\xintRound {#1}{\convertexactly@ #2\to {#3}}}%
+    \def\convertexactly@ #1\to
+    {%
+        \romannumeral0%
+        \expandafter\expandafter\expandafter
+        \convertexactly@a
+        \xintReverseOrder {#1}\Z
+    }%
+    \def\convertexactly@a #1%
+    {%
+        \ifcat\noexpand #1\relax
+            \expandafter \convertexactly@b
+        \else
+            \expandafter \convertexactly@c
+        \fi #1%
+    }%
+    \def\convertexactly@b #1#2\Z #3%
+    {%
+        \xintdiv {\xintMul {\xintReverseOrder{#2}}{\csname one#1\endcsname}}
+                 {\csname one#3\endcsname}%
+    }%
+    \def\convertexactly@c #1#2#3\Z #4%
+    {%
+        \xintdiv {\xintMul {\xintReverseOrder{#3}}{\csname one#2#1\endcsname}}
+                 {\csname one#4\endcsname}%
+    }%
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% REFERENCING                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage{url}
+\usepackage[pdfpagelabels=true]{hyperref}
+
+\hypersetup{
+    % pdfa,
+    % pdftex,
+    bookmarksnumbered,
+    bookmarksopen      = true,
+    bookmarksopenlevel = \arabic{tocdepth},
+    bookmarksdepth     = \arabic{secnumdepth},
+    pdfhighlight       = /N,
+    colorlinks         = true,
+    urlcolor           = BrickRed,
+    linkcolor          = Blue,
+    citecolor          = BrickRed,
+    linktoc            = all
+}
+
+%%% Back reference 
+% \usepackage[hyperpageref]{backref}
+% \renewcommand{\backref}[1]{[cf. p. #1]}
+
+%%% More hyperref option
+\usepackage{bookmark}
+
+%%% Name of cover page
+\newcommand{\CoverName}{Cover}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% UTILITIES                                  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Input files from other directories
+\usepackage{import}
+
+%%% Comment environment
+% \usepackage{comment}
+
+%%% Character map table for search compatibility
+%%% in PDF reader (PDFLaTeX only).
+% \usepackage{cmap}
+
+%%% Object stacking
+% \usepackage{stackengine} 
+
+%%% Key-value decoder
+% \usepackage{keyval}
+
+%%% Spacing after macro if followed by specific punctuation
+% \usepackage{xspace}
+
+%%% Macros with many optional arguments
+% \usepackage{xargs}
+
+%%% Reset / unset counters
+% \usepackage{chngcntr}
+
+%%% Add background picture
+\usepackage{eso-pic}
+
+%%% Add notes for teamwork
+% \usepackage[colorinlistoftodos]{todonotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LANGUAGE SETUP                             %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frenchsetup{
+    FrenchFootnotes    = false,
+    AutoSpaceFootnotes = false
+}
+
+\addto\captionsfrench{\def\figurename{Figure}}
+\addto\captionsfrench{\def\tablename{Tableau}}
+\addto\captionsfrench{\def\lstlistingname{Programme}}
+% \addto\captionsfrench{\renewcommand{\abstractname}{Résumé}}
+\addto\captionsfrench{\renewcommand{\refname}{Bibliographie}}
+\addto\captionsfrench{\renewcommand{\contentsname}{Table des matières}}
+\addto\captionsfrench{\renewcommand{\listfigurename}{Liste des figures}}
+\addto\captionsfrench{\renewcommand{\listtablename}{Liste des tableaux}}
+\addto\captionsfrench{\renewcommand{\lstlistlistingname}{Liste des programmes}}
+
+\addto\captionsamerican{\def\lstlistingname{Listing}}
+\addto\captionsamerican{\renewcommand{\listfigurename}{List of figures}}
+\addto\captionsamerican{\renewcommand{\listtablename}{List of tables}}
+\addto\captionsamerican{\renewcommand{\lstlistlistingname}{List of listings}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% COUNTERS AND NUMBERING                     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AtBeginDocument{\counterwithin*{table}{section}}
+\AtBeginDocument{\counterwithin*{figure}{section}}
+\AtBeginDocument{\counterwithin*{equation}{section}}
+\AtBeginDocument{\counterwithin*{lstlisting}{section}}
+
+\AtBeginDocument{\renewcommand{\thetable}{\thesection.\arabic{table}}}
+\AtBeginDocument{\renewcommand{\thefigure}{\thesection.\arabic{figure}}}
+\AtBeginDocument{\renewcommand{\thesubfigure}{(\alph{subfigure})}}
+\AtBeginDocument{\renewcommand{\theequation}{\thesection.\arabic{equation}}}
+\AtBeginDocument{\renewcommand{\thelstlisting}{\thesection.\arabic{lstlisting}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION SETUP                              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{titlesec}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+\titleformat{\section}{\normalfont\Large\bfseries\scshape}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\scshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\scshape}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+
+\titlespacing*{\section}{0pt}{24pt}{12pt}
+\titlespacing*{\subsection}{0pt}{12pt}{12pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LIST SETUP                                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    
+\usepackage{enumitem}
+
+% \newcommand{\newbullet}{
+%     \raisebox{1.5pt}{\tiny$\bullet$}
+% }
+% \newcommand{\myitemize}{
+%     \renewcommand\labelitemi{$\newbullet$}
+% }
+
+\setlist[1]{leftmargin=2em}
+\setlist[2]{leftmargin=2em} % nested list
+\setlist[3]{leftmargin=2em} % double nested list
+\setlist[4]{leftmargin=2em} % triple nested list
+\setlist[itemize,1]{itemsep=0pt,topsep=0pt,label={--}}
+\setlist[itemize,2]{itemsep=0pt,topsep=0pt,label={\textbullet}}
+\setlist[itemize,3]{itemsep=0pt,topsep=0pt,label={--}}
+\setlist[itemize,4]{itemsep=0pt,topsep=0pt,label={\textbullet}}
+% \setlist[enumerate,1]{itemsep=0pt,topsep=0pt,label={\arabic*}}
+% \setlist[enumerate,2]{itemsep=0pt,topsep=0pt,label={\alph*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CUSTOM PACKAGES                            %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{local_basics}
+% \usepackage{local_conversions}
+\usepackage{local_kinematics}
+% \usepackage{local_physics}

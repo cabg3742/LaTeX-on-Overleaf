@@ -1,0 +1,12 @@
+Overleaf offers four different engines to power our projects. Each one builds on its predecessor to add functionality. More information is available on Overleaf \parencite{web:overleaf-tex-family-tree}.
+
+\begin{itemize}
+    \item \TeX{}:~the basis of the entire typesetting system. Its first release dates back to 1978. It publishes the compiled document using the \gls{DVI} format, which could later be processed to convert the document to PostScript. Overleaf refers to \TeX{} as \guil{\LaTeX}, though the latter is less of an engine flavor and more of a higher-level programming language---or format---that builds on top of plain \TeX{} and includes nice amenities. It's all semantics though, and I don't know the inner workings. I'm just trying to provide a nice way to think about the software layers;
+    \item \glsdisp{PDF}{pdf}\TeX{}:~implements direct \gls{PDF} output, along with a variety of extensions;
+    \item \hologo{XeTeX}:~does everything \glsdisp{PDF}{pdf}\TeX{} can do, while also supporting Unicode, OpenType fonts, TrueType fonts, and system fonts natively;
+    \item Lua\TeX:~does everything \hologo{XeTeX} can do, while also adding a programming layer written in Lua that gives access to many of the internal settings of the \TeX{} engine.
+\end{itemize}
+
+\noindent There are other engines, but the above are by far the most common ones. For this template, everything was verified and compiled in \hologo{XeTeX}. By definition, Lua\TeX{} should work as well, but might be more bloated than necessary since we don't play with internal parameters---yet. \TeX{} or \glsdisp{PDF}{pdf}\TeX{} will not work.
+
+For more details about \TeX{}, please visit \citename{book:knuth-tex-metafont}{author}'s books about the intent and inner workings of his system \parencites{book:knuth-tex-metafont,book:knuth-typesetting-a,book:knuth-typesetting-c}. 

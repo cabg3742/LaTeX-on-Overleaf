@@ -1,0 +1,26 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {561},
+    lastline    = {587},
+    firstnumber = {561},
+    caption     = {[\Glsentrytext{hyperlink} settings]\Gls{hyperlink} settings.},
+    label       = {lst:tutorial/preamble/ref}
+]{tools/settings.tex}
+
+The \texttt{hyperref} \gls{package} provides the \gls{hyperlink} functionality used everywhere: \glspl{URL}, glossary and acronym entries, \glspl{citation}, \glspl{reference} to sections and floats, etc. The \gls{parameter} \texttt{pdfpagelabels} allows the definition of custom page \glspl{label}, such as \texttt{\textbackslash{}CoverName} (line 588) for the first page, roman numerals for the following few pages, and arabic numerals for the rest of the document. Without that \gls{parameter}, all page \glspl{label} would be arabic numerals from one to the total number of pages. The \texttt{url} \gls{package} doesn't need to be loaded independently since it is called by \texttt{hyperref}. For more information about the \gls{package}, consult its \gls{CTAN} documentation \parencite{web:ctan-hyperref}.
+
+\noindent The \texttt{\textbackslash{}hypersetup} \gls{macro} defines \texttt{hyperref}'s global \glspl{parameter}. In our case:
+\begin{itemize}
+    \item \texttt{bookmarksnumbered}:~add numbered \glspl{bookmark} when browsing the document tree on \gls{PDF} viewers;
+    \item \texttt{bookmarksopen}:~sets \glspl{bookmark} in the document tree as opened by default when reading the \gls{PDF};
+    \item \texttt{bookmarksopenlevel}:~controls the number of section levels that are open in the document tree. In this case, we only want as many levels as are displayed in the \gls{ToC} (see \S~\ref{sec:tutorial/preamble/toc});
+    \item \texttt{bookmarksdepth}:~controls the number of section levels that receive a \gls{bookmark} for the \gls{PDF} viewer. In this case, we want as many \gls{bookmark} levels as there are section levels;
+    \item \texttt{pdfhighlight}:~sets the behavior when clicking on a \gls{hyperlink} inside the \gls{PDF}. \Gls{argument} \texttt{/N} removes any effect. If the \gls{hyperlink} works, effects are not necessary;
+    \item \texttt{colorlinks}:~allows the coloring of \glspl{hyperlink};
+    \item \texttt{urlcolor}:~sets the color for \glspl{URL};
+    \item \texttt{linkcolor}:~sets the color for general \glspl{hyperlink} (sections, glossary entries, acronym entries, etc.);
+    \item \texttt{citecolor}:~sets the color for \glspl{citation};
+    \item \texttt{linktoc}:~define what part of a \gls{ToC} entry has \gls{hyperlink} functionality.
+\end{itemize}
+
+The \texttt{backref} \gls{package}, which is commented out at the moment, provides back \glsdisp{reference}{referencing} from bibliographical \glspl{citation} (indicate on which pages a reference has been cited).

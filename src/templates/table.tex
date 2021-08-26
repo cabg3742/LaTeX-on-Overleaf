@@ -1,0 +1,535 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SIMPLE TABLE                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begingroup
+    % Define column widths
+    \setlength{\columnA}{\linewidth/3}
+    \setlength{\columnB}{\linewidth/3}
+    \setlength{\columnC}{\linewidth-\columnA-\columnB}
+    
+    % Subtract column padding and vertical line thickness
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\RC{\columnA}|% Right  + center alignment
+          \CC{\columnB}|% Center + center alignment
+          \LC{\columnC}|% Left   + center alignment
+        }
+        \caption[Template: simple table]{Caption over table.}%
+        \label{tab:mylabel_01}\\
+        
+        % First header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            &Column title \#2
+            &\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endfirsthead
+        
+        % Main header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            &Column title \#2
+            &\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endhead
+        
+        % First row
+        Cell \#1-1
+            &Cell \#2-1
+            &Cell \#3-1
+        \\\hline
+        
+        % Second row
+        Cell \#1-2
+            &Cell \#2-2
+            &Cell \#3-2
+        \\\hline
+        
+        % Third row
+        Cell \#1-3
+            &Cell \#2-3
+            &Cell \#3-3
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Template: simple table]Template: simple table.},
+    label    = {lst:tutorial/templates/table/simple}
+]
+    % Define column widths
+    \setlength{\columnA}{\linewidth/3}
+    \setlength{\columnB}{\linewidth/3}
+    \setlength{\columnC}{\linewidth-\columnA-\columnB}
+    
+    % Subtract column padding and vertical line thickness
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\RC{\columnA}|% Right  + center alignment
+          \CC{\columnB}|% Center + center alignment
+          \LC{\columnC}|% Left   + center alignment
+        }
+        \caption[Template: simple table]{Caption over table.}%
+        \label{tab:mylabel_01}\\
+        
+        % First header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            & Column title \#2
+            & \multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endfirsthead
+        
+        % Main header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            & Column title \#2
+            & \multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endhead
+        
+        % First row
+        Cell \#1-1
+            & Cell \#2-1
+            & Cell \#3-1
+        \\\hline
+        
+        % Second row
+        Cell \#1-2
+            & Cell \#2-2
+            & Cell \#3-2
+        \\\hline
+        
+        % Third row
+        Cell \#1-3
+            & Cell \#2-3
+            & Cell \#3-3
+        \\\hline
+    \end{longtable}
+\endgroup
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TABLE WITH MERGED ROWS / COLUMNS           %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begingroup
+    % Define column widths
+    \setlength{\columnA}{\linewidth/4}
+    \setlength{\columnB}{\linewidth/4}
+    \setlength{\columnC}{\linewidth/4}
+    \setlength{\columnD}{\linewidth-\columnA-\columnB-\columnC}
+    
+    % Subtract column padding and vertical line thickness
+    \setlength{\columnA}{\columnA-2\tabcolsep-5\vbar/4}
+    \setlength{\columnB}{\columnB-2\tabcolsep-5\vbar/4}
+    \setlength{\columnC}{\columnC-2\tabcolsep-5\vbar/4}
+    \setlength{\columnD}{\columnD-2\tabcolsep-5\vbar/4}
+    
+    \begin{longtable}%
+        {|\LT{\columnA}|% Left + top alignment
+          \LT{\columnB}|% Left + top alignment
+          \LT{\columnC}|% Left + top alignment
+          \LT{\columnD}|% Left + top alignment
+        }
+        \caption[Template: table with merged rows and columns]{Caption over table.}%
+        \label{tab:mylabel_02}\\
+        
+        % First header
+        \cline{2-4}
+        \multicolumn{1}{c|}{~}
+            &\multirow{2}{\linewidth}{\centering Column title \#1}
+            &\multicolumn{2}{\CC{\columnC+\columnD+2\tabcolsep+\vbar}|}{Column title \#2}
+        \\\cline{3-4}
+        \multicolumn{1}{c|}{~}
+            &&\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+            &\multicolumn{1}{\CC{\columnD}|}{Column title \#4}
+        \\\cline{2-4}
+        \endfirsthead
+        
+        % Main header
+        \cline{2-4}
+        \multicolumn{1}{c|}{~}
+            &\multirow{2}{\linewidth}{\centering Column title \#1}
+            &\multicolumn{2}{\CC{\columnC+\columnD+2\tabcolsep+\vbar}|}{Column title \#2}
+        \\\cline{3-4}
+        \multicolumn{1}{c|}{~}
+            &&\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+            &\multicolumn{1}{\CC{\columnD}|}{Column title \#4}
+        \\\cline{2-4}
+        \endhead
+        
+        % First row
+        \multirow{3}{\linewidth}{\centering Cell \#1}
+            &Cell \#2-1
+            &Cell \#3-1
+            &Cell \#4-1
+        \\\cline{2-4}
+        
+        % Second row
+            &Cell \#2-2
+            &Cell \#3-2
+            &Cell \#4-2
+        \\\cline{2-4}
+        
+        % Third row
+            &Cell \#2-3
+            &Cell \#3-3
+            &Cell \#4-3
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Template: table with merged rows and columns]Template: table with merged rows and columns.},
+    label    = {lst:tutorial/templates/table/merged}
+]
+\begingroup
+    % Define column widths
+    \setlength{\columnA}{\linewidth/4}
+    \setlength{\columnB}{\linewidth/4}
+    \setlength{\columnC}{\linewidth/4}
+    \setlength{\columnD}{\linewidth-\columnA-\columnB-\columnC}
+    
+    % Subtract column padding and vertical line thickness
+    \setlength{\columnA}{\columnA-2\tabcolsep-5\vbar/4}
+    \setlength{\columnB}{\columnB-2\tabcolsep-5\vbar/4}
+    \setlength{\columnC}{\columnC-2\tabcolsep-5\vbar/4}
+    \setlength{\columnD}{\columnD-2\tabcolsep-5\vbar/4}
+    
+    \begin{longtable}%
+        {|\LT{\columnA}|% Left + top alignment
+          \LT{\columnB}|% Left + top alignment
+          \LT{\columnC}|% Left + top alignment
+          \LT{\columnD}|% Left + top alignment
+        }
+        \caption[Template: table with merged rows and columns]{Caption over table.}%
+        \label{tab:mylabel_02}\\
+        
+        % First header
+        \cline{2-4}
+        \multicolumn{1}{c|}{~}
+            &\multirow{2}{\linewidth}{\centering Column title \#1}
+            &\multicolumn{2}{\CC{\columnC+\columnD+2\tabcolsep+\vbar}|}{Column title \#2}
+        \\\cline{3-4}
+        \multicolumn{1}{c|}{~}
+            &&\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+            &\multicolumn{1}{\CC{\columnD}|}{Column title \#4}
+        \\\cline{2-4}
+        \endfirsthead
+        
+        % Main header
+        \cline{2-4}
+        \multicolumn{1}{c|}{~}
+            &\multirow{2}{\linewidth}{\centering Column title \#1}
+            &\multicolumn{2}{\CC{\columnC+\columnD+2\tabcolsep+\vbar}|}{Column title \#2}
+        \\\cline{3-4}
+        \multicolumn{1}{c|}{~}
+            &&\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+            &\multicolumn{1}{\CC{\columnD}|}{Column title \#4}
+        \\\cline{2-4}
+        \endhead
+        
+        % First row
+        \multirow{3}{\linewidth}{\centering Cell \#1}
+            & Cell \#2-1
+            & Cell \#3-1
+            & Cell \#4-1
+        \\\cline{2-4}
+        
+        % Second row
+            & Cell \#2-2
+            & Cell \#3-2
+            & Cell \#4-2
+        \\\cline{2-4}
+        
+        % Third row
+            & Cell \#2-3
+            & Cell \#3-3
+            & Cell \#4-3
+        \\\hline
+    \end{longtable}
+\endgroup
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LANDSCAPE TABLE                            %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Landscape geometry
+\loadgeometry{landscape}
+
+\begingroup  
+    % Fontsize
+    \large
+    
+    % Define column widths
+    \setlength{\columnA}{\linewidth/2}
+    \setlength{\columnB}{\linewidth/3}
+    \setlength{\columnC}{\linewidth-\columnA-\columnB}
+    
+    % Subtract column padding and vertical line thickness
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\RC{\columnA}|% Right  + center alignment
+          \CC{\columnB}|% Center + center alignment
+          \LC{\columnC}|% Left   + center alignment
+        }
+        \caption[Template: landscape table]{Caption over table.}%
+        \label{tab:mylabel_03}\\
+        
+        % First header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            &Column title \#2
+            &\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endfirsthead
+        
+        % Main header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            &Column title \#2
+            &\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endhead
+        
+        % First row
+        Cell \#1-1
+            &Cell \#2-1
+            &Cell \#3-1
+        \\\hline
+        
+        % Second row
+        Cell \#1-2
+            &Cell \#2-2
+            &Cell \#3-2
+        \\\hline
+        
+        % Third row
+        Cell \#1-3
+            &Cell \#2-3
+            &Cell \#3-3
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begin{figure}[H]
+    \centering
+    \begin{multicols}{2}
+        \begin{lstlisting}[language=LaTeX]
+% Landscape geometry
+\loadgeometry{landscape}
+
+\begingroup
+    % Reduce font size (n / n+1)
+    \large
+    
+    % Define column widths
+    \setlength{\columnA}{\linewidth/2}
+    \setlength{\columnB}{\linewidth/3}
+    \setlength{\columnC}{\linewidth-\columnA-\columnB}
+    
+    % Subtract column padding and vertical line thickness
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\RC{\columnA}|% Right  + center alignment
+          \CC{\columnB}|% Center + center alignment
+          \LC{\columnC}|% Left   + center alignment
+        }
+        \caption[Template: simple table]{Caption over table.}%
+        \label{tab:mylabel_03}\\
+        
+        % First header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            & Column title \#2
+            & \multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endfirsthead
+        
+        % Main header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            & Column title \#2
+            & \multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endhead
+        
+        % First row
+        Cell \#1-1
+            & Cell \#2-1
+            & Cell \#3-1
+        \\\hline
+        
+        % Second row
+        Cell \#1-2
+            & Cell \#2-2
+            & Cell \#3-2
+        \\\hline
+        
+        % Third row
+        Cell \#1-3
+            & Cell \#2-3
+            & Cell \#3-3
+        \\\hline
+    \end{longtable}
+\endgroup
+
+% Portrait geometry
+\restoregeometry
+        \end{lstlisting}
+    \end{multicols}
+    \captionof{lstlisting}[Template: landscape table]{Template: landscape table.}
+    \label{lst:tutorial/templates/table/landscape}
+\end{figure}
+
+% Portrait geometry
+\restoregeometry
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TABLE WITH MULTI-LINE CELLS AND LISTS      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begingroup
+    % Define column widths
+    \setlength{\columnA}{\linewidth/3}
+    \setlength{\columnB}{\linewidth/3}
+    \setlength{\columnC}{\linewidth-\columnA-\columnB}
+    
+    % Subtract column padding and vertical line thickness
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\RB{\columnA}|% Right  + bottom alignment
+          \CB{\columnB}|% Center + bottom alignment
+          \LB{\columnC}|% Left   + bottom alignment
+        }
+        \caption[Template: table with multi-line cells and lists]{Caption over table.}%
+        \label{tab:mylabel_04}\\
+        
+        % First header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            &Column title \#2
+            &\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endfirsthead
+        
+        % Main header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            &Column title \#2
+            &\multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endhead
+        
+        % First row
+        Cell \#1-1
+            &Cell \#2-1
+            &-- Cell \#3-1 (I);
+             \newline -- Cell \#3-1 (II).
+        \\\hline
+        
+        % Second row
+        Cell \#1-2
+            &Cell \#2-2
+            &-- Cell \#3-2 (I);
+             \newline -- Cell \#3-2 (II).
+        \\\hline
+        
+        % Third row
+        Cell \#1-3
+            &Cell \#2-3
+            &-- Cell \#3-3 (I):
+                 \newline \quad \tabitem A;
+                 \newline \quad \tabitem B;
+                 \newline \quad \tabitem C.
+             \newline -- Cell \#3-3 (II).
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Template: table with multi-line cells and lists]Template: table with multi-line cells and lists.},
+    label    = {lst:tutorial/templates/table/list}
+]
+\begingroup
+    % Define column widths
+    \setlength{\columnA}{\linewidth/3}
+    \setlength{\columnB}{\linewidth/3}
+    \setlength{\columnC}{\linewidth-\columnA-\columnB}
+    
+    % Subtract column padding and vertical line thickness
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\RB{\columnA}|% Right  + bottom alignment
+          \CB{\columnB}|% Center + bottom alignment
+          \LB{\columnC}|% Left   + bottom alignment
+        }
+        \caption[Template: table with multi-line cells and lists]{Caption over table.}%
+        \label{tab:mylabel_04}\\
+        
+        % First header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            & Column title \#2
+            & \multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endfirsthead
+        
+        % Main header
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{Column title \#1}
+            & Column title \#2
+            & \multicolumn{1}{\CC{\columnC}|}{Column title \#3}
+        \\\hline
+        \endhead
+        
+        % First row
+        Cell \#1-1
+            & Cell \#2-1
+            & -- Cell \#3-1 (I)
+             \newline -- Cell \#3-1 (II)
+        \\\hline
+        
+        % Second row
+        Cell \#1-2
+            & Cell \#2-2
+            & -- Cell \#3-2 (I)
+             \newline -- Cell \#3-2 (II)
+        \\\hline
+        
+        % Third row
+        Cell \#1-3
+            &Cell \#2-3
+            &-- Cell \#3-3 (I)
+                 \newline \quad \tabitem A
+                 \newline \quad \tabitem B
+                 \newline \quad \tabitem C
+             \newline -- Cell \#3-3 (II)
+        \\\hline
+    \end{longtable}
+\endgroup
+\end{lstlisting}

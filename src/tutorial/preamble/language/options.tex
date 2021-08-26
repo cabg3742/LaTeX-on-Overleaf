@@ -1,0 +1,16 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {628},
+    lastline    = {646},
+    firstnumber = {628},
+    caption     = {[Language options]Language options.},
+    label       = {lst:tutorial/preamble/language/options}
+]{tools/settings.tex}
+
+The \texttt{\textbackslash{}frenchsetup} \gls{macro} helps customize the formatting for French. The useful \glspl{parameter} in this case are:
+\begin{itemize}
+    \item \texttt{FrenchFootnotes}:~defines the french footnote style (indentation before the marker, non-superscript marker, point between the marker and the footnote content);
+    \item \texttt{AutoSpaceFootnotes}:~adds a non-breaking space between the last character and the footnote marker inside the text.
+\end{itemize}
+
+The other \glspl{command} are there to define---or, in some cases, redefine---caption and section names for figures, tables, and listings, as well as renaming the bibliography section for any or all supported languages. You can do the same with any language of your choosing.

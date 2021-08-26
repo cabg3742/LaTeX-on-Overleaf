@@ -1,0 +1,9 @@
+Acronyms can be \glsdisp{reference}{referred} to with the same \glspl{command} as a glossary entry since they're both defined by the same \gls{package}. They simply use more fields to add some features that are not or seldom needed with glossary entries:
+\begin{itemize}
+    \item \texttt{type=\{\}}:~the \gls{value} for acronyms is \verb"\acronymtype". This allows us to create separate indexes for glossary entries and acronyms;
+    \item \texttt{first=\{\}}:~defines the output when the acronym is first \glsdisp{reference}{referred} to;
+    \item \texttt{plural=\{\}}:~defines the plural form of the acronym;
+    \item \texttt{firstplural=\{\}}:~defines the output when the acronym is first \glsdisp{reference}{referred} to in plural form.
+\end{itemize}
+
+Most acronyms can use \texttt{\textbackslash{}glsentrytext\{\}} to \glsdisp{reference}{refer} to the name when redefining the first or plural form, and \texttt{\textbackslash{}glsentrydesc\{\}} to \glsdisp{reference}{refer} to the description (see \S{}~\ref{sec:tutorial/latex/crossref/glossary}). Some examples can be seen in \S~\ref{sec:tutorial/templates/acronym}.

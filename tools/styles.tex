@@ -1,0 +1,174 @@
+% File:                 styles.tex
+% Author(s):            Gabriel Cabana
+% Creation date:        2021-02-27
+% Last modification:    2021-08-23
+% Description:          Styles for pages, listings,
+%                       glossaries, etc.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PAGE STYLES                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\subsectionmark}[1]{%
+    \markright{\MakeUppercase{\thesubsection.\ #1}}
+}
+
+\fancypagestyle{udes}{
+    \fancyhf{}%
+    % \fancyhead[L]{\leftmark}%
+    % \fancyhead[R]{\rightmark}%
+    % \fancyhead[C]{\MakeUppercase{\title}}%
+    \fancyfoot[C]{\thepage{} of \pageref*{LastPage}}%
+    % \fancyfoot[R]{\includegraphics[scale=0.15]{img/udes/3it_footer.pdf}}%
+    \renewcommand{\headrulewidth}{0pt}%
+    % \renewcommand{\footrulewidth}{\arrayrulewidth}
+    \fancyheadoffset{0pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LISTING STYLES                             %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{ 
+    % backgroundcolor   = \color[HTML]{FFFFFF},
+    basicstyle        = \scriptsize\bfseries\ttfamily\color{AtomOneLightBlack},
+    breakatwhitespace = false,
+    breaklines        = true,
+    captionpos        = b,
+    % columns           = fullflexible,
+    commentstyle      = \color{AtomOneLightOrange},
+    % deletekeywords    = {},
+    % escapeinside      = {\%*}{*)},
+    % extendedchars     = true,
+    % fillcolor         = \color{white},
+    % firstnumber       = 1000,
+    % frame             = none,
+    % framerule         = 0.4pt,
+    % framesep          = 4.5mm,
+    % framexleftmargin  = 2.5mm,
+    % identifierstyle   = \idstyle,
+    % keepspaces        = true,
+    keywordstyle      = \color{AtomOneLightPurple},
+    % language          = TeX,
+    numbers           = left,
+    numbersep         = 10pt,
+    numberstyle       = \scriptsize\ttfamily\color{AtomOneLightGray},
+    % rulecolor         = \color{AtomOneLightBlack},
+    sensitive         = true,
+    showspaces        = false,
+    showstringspaces  = false,
+    showtabs          = false,
+    stepnumber        = 1,
+    stringstyle       = \color{AtomOneLightGreen},
+    tabsize           = 4,
+    % title             = \lstname
+}
+
+\lstdefinelanguage{LaTeX}{%
+    language          = {[LaTeX]TeX},
+    moretexcs         = {
+        abstractname, aboverulesep, acronymtype, addbibresource, addto, addtocontents,
+        appto, apptocmd, arraybackslash, AtBeginDocument, AtEveryCite, belowrulesep,
+        bibclosebracket, bibcloseparen, bibopenbracket, bibopenparen, bottomrule,
+        captionsamerican, captionsfrench, CB, CC, cftbeforesecskip, cftbeforesubsecskip,
+        cftbeforesubsubsecskip, cftbeforetoctitleskip, cftdot, cftdotfill, cftdotsep,
+        cftfigindent, cftfignumwidth, cftlistingsindent, cftlistingsnumwidth,
+        cftloftitlefont, cftloltitlefont, cftlottitlefont, cftsecfont, cftsecindent,
+        cftsecleader, cftsubsecfont, cftsubsecindent, cftsubsubsecfont,
+        cftsubsubsecindent, cfttabindent, cfttoctitlefont, cmark, color, columnA,
+        columnB, columnC, columnD, columnE, columnF, columnG, columnH, columnI, columnJ,
+        columnK, columnL, columnM, columnN, columnO, columnP, contentsname,
+        convertexactly, convertwithrounding, counterwithin, CoverName, CT, definecolor,
+        deriv, dimexpr, ding, doublevbar, DTMsetdatestyle, end, endfirsthead, endhead,
+        fancyfoot, fancyhead, fancyheadoffset, fancyhf, fancypagestyle, figsize,
+        figurename, footrulewidth, frenchsetup, geometry, glossaryheader, glossentry,
+        Glossentrydesc, glossentryname, gls, glsentrydesc, glsentryitem, glsentrytext,
+        glsgroupskip, glspagelistwidth, glsseelist, glssubentryitem, glstarget,
+        glstextformat, headrulewidth, hypersetup, includegraphics, inp, labelitemi, LB,
+        LC, listfigurename, listtablename, loadgeometry, loadglsentries,
+        lstdefinelanguage, lstlistingname, lstlistlistingname, lstset, LT,
+        makeglossaries, mathcal, multirow, mydepth, myheight, mylength, mywidth,
+        newbullet, newcolumntype, newgeometry, newglossaryentry, newglossarystyle,
+        newlistof, newrobustcmd, numexpr, onebp, onecc, onecm, onedd, oneem, oneex,
+        onein, onemm, onepc, onept, onesp, paragraph, parentext, parentexttrack,
+        pdfpageheight, pdfpagewidth, pgfplotsset, RB, RC, refname, restoregeometry, RT,
+        setlength, setlist, setmainfont, setmonofont, setromanfont, setsansfont, sfrac,
+        subglossentry, subsection, subsubsection, tablename, tcbset, text, textcolor,
+        theequation, thefigure, thelstlisting, theparagraph, thesection, thesubfigure,
+        thesubsection, thesubsubsection, thetable, tikzset, titleformat, titlespacing,
+        usetikzlibrary, vbar, widthof, xintdiv, xintIrr, xintMul, xintReverseOrder,
+        xintRound, xmark
+    },
+    % emph              = [1]{
+    %     bottom, empty, figure, landscape, left, longtable,
+    %     lstlisting, plain, right, subfigure, top
+    % },
+    % emphstyle         = [1]{\color{AtomOneLightYellow},
+    alsoletter        = {\&},
+    emph              = [2]{\&},
+    emphstyle         = [2]{\color{AtomOneLightBlue}},
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% GLOSSARY STYLES                            %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossarystyle{glscustom}{%
+    \renewenvironment{theglossary}{%
+        \renewcommand{\glsgroupskip}{}
+        \setlength{\tabcolsep}{0pt}
+        \setlength{\columnA}{\widthof{\textbf{Environment}}}
+        \setlength{\columnB}{\dimexpr 0.02\linewidth}
+        \setlength{\columnD}{\dimexpr 2\glspagelistwidth}
+        \setlength{\columnC}{\dimexpr \linewidth-\columnA-2\columnB-\columnD}
+        
+        \setlength{\columnA}{\columnA-2\tabcolsep}
+        \setlength{\columnB}{\columnB-2\tabcolsep}
+        \setlength{\columnC}{\columnC-2\tabcolsep}
+        \setlength{\columnD}{\columnD-2\tabcolsep}
+        
+        \begin{longtable*}{%
+            \RT{\columnA}%
+            \LT{\columnB}%
+            \LT{\columnC}%
+            \LT{\columnB}%
+            \LT{\columnD}%
+        }%
+    }{\end{longtable*}}%
+    
+    \renewcommand*{\glossaryheader}{}%
+    \renewcommand{\glossentry}[2]{%
+        \glsentryitem{##1}\glstarget{##1}{\bfseries\glossentryname{##1}} 
+        &&\parbox[t]{\linewidth}{\Glossentrydesc{##1}}
+        &&##2\tabularnewline
+    }%
+    
+    \renewcommand{\subglossentry}[3]{%
+        &&\glssubentryitem{##2}\glstarget{##2}{\strut}\Glossentrydesc{##2}
+        &&##3\tabularnewline
+    }%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FONT STYLES                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+    \DeclareRobustCommand{\BibLaTeX}{%
+        B%
+        \kern-.05em%
+        \hbox{%
+            $\m@th$% %% force math size calculations
+            \csname S@\f@size\endcsname
+            \fontsize\sf@size\z@
+            \math@fontsfalse
+            \selectfont
+            I%
+            \kern-.025em%
+            B
+        }%
+        \kern-.1667em%
+        \-%
+        \LaTeX
+    }
+\makeatother

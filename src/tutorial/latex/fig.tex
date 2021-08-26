@@ -1,0 +1,107 @@
+Figures in \LaTeX{} are declared in an \gls{environment} that requires what we call a \guil{float specifier}. Floats are containers for things in a document that cannot be broken over a page. Tables and figures are considered floats. We can alleviate the issue for table with the \texttt{longtable} \gls{package} (see \S~\ref{sec:tutorial/latex/table}). For figures though, we need a float specifier as a second \gls{argument} when beginning the \gls{environment} (\texttt{\textbackslash{}begin\{figure\}[]}). Table \ref{tab:tutorial/latex/fig/float} lists the standard ones, which can be combined together if necessary. In general, I recommend using \texttt{H}.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth-\columnA}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
+    \setlength{\columnB}{\columnB-2\tabcolsep-3\vbar/2}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \LC{\columnB}|%
+        }
+        \caption[\LaTeX{} float specifiers]{\LaTeX{} float specifiers.}%
+        \label{tab:tutorial/latex/fig/float}\\
+        
+        \hline
+        \textbf{Symbol}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{Symbol}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \texttt{h}
+            &Place the float \textit{here}, i.e., \textit{approximately} at the same point it occurs in the source text (however, not \textit{exactly} at the spot).
+        \\\hline
+        
+        \texttt{t}
+            &Position at the top of the page.
+        \\\hline
+        
+        \texttt{b}
+            &Position at the bottom of the page.
+        \\\hline
+        
+        \texttt{p}
+            &Put on a special page for floats only.
+        \\\hline
+        
+        \texttt{!}
+            &Override internal parameters \LaTeX{} uses for determining good float positions.
+        \\\hline
+        
+        \texttt{H}
+            &Places the float at precisely the location in the \LaTeX{} code (requires the \texttt{float} \gls{package}).
+        \\\hline
+    \end{longtable}
+\endgroup
+
+Figures can contain subfigures, declared with the \texttt{subfigure} \gls{environment}. They will need to be aligned with each other. To do this, we use an alignment specifier as a second \gls{argument} when beginning a subfigure, the same way we specify the float type for a figure. Table \ref{tab:tutorial/latex/fig/align} contains the standard ones.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth-\columnA}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
+    \setlength{\columnB}{\columnB-2\tabcolsep-3\vbar/2}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \LC{\columnB}|%
+        }
+        \caption[\LaTeX{} subfigure alignment specifiers]{\LaTeX{} subfigure alignment specifiers.}%
+        \label{tab:tutorial/latex/fig/align}\\
+        
+        \hline
+        \textbf{Symbol}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{Symbol}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \texttt{b}
+            &Align subfigures at the bottom.
+        \\\hline
+        
+        \texttt{c}
+            &Align subfigures at the center.
+        \\\hline
+        
+        \texttt{t}
+            &Align subfigures at the top.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\noindent To create a figure, we need a handful of \glspl{macro}:
+\begin{itemize}
+    \item \texttt{\textbackslash{}centering}:~centers the figure;
+    \item \texttt{\textbackslash{}includegraphics[]\{\}}:~includes an image inside the figure. In the first \gls{argument}, we can define the field \texttt{width} to make sure the figure stays within the page inside the text area. Other fields can be found in the \texttt{graphicx} \gls{package} documentation \parencite{web:ctan-graphicx}. The second \gls{argument} is the image path, name and extension, e.g. \texttt{data/\ldots/image.pdf} (see \S~\ref{sec:tutorial/architecture/data}). We could also include a drawing using the \gls{PGF} format with the \texttt{tikz} package instead (see \S~\ref{sec:tutorial/templates/tikz});
+    \item \texttt{\textbackslash{}columnwidth}:~defines the width of a column of text. This can be used to define the \texttt{width} field of \texttt{\textbackslash{}includegraphics[]\{\}}. I also recommend appending a custom \gls{command}, which can be any value between 0 and 1, to modulate the figure width globally. I have created the \gls{command} \texttt{\textbackslash{}figsize} just for that (see \S~\ref{sec:tutorial/latex/custom});
+    \item \texttt{\textbackslash{}textwidth}:~defines the width of the text area. Use this one with a ratio between 0 and 1 to specify the subfigure \gls{environment} width;
+    \item \texttt{\textbackslash{}caption[]\{\}}:~defines the name of the figure. The first \gls{argument} is the name as seen in a \gls{LoF}, the second is the one displayed over or under the figure;
+    \item \texttt{\textbackslash{}label\{\}}:~see \S~\ref{sec:tutorial/latex/crossref/label}.
+\end{itemize}
+
+\noindent For some examples, visit \S~\ref{sec:tutorial/templates/fig}.

@@ -1,0 +1,58 @@
+\begin{figure}[H]
+    \centering
+    \begin{forest}
+        for tree = {
+            font=\ttfamily,
+            grow'=0,
+            child anchor=west,
+            parent anchor=south,
+            anchor=west,
+            calign=first,
+            edge path={
+                \noexpand\path [draw, thick, \forestoption{edge}]
+                (!u.south west) +(15pt,0) |- node[circle,fill,inner sep=2pt] {} (.child anchor)\forestoption{edge label};
+            },
+            before typesetting nodes={
+                if n=1
+                {insert before={[,phantom]}}
+                {}
+            },
+            fit=band,
+            before computing xy={l=30pt},
+        }
+        [root/
+            [latexmkrc]
+            [main.tex]
+            [cmds/
+                [local\_basics.sty]
+                [local\_conversions.sty]
+                [local\_kinematics.sty]
+                [local\_physics.sty]
+                [...]
+            ]
+            [data/
+                [...]
+            ]
+            [defs/
+                [...]
+            ]
+            [src/
+                [...]
+            ]
+            [tools/
+                [acronyms.tex]
+                [cover.tex]
+                [glossary.tex]
+                [ref.bib]
+                [settings.tex]
+                [styles.tex]
+                [...]
+            ]
+            [...]
+        ]
+    \end{forest}
+    \caption[Global architecture]{Global architecture.}
+    \label{fig:tutorial/architecture}
+\end{figure}
+
+A previous version of the global architecture included a folder for top-level document files, called \texttt{comp/}, and a data folder that used to be named \texttt{imgs/}. This has been deprecated for future versions of this template. If you end up using the deprecated architecture, just know that the \texttt{doc.tex} file in \S~\ref{sec:tutorial/architecture/src} can be found in your \texttt{comp/} folder.

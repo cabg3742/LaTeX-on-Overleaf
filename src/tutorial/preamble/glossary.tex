@@ -1,0 +1,18 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {14},
+    lastline    = {20},
+    firstnumber = {14},
+    caption     = {[Glossary settings]Glossary settings.},
+    label       = {lst:tutorial/preamble/glossary}
+]{src/tutorial.tex}
+
+The \texttt{glossaries} \gls{package} is annoying. It cannot work properly if not called directly in your main document file, which hampers flexibility. Nevertheless, it is an awesome \gls{package} to manage a glossary and a list of acronyms. It is loaded with a couple \glspl{parameter}:
+\begin{itemize}
+    \item \texttt{acronym}:~sets an associated \gls{conditional} to determine whether or not to define a separate list for acronyms;
+    \item \texttt{nopostdot}:~suppresses the post-description dot;
+    \item \texttt{toc}:~sets the glossary and list of acronyms to appear in the \gls{ToC};
+    \item \texttt{numberline}:~adds an indentation for the list of acronym and glossary titles in the \gls{ToC}, same as the space for numbered \glspl{bookmark}.
+\end{itemize}
+
+Then, the \texttt{\textbackslash{}glstextformat} and \texttt{\textbackslash{}glsseelist} \glspl{macro} are renewed to change the \gls{hyperlink} color. This way, it stands out from the generic \glspl{hyperlink}. The other \glspl{macro} are there to create the files necessary for glossary compilation and to load the entries.

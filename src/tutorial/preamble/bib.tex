@@ -1,0 +1,19 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {33},
+    lastline    = {47},
+    firstnumber = {33},
+    caption     = {[Bibliography settings]Bibliography settings.},
+    label       = {lst:tutorial/preamble/bib}
+]{tools/settings.tex}
+
+The \texttt{biblatex} \gls{package} allows us to separate data from style by managing \glspl{source} inside a database file. When invoking the \gls{package}, several \glspl{parameter} can be used: a comprehensive list can be found in the \texttt{biblatex} documentation. \parencite{web:ctan-biblatex} The most interesting ones for our application are:
+\begin{itemize}
+    \item \texttt{backend}:~selects biber by default. It's a more powerful backend, you should only choose \hologo{BibTeX} to support legacy databases;
+    \item \texttt{style}:~selects the general bibliography style;
+    \item \texttt{citestyle}:~selects the \gls{citation} style. \Gls{value} \texttt{numeric-comp} uses numbers to indicate \glspl{citation};
+    \item \texttt{sorting}:~selects the sorting method. Value \texttt{none} sorts them by \gls{citation} order inside the text;
+    \item \texttt{alldates}:~selects the display method for all date fields. \Gls{value} \texttt{ymd} sets them according to \glsname{ISO} 8601 \parencite{web:iso-8601}.
+\end{itemize}
+
+We then add the databases and modify counters for lower case and upper case bibliographical \gls{URL} penalties such that then can be broken at any character. This avoids the issue of having a \glsname{URL} sticking out in the margin.

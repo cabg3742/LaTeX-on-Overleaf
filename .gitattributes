@@ -1,0 +1,39 @@
+.gitattributes
+=================================================
+
+##################################################
+### TEXT FILES                                 ###
+##################################################
+
+# Handle line endings automatically for files detected as text
+# and leave all files detected as binary untouched.
+* text=auto
+
+# LaTeX files (force UNIX-style return)
+*.aux text eol=lf # Cross-referencing
+*.bbl text eol=lf # Bibliography (formatted)
+*.bib text eol=lf # Bibliography (references)
+*.bst text eol=lf # Bibliography style
+*.cls text eol=lf # Class
+*.log text eol=lf # Trasncript of latest run
+*.sty text eol=lf # Package
+*.tex text eol=lf # Generic TeX file
+latexmkrc text eol=lf # LaTeXmk "run commands" (RC) utility
+
+# Windows forced line-endings
+#/.idea/* text eol=crlf
+
+##################################################
+### BINARY FILES                               ###
+##################################################
+
+# (binary is a macro for -text -diff)
+*.png binary
+*.jfif binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.svg binary
+*.otf binary
+*.ttf binary

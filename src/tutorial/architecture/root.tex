@@ -1,0 +1,31 @@
+\begin{figure}[H]
+    \centering
+    \begin{forest}
+        for tree = {
+            font=\ttfamily,
+            grow'=0,
+            child anchor=west,
+            parent anchor=south,
+            anchor=west,
+            calign=first,
+            edge path={
+                \noexpand\path [draw, thick, \forestoption{edge}]
+                (!u.south west) +(15pt,0) |- node[circle,fill,inner sep=2pt] {} (.child anchor)\forestoption{edge label};
+            },
+            before typesetting nodes={
+                if n=1
+                {insert before={[,phantom]}}
+                {}
+            },
+            fit=band,
+            before computing xy={l=30pt},
+        }
+        [root/
+            [latexmkrc]
+            [main.tex]
+            [...]
+        ]
+    \end{forest}
+    \caption[Root files]{Root files.}
+    \label{fig:tutorial/architecture/root}
+\end{figure}

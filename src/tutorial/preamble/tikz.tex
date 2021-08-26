@@ -1,0 +1,16 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {317},
+    lastline    = {381},
+    firstnumber = {317},
+    caption     = {[TikZ settings]TikZ settings.},
+    label       = {lst:tutorial/preamble/tikz}
+]{tools/settings.tex}
+
+The \texttt{tikz} \gls{package} provides an interface to draw graphics directly in the document. It is currently loaded through the \texttt{forest} \gls{package}, which is used in \S~\ref{sec:tutorial/architecture} to draw architecture trees. In other reports, I had to draw electrical circuits: I used the \texttt{circuitikz} \gls{package} instead. It all depends on your needs. For more information on the \gls{package}, check out the \gls{CTAN} documentation \parencite{web:ctan-tikz}.
+
+TikZ can be extended with libraries, which can be called separately as needed. They provide additional \glspl{macro} to facilitate the creation of complex graphics. Currently, the libraries \texttt{positioning}, \texttt{calc}, \texttt{decorations}, \texttt{matrix}, \texttt{fit}, and \texttt{backgrounds} are used for architecture trees and templates (see \S~\ref{sec:tutorial/templates/tikz}).
+
+The \texttt{pgfplots} \gls{package} helps create 2D/3D function plots, which is a really neat utility for lab reports for instance. It can be cumbersome to tweak the graphical output according to one's formatting requirements, but the end result is beautiful. It can also read data from a file (e.g., \texttt{.dat}), an ability that provides easy modification if results change over time. The version is specified with the \texttt{\textbackslash{}pgfplotsset\{\}} \gls{command}. For more information, consult the \gls{CTAN} documentation \parencite{web:ctan-pgfplots}.
+
+\noindent The remainder of the code (lines 338--381) defines a multi-column utility for TikZ tables.

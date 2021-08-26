@@ -1,0 +1,243 @@
+Most of the time, spacing is intuitive and simple: hit the space bar, just like you would in any other typesetting software. But, in some situations, such as a mathematical \gls{environment} or a weird combination of font formatting, you might want to get granular and fine-tune your spacing. Tables \ref{tab:tutorial/latex/text/spacing/horizontal} and \ref{tab:tutorial/latex/text/spacing/vertical} list the most common \glspl{command} to do so.
+
+Some of these \glspl{command} possess a useful although strange behavior: they exhibit compression or expansion. To understand this behavior, we need to define the skip. A skip is a three-pronged length specification processed by the \TeX{} engine with the following syntax:
+\begin{center}
+    \texttt{<natural width> plus <stretch> minus <shrink>}
+\end{center}
+
+For example, \texttt{\textbackslash{}smallskip} equates to \texttt{\textbackslash{}vspace\{3pt plus 1pt minus 1pt\}} for standard document \glspl{class}. That tells \TeX{} to leave a vertical space of 3~pt, but shrinkable up to 2~pt or stretchable up to 4~pt. However, when a stretch component is present, \TeX{} is allowed to stretch that space beyond the stated specification in an emergency: this happens frequently when a \texttt{\textbackslash{}pagebreak} command is found when \TeX{} has not enough material to fill the current page correctly.
+
+The lengths can be specified in any of the legal \TeX{} dimensions, but the stretch and shrink components can be expressed also in terms of infinite units:
+\begin{itemize}
+    \item \texttt{fil}:~first order infinity;
+    \item \texttt{fill}:~second order infinity;
+    \item \texttt{filll}:~third order infinity.
+\end{itemize}
+
+Normally, \texttt{fil} is reserved for standard \glspl{macro}, and \texttt{fill} is for user \glspl{macro} that override the previous order infinities. \texttt{filll} is seldom used and should be reserved for emergency cases. Continuing with our example, if \TeX{} finds \texttt{\textbackslash{}vfill}---same as \texttt{\textbackslash{}vspace\{0pt plus 1fill\}}---in a page, uses of \texttt{\textbackslash{}smallskip} found in the page will be at most 3~pt wide, as the infinite component \guil{wins}.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth-\columnA}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
+    \setlength{\columnB}{\columnB-2\tabcolsep-3\vbar/2}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \LC{\columnB}|%
+        }
+        \caption[\LaTeX{} horizontal spacing \glsentryplural{command}]{\LaTeX{} horizontal spacing \glspl{command}.}%
+        \label{tab:tutorial/latex/text/spacing/horizontal}\\
+        
+        \hline
+        \textbf{\Gls{command}}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{\Gls{command}}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        
+        \endhead
+        
+        \texttt{\textbackslash,}
+            &Inserts a space of 0.16667~em in text mode.
+        \\\hline
+        
+        \texttt{\textbackslash{}thinspace}
+            &Equivalent to \texttt{\textbackslash,}.
+        \\\hline
+        
+        \texttt{\textbackslash:}
+            &Inserts a space of 0.22223~em in text mode.
+        \\\hline
+        
+        \texttt{\textbackslash>}
+            &Equivalent to \texttt{\textbackslash:}.
+        \\\hline
+        
+        \texttt{\textbackslash{}medspace}
+            &Equivalent to \texttt{\textbackslash:}.
+        \\\hline
+        
+        \texttt{\textbackslash;}
+            &Inserts a space of 0.27777~em in text mode.
+        \\\hline
+        
+        \texttt{\textbackslash{}thickspace}
+            &Equivalent to \texttt{\textbackslash;}.
+        \\\hline
+        
+        \texttt{\textbackslash!}
+            &Negative equivalent to \texttt{\textbackslash,}.
+        \\\hline
+        
+        \texttt{\textbackslash{}negthinspace}
+            &Equivalent to \texttt{\textbackslash!}.
+        \\\hline
+        
+        \texttt{\textbackslash{}negmedspace}
+            &Negative equivalent to \texttt{\textbackslash:}.
+        \\\hline
+        
+        \texttt{\textbackslash{}negthickspace}
+            &Negative equivalent to \texttt{\textbackslash;}.
+        \\\hline
+        
+        \texttt{\textbackslash\textvisiblespace}
+            &Control space. The \textvisiblespace{} character only highlights the necessary empty space.
+        \\\hline
+        
+        \texttt{\textbackslash{}space}
+            &Equivalent to normal spacing.
+        \\\hline
+        
+        \texttt{\textasciitilde}
+            &Non-breakable space.
+        \\\hline
+        
+        \texttt{\textbackslash{}thinmuskip}
+            &Inserts a space of 3~mu in math mode.
+        \\\hline
+        
+        \texttt{\textbackslash{}medmuskip}
+            &Inserts a space of 4~mu, shrinkable to 0~mu and stretchable to 6~mu, in math mode.
+        \\\hline
+        
+        \texttt{\textbackslash{}thickmuskip}
+            &Inserts a space of 5~mu, stretchable to 10~mu, in math mode.
+        \\\hline
+        
+        \texttt{\textbackslash{}enskip}
+            &Inserts a space of 0.5~em.
+        \\\hline
+        
+        \texttt{\textbackslash{}enspace}
+            &Equivalent to \texttt{\textbackslash{}enskip}.
+        \\\hline
+        
+        \texttt{\textbackslash{}quad}
+            &Inserts a space of 1~em.
+        \\\hline
+        
+        \texttt{\textbackslash{}qquad}
+            &Inserts a space of 2~em.
+        \\\hline
+        
+        \texttt{\textbackslash{}kern}
+            &Plain \TeX{} skip. Must be followed by a space and its \gls{argument}. Inserts a space the size of the dimension in the \gls{parameter}. \textit{Usage not recommended}.
+        \\\hline
+        
+        \texttt{\textbackslash{}hskip}
+            &Equivalent to \texttt{\textbackslash{}kern}. \textit{Usage not recommended}.
+        \\\hline
+        
+        \texttt{\textbackslash{}hspace\{\}}
+            &\LaTeX{} skip. Inserts a space the size of the dimension in the \gls{parameter}. Use the variant \texttt{\textbackslash{}hspace*\{\}} to make sure the spacing is not removed if it comes at the end of a line.
+        \\\hline
+        
+        \texttt{\textbackslash{}hfill}
+            &Inserts a stretchable spacing between elements. If result is unsatisfactory, a suitable replacement is \texttt{\textbackslash{}hspace*\{\textbackslash{}hfill\}}.
+        \\\hline
+        
+        \texttt{\textbackslash{}phantom\{\}}
+            &Inserts a box with the width and height of the \gls{argument}. The \gls{parameter} can be any \gls{value} that takes a non-zero amount of space when printed in the document.
+        \\\hline
+        
+        \texttt{\textbackslash{}hphantom\{\}}
+            &Variant of \texttt{\textbackslash{}phantom\{\}} where the height is equal to zero.
+        \\\hline
+        
+        \texttt{\textbackslash{}hss}
+            &Horizontal glue that is both infinitely stretchable and shrinkable. \textit{Handle with care.}
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth-\columnA}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
+    \setlength{\columnB}{\columnB-2\tabcolsep-3\vbar/2}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \LC{\columnB}|%
+        }
+        \caption[\LaTeX{} vertical spacing \glsentryplural{command}]{\LaTeX{} vertical spacing \glspl{command}.}%
+        \label{tab:tutorial/latex/text/spacing/vertical}\\
+        
+        \hline
+        \textbf{\Gls{command}}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{\Gls{command}}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        
+        \endhead
+        
+        \texttt{\textbackslash{}smallskip}
+            &Inserts a space of 3~pt, shrinkable to 2~pt and stretchable to 4~pt.
+        \\\hline
+        
+        \texttt{\textbackslash{}medskip}
+            &Inserts a space of 6~pt, shrinkable to 4~pt and stretchable to 8~pt.
+        \\\hline
+        
+        \texttt{\textbackslash{}bigskip}
+            &Inserts a space of 12~pt, shrinkable to 8~pt and stretchable to 16~pt.
+        \\\hline
+        
+        \texttt{\textbackslash{}smallbreak}
+            &Variant of \texttt{\textbackslash{}smallskip} that also removes a preceding vertical space if it is less than what they would insert.
+        \\\hline
+        
+        \texttt{\textbackslash{}medbreak}
+            &Variant of \texttt{\textbackslash{}medskip} that also removes a preceding vertical space if it is less than what they would insert.
+        \\\hline
+        
+        \texttt{\textbackslash{}bigbreak}
+            &Variant of \texttt{\textbackslash{}bigskip} that also removes a preceding vertical space if it is less than what they would insert.
+        \\\hline
+        
+        \texttt{\textbackslash{}baselineskip}
+            &Distance between the bottom of two lines of text inside a paragraph.
+        \\\hline
+        
+        \texttt{\textbackslash{}vskip}
+            &Plain \TeX{} skip. Must be followed by a space and its \gls{argument}. Inserts a space the size of the dimension in the \gls{parameter}. \textit{Usage not recommended}.
+        \\\hline
+        
+        \texttt{\textbackslash{}vspace\{\}}
+            &\LaTeX{} skip. Inserts a space the size of the dimension in the \gls{parameter}. Use the variant \texttt{\textbackslash{}vspace*\{\}} to make sure the spacing is not removed if it comes at the end of a page.
+        \\\hline
+        
+        \texttt{\textbackslash{}addvspace\{\}}
+            &Variant of \texttt{\textbackslash{}vspace\{\}} that also removes a preceding vertical space if it is less than what they would insert.
+        \\\hline
+        
+        \texttt{\textbackslash{}vfill}
+            &Inserts a stretchable spacing between elements. If result is unsatisfactory, a suitable replacement is \texttt{\textbackslash{}vspace*\{\textbackslash{}fill\}}.
+        \\\hline
+        
+        \texttt{\textbackslash{}phantom\{\}}
+            &Inserts a box with the width and height of the \gls{argument}. The \gls{parameter} can be any \gls{value} that takes a non-zero amount of space when printed in the document.
+        \\\hline
+        
+        \texttt{\textbackslash{}vphantom\{\}}
+            &Variant of \texttt{\textbackslash{}phantom\{\}} where the width is equal to zero.
+        \\\hline
+        
+        \texttt{\textbackslash{}vss}
+            &Vertical glue that is both infinitely stretchable and shrinkable. \textit{Handle with care.}
+        \\\hline
+    \end{longtable}
+\endgroup

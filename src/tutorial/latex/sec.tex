@@ -1,0 +1,69 @@
+\LaTeX{} defines many different levels of document organization. Following the guidelines of the \citetitle{report:udes-writing-guide} provided by the \citelist{report:udes-writing-guide}{institution} \parencite{report:udes-writing-guide}, the project uses three levels only in my documents: the section, the subsection, and the sub-subsection. In your own documents, you can use whatever structure you see fit, just make sure to update the labelling scheme so it's coherent between different levels (see \S~\ref{sec:tutorial/preamble/sec}).
+
+\begingroup
+    \setlength{\columnA}{0.13\linewidth}
+    \setlength{\columnB}{0.27\linewidth}
+    \setlength{\columnC}{\linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} section levels]{\LaTeX{} section levels.}%
+        \label{tab:tutorial/latex/sections}\\
+        
+        \hline
+        \textbf{Level}
+            &\textbf{\Gls{command}}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{Level}
+            &\textbf{\Gls{command}}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        -1
+            &\texttt{\textbackslash{}part\{\}}
+            &Supported by the \textit{book} and \textit{report} document classes
+        \\\hline
+        
+        0
+            &\texttt{\textbackslash{}chapter\{\}}
+            &Supported by the \textit{book} and \textit{report} document classes
+        \\\hline
+        
+        1
+            &\texttt{\textbackslash{}section\{\}}
+            &First level for most document classes
+        \\\hline
+        
+        2
+            &\texttt{\textbackslash{}subsection\{\}}
+            &Second level for most document classes
+        \\\hline
+        
+        3
+            &\texttt{\textbackslash{}subsubsection\{\}}
+            &Third level for most document classes
+        \\\hline
+        
+        4
+            &\texttt{\textbackslash{}paragraph\{\}}
+            &Fourth level for most document classes
+        \\\hline
+        
+        5
+            &\texttt{\textbackslash{}subparagraph\{\}}
+            &Fifth level for most document classes
+        \\\hline
+    \end{longtable}
+\endgroup

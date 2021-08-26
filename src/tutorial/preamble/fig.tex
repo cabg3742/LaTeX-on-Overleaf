@@ -1,0 +1,20 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {263},
+    lastline    = {282},
+    firstnumber = {263},
+    caption     = {[Figure settings]Figure settings.},
+    label       = {lst:tutorial/preamble/fig}
+]{tools/settings.tex}
+
+The \texttt{graphix} \gls{package} is used to extend the functionality of the base \texttt{graphics} \gls{package}, by providing a \gls{key}-\gls{value} interface for optional \glspl{argument} of the \texttt{\textbackslash{}includegraphics[]\{\}} \gls{command} for instance.
+
+The \texttt{caption} \gls{package} is used to customize the captions in floating \glspl{environment}, such as a figure, a table, or a listing. The \texttt{labelsep} \gls{parameter} sets the spacing between the numbered \gls{bookmark} and the caption text. The \texttt{subcaption} \gls{package} extend that functionality to subfigures, subtables, etc. We make sure the subcaption is displayed the same way as the caption by specifying the \texttt{labelformat} \gls{parameter}.
+
+The \texttt{float} \gls{package} gives us improved \glspl{macro} for floating objects, such as the \texttt{H} float specifier for figures (see table \ref{tab:tutorial/latex/fig/float}). The \texttt{morefloats} \gls{package} increase the number of floating objects the engine can handle, which comes in handy for large documents.
+
+The \texttt{wrapfig} \gls{package} is currently commented out, but anyone that wants to wrap figures in text can include it in the preamble and use its custom \gls{environment}.
+
+Lines 275--279 change the page fraction allowed for floating objects. The smaller the portion of the page, the more inclined a figure will be to move around and jump to surrounding pages. This only applies to the standard float specifiers (see table \ref{tab:tutorial/latex/fig/float}).
+
+The \texttt{\textbackslash{}figsize} \gls{command} sets a ratio between 0 and 1 to modulate the figure width globally (see \S~\ref{sec:tutorial/latex/fig}).

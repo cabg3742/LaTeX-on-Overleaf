@@ -1,0 +1,18 @@
+\hologo{BibTeX} and biber are \gls{reference} management software for processing bibliographical information and act as the interface between your \texttt{.bib} file (see \S~\ref{sec:tutorial/overleaf/file}) and your \LaTeX{} document. It makes it easy to \glsdisp{citation}{cite} \glspl{source} in a consistent manner, by separating the data from the style, similarly to the separation of content and presentation/style supported by \LaTeX{} itself \parencite{web:bibtex-wiki}.
+
+\hologo{BibTeX}~/~biber and their format layer \BibLaTeX{} split \glspl{source} by type (book, article, web, etc.). Then, within a \gls{source}, the information is split by field (author, date, \gls{URL}, etc.). For every type of \gls{source} covered by the \citetitle{report:udes-writing-guide} of the \citelist{report:udes-writing-guide}{institution} \parencites{report:udes-writing-guide}, there is a template available in \texttt{templates/template.bib} in the \texttt{src/} folder (as seen in \S~\ref{sec:tutorial/templates/bib}). There are two \glspl{package} for bibliography formatting, \texttt{biblatex} and \texttt{natbib}, the former being the better choice since it supports the more powerful backend biber.
+
+\begin{itemize}
+    \item \texttt{\textbackslash{}\glsdisp{citation}{cite}[][]\{\}}:~adds a \gls{citation} inside the text. The first \gls{argument} defines a note before the \gls{citation}, the second a note after, and the third is the \gls{label}.
+    \item \texttt{\textbackslash{}paren\glsdisp{citation}{cite}[][]\{\}}:~adds a \gls{citation} inside the text between parentheses or brackets. The first argument defines a note before the \gls{citation}, the second a note after, and the third is the \gls{label}. We will favor this method, as custom \glspl{macro} have been set to modify it when using the \guil{author-date} \gls{citation}{citing} style. Using this \gls{command} will allow the writer to switch between the \guil{numeric} and the \guil{author-date} \gls{citation}{citing} styles without any modifications other than in the preamble (see \S~\ref{sec:tutorial/preamble/bib});
+    \item \texttt{\textbackslash{}\glsdisp{citation}{cite}name\{\}\{\}}:~includes the \gls{value} of the specified \gls{source} field. The first argument is the \gls{label}, and the second one is the field. If this \gls{command} doesn't work because \BibLaTeX{} doesn't consider some fields as name fields, you can also try \texttt{\textbackslash{}\glsdisp{citation}{cite}list\{\}\{\}} or \texttt{\textbackslash{}\glsdisp{citation}{cite}field\{\}\{\}}.
+\end{itemize}
+
+For some \glspl{source}, such as websites or web documents, it is sometimes customary to include them as footnotes. We can use the \gls{command} \texttt{\textbackslash{}foot\glsdisp{citation}{cite}[][]\{\}}, which works the same way as \texttt{\textbackslash{}\glsdisp{citation}{cite}[][]\{\}} and \texttt{\textbackslash{}paren\glsdisp{citation}{cite}[][]\{\}}. If we want more control over the styling, we can use something like this:
+\begin{center}
+    \texttt{\textbackslash{}footnote\{\textbackslash{}\glsdisp{citation}{cite}author\{\}.\textasciitilde\textbackslash\textbackslash\textbackslash{}\glsdisp{citation}{cite}\{\}\}}
+\end{center}
+
+This will put a page footnote using the author and the \gls{URL} of a website or web document. The \glsdisp{citation}{citing} \glspl{command} only need the \gls{label}.
+
+For more options and \glspl{command}, feel free to consult the \BibLaTeX{} cheat sheet or the \gls{CTAN} documentation. \parencites{web:biblatex-cheat-sheet,web:ctan-biblatex}

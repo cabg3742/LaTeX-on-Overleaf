@@ -1,0 +1,763 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SIMPLE TIKZ EXAMPLES                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw[gray, thick] (-1,2) -- (2,-4);
+        \draw[gray, thick] (-1,-1) -- (2,2);
+        \filldraw[black] (0,0) circle (2pt) node[anchor=west] {Intersection point};
+    \end{tikzpicture}
+    \caption[Template: TikZ \#1]{Caption under figure.}
+    \label{fig:tikzlabel_01}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \draw (-2,0) -- (2,0);
+            \filldraw [gray] (0,0) circle (2pt);
+            \draw (-2,-2) .. controls (0,0) .. (2,-2);
+            \draw (-2,2) .. controls (-1,0) and (1,0) .. (2,2);
+        \end{tikzpicture}
+        \caption{Caption under subfigure.}
+        \label{fig:tikzsublabel_01}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \draw (-2,0) -- (2,0);
+            \filldraw [gray] (0,0) circle (2pt);
+            \draw (-2,-2) .. controls (0,0) .. (2,-2);
+            \draw (-2,2) .. controls (-1,0) and (1,0) .. (2,2);
+        \end{tikzpicture}
+        \caption{Caption under subfigure.}
+        \label{fig:tikzsublabel_02}
+    \end{subfigure}
+    \caption[Template: TikZ \#2]{Caption under figure.}
+    \label{fig:tikzlabel_02}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SYMBOLS / GEOMETRY                         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \filldraw[color=red!60, fill=red!5, very thick](-1,0) circle (1.5);
+        \fill[blue!50] (2.5,0) ellipse (1.5 and 0.5);
+        \draw[ultra thick, ->] (6.5,0) arc (0:220:1);
+    \end{tikzpicture}
+    \caption[Template: TikZ \#3]{Caption under figure.}
+    \label{fig:tikzlabel_03}
+\end{figure}
+
+\begin{figure}[H]
+    \hspace*{\fill}
+    \begin{tikzpicture}
+        \draw[blue, very thick] (0,0) rectangle (3,2);
+    \end{tikzpicture}
+    \hfill
+    \begin{tikzpicture}
+        \draw[orange, ultra thick] (4,0) -- (6,0) -- (5.7,2) -- cycle;
+    \end{tikzpicture}
+    \hspace*{\fill}
+    \caption[Template: TikZ \#4]{Caption under figure.}
+    \label{fig:tikzlabel_04}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% NODE GRAPH                                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        roundnode/.style={%
+            circle,
+            draw=green!60,
+            fill=green!5,
+            very thick,
+            minimum size=7mm
+        },
+        squarednode/.style={%
+            rectangle,
+            draw=red!60,
+            fill=red!5,
+            very thick,
+            minimum size=5mm
+        },
+    ]
+        % Nodes
+        \node[squarednode]  (maintopic)                          {2};
+        \node[roundnode]    (uppercircle)   [above=of maintopic] {1};
+        \node[squarednode]  (rightsquare)   [right=of maintopic] {3};
+        \node[roundnode]    (lowercircle)   [below=of maintopic] {4};
+        
+        % Lines
+        \draw[->] (uppercircle.south) -- (maintopic.north);
+        \draw[->] (maintopic.east)    -- (rightsquare.west);
+        \draw[->] (rightsquare.south) .. controls +(down:7mm) and +(right:7mm) .. (lowercircle.east);
+    \end{tikzpicture}
+    \caption[Template: TikZ \#5]{Caption under figure.}
+    \label{fig:tikzlabel_05}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% COLORED TABLE                              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Required librairies:
+% - matrix
+
+\definecolor{mygray}{HTML}{C0C0C0}
+\definecolor{mylightgray}{HTML}{EFEFEF}
+\definecolor{myred}{HTML}{FD6864}
+\definecolor{mylightred}{HTML}{FFCCC9}
+\definecolor{myyellow}{HTML}{F6DB53}
+\definecolor{mylightyellow}{HTML}{FDF0AD}
+\definecolor{mygreen}{HTML}{77CA5C}
+\definecolor{mylightgreen}{HTML}{CFEAC6}
+\definecolor{mypurple}{HTML}{CDA7F6}
+\definecolor{mylightpurple}{HTML}{F2E7FD}
+
+\begin{table}[H]
+    \small
+    
+    \setlength{\columnA}{\dimexpr 0.16\linewidth}
+    \setlength{\columnB}{\dimexpr 0.60\linewidth}
+    \setlength{\columnC}{\dimexpr 0.12\linewidth}
+    \setlength{\columnD}{\dimexpr 0.12\linewidth}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-5\vbar/4-3.71312pt}
+    \setlength{\columnB}{\columnB-2\tabcolsep-5\vbar/4}
+    \setlength{\columnC}{\columnC-2\tabcolsep-5\vbar/4}
+    \setlength{\columnD}{\columnD-2\tabcolsep-5\vbar/4}
+    
+    \caption[Template: TikZ colored table]{Caption over table.}
+    \label{tab:tikzlabel_01}
+    
+    \begin{tikzpicture}[
+        cell/.style = {
+            rectangle,
+            draw = black
+        },
+        nodes in empty cells
+    ]
+        \matrix(table)[
+            matrix of nodes,
+            row sep    =-\pgflinewidth,
+            column sep = -\pgflinewidth,
+            nodes      = {anchor=base,text height=2ex,text depth=2ex},
+            column 1/.style = {nodes={cell, align=center, text width=\columnA, font=\bfseries}},
+            column 2/.style = {nodes={cell, align=left, text width=\columnB}},
+            column 3/.style = {nodes={cell, align=center, text width=\columnC}},
+            column 4/.style = {nodes={cell, align=center, text width=\columnD}},
+            row 1/.style = {nodes={cell, text height=1em, text depth=0.25em, fill=mygray}},
+            row 2/.style = {nodes={cell, text height=1em, text depth=2em, fill=mylightgray, font=\bfseries}},
+            row 3/.style = {nodes={cell, text height=1em, text depth=2em,  fill=mylightred}},
+            row 4/.style = {nodes={cell, text height=1em, text depth=2em, fill=mylightyellow}},
+            row 5/.style = {nodes={cell, text height=1em, text depth=2em, fill=mygreen}},
+            row 6/.style = {nodes={cell, text height=1em, text depth=7em,    fill=mylightgreen}},
+            row 7/.style = {nodes={cell, text height=1em, text depth=2em, fill=mylightgreen}},
+            row 8/.style = {nodes={cell, text height=1em, text depth=2em, fill=mylightgreen}},
+            row 9/.style = {nodes={cell, text height=1em, text depth=0.25em, fill=mylightgreen}},
+            row 10/.style= {nodes={cell, text height=1em, text depth=2em, fill=mypurple}},
+            row 11/.style= {nodes={cell, text height=1em, text depth=2em, fill=mylightpurple}},
+            row 12/.style= {nodes={cell, text height=1em, text depth=2em, fill=mylightpurple}},
+            row 13/.style= {nodes={cell, text height=1em, text depth=2em, fill=mylightpurple}},
+        ] 
+        {
+            TMF Tasks
+                &
+                &
+                &
+            \\
+            Task
+                &Description
+                &Starting Date
+                &End Date
+            \\
+            |[fill=myred]| Project Start 
+                &First meeting at which the project was planned (its structure and the objectives to be achieved at the end of the project). 
+                &30/11/18
+                &30/11/18
+            \\
+            |[fill=myyellow]| Theoretical Analysis 
+                &Initial study of the system based on the documentation 
+                &01/12/18
+                &23/12/18
+            \\
+            Matlab simulations
+                &
+                &
+                &
+            \\
+            Development of equations 
+                &The first equations were developed in Matlab, verifying that the results from the University of Rochester {[}REF{]} were obtained for the cases of 3 and 4 lenses. Later, the system was generalized for the case of 5 lenses, obtaining the first problems. 
+                &24/12/18
+                &10/01/19
+            \\
+            Meeting 
+                &To comment on the progress made and try to solve  problems in simulations with Matlab. 
+                &31/01/19
+                &31/01/19
+            \\ 
+            Meeting 
+                &To compare the Matlab equations and try to find  the solution. 
+                &06/03/19
+                &06/03/19
+            \\
+            Meeting 
+                &Finally, we fixed the problem with the Matlab  equations. 
+                &08/04/19
+                &08/04/19
+            \\
+            Zemax simulations
+                &
+                &
+                &
+            \\ 
+            Zemax installation 
+                &We had some problems during the installation of the program due to the Windows version of the computer. 
+                &01/01/19
+                &03/03/19
+            \\ 
+            First steps with Zemax 
+                &First days learning to use the program. 
+                &25/03/19
+                &30/03/19
+            \\ 
+            Meeting 
+                &Skype meeting to clarify some doubts regarding Zemax simulations. 
+                &27/04/19
+                &27/04/19
+            \\
+        };
+    \end{tikzpicture}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MATRICES                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Required librairies:
+% - matrix
+% - decorations.pathreplacing
+% - calc
+% - fit 
+% - backgrounds
+
+\pgfmathsetmacro{\myscale}{1.25}
+\pgfkeys{
+    tikz/mymatrixenv/.style = {
+        decoration                   = {brace},
+        every left delimiter/.style  = {xshift=8pt},
+        every right delimiter/.style = {xshift=-8pt}
+    }
+}
+\pgfkeys{
+    tikz/mymatrix/.style={
+        matrix of math nodes,
+        nodes in empty cells,
+        left delimiter  = {[},
+        right delimiter = {]},
+        inner sep       = 1pt,
+        outer sep       = 1.5pt,
+        column sep      = 8pt,
+        row sep         = 8pt,
+        nodes           = {
+            minimum width  = 20pt,
+            minimum height = 10pt,
+            anchor         = center,
+            inner sep      = 0pt,
+            outer sep      = 0pt,
+            scale          = \myscale,
+            transform shape
+        }
+    }
+}
+\pgfkeys{tikz/mymatrixbrace/.style={decorate,thick}}
+
+\newcommand*\mymatrixbraceright[4][m]{
+    \draw[mymatrixbrace] (#1.west|-#1-#3-1.south west) -- node[left=2pt] {#4} (#1.west|-#1-#2-1.north west);
+}
+\newcommand*\mymatrixbraceleft[4][m]{
+    \draw[mymatrixbrace] (#1.east|-#1-#2-1.north east) -- node[right=2pt] {#4} (#1.east|-#1-#2-1.south east);
+}
+\newcommand*\mymatrixbracetop[4][m]{
+    \draw[mymatrixbrace] (#1.north-|#1-1-#2.north west) -- node[above=2pt] {#4} (#1.north-|#1-1-#3.north east);
+}
+\newcommand*\mymatrixbracebottom[4][m]{
+    \draw[mymatrixbrace] (#1.south-|#1-1-#2.north east) -- node[below=2pt] {#4} (#1.south-|#1-1-#3.north west);
+}
+
+\tikzset{
+    greenish/.style = {
+        fill         = green!50!lime!60,
+        draw opacity = 0.4,
+        draw         = green!50!lime!60,
+        fill opacity = 0.1,
+    },
+    cyanish/.style = {
+        fill         = cyan!90!blue!60,
+        draw opacity = 0.4,
+        draw         = blue!70!cyan!30,
+        fill opacity = 0.1,
+    },
+    orangeish/.style = {
+        fill         = orange!90,
+        draw opacity = 0.8,
+        draw         = orange!90,
+        fill opacity = 0.3,
+    },
+    brownish/.style = {
+        fill         = brown!70!orange!40,
+        draw opacity = 0.4,
+        draw         = brown,
+        fill opacity = 0.3,
+    },
+    purpleish/.style = {
+        fill         = violet!90!pink!20,
+        draw opacity = 0.5,
+        draw         = violet,
+        fill opacity = 0.3,    
+    }
+}
+
+
+\begin{equation}
+    \mathbf{X} = 
+    \begin{tikzpicture}[
+        baseline={-0.5ex},
+        mymatrixenv
+    ]
+        \matrix [mymatrix,inner sep=4pt](m){
+            v_{1,1}
+                &v_{1,2}
+                &v_{1,3}
+                &\textcolor{white}{v_{1,4}}
+                &
+                &\textcolor{white}{v_{1,6}}
+            \\
+            v_{2,1}
+                &v_{2,2}
+                &v_{2,3}
+                &
+                &
+                &
+            \\
+            v_{3,1}
+                &v_{3,2}
+                &v_{3,3}
+                &v_{3,4}
+                &
+                &
+            \\
+            \textcolor{white}{v_{4,1}}
+                &
+                &v_{4,3}
+                &v_{4,4}
+                &v_{4,5}
+                &v_{4,6}
+            \\
+                &
+                &
+                &v_{5,4}
+                &v_{5,5}
+                &v_{5,6}
+            \\
+            \textcolor{white}{v_{6,1}}
+                &
+                &
+                &v_{6,4}
+                &v_{6,5}
+                &v_{6,6}
+            \\    
+        };
+        
+        % Background colors
+        \begin{scope}[on background layer,rounded corners]
+            \node [fit=(m-1-1) (m-3-3), greenish, inner xsep=1.5pt, inner ysep=2.5pt]{};
+            \node [fit=(m-1-3) (m-4-3), purpleish, inner xsep=0.5pt, inner ysep=3.5pt]{};
+            \node [fit=(m-3-1) (m-3-4), brownish, inner xsep=0.5pt, inner ysep=1.5pt]{};
+            \node [fit=(m-3-3) (m-4-4), orangeish]{};
+            \node [fit=(m-3-4) (m-6-4), purpleish, inner xsep=0.5pt, inner ysep=3.5pt, yshift=1pt]{};
+            \node [fit=(m-4-3) (m-4-6), brownish]{};
+            \node [fit=(m-4-4) (m-6-6), cyanish, inner xsep=1.5pt, inner ysep=0.5pt, xshift=-1pt]{};
+        \end{scope}
+
+        % Braces     
+        \begin{scope}[
+            every node/.append style = {
+                scale = \myscale,
+                transform shape
+                },
+                very thick
+        ]
+            \mymatrixbraceright{1}{3}{$B'$}
+            \mymatrixbraceright{4}{6}{$B''$}
+            \mymatrixbracetop{1}{3}{$C'$}
+            \mymatrixbracetop{4}{6}{$C''$}
+            \mymatrixbracebottom{3}{3}{$F'$}
+            \mymatrixbracebottom{4}{4}{$F''$}
+            \mymatrixbraceleft{3}{3}{$E'$}
+            \mymatrixbraceleft{4}{4}{$E''$}
+        \end{scope} 
+\end{tikzpicture}
+\label{eq:tikzlabel_01}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TIKZ NODE REFERENCING                      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Needed librairies:
+%  - matrix
+%  - fit
+%  - shapes.geometric
+
+\colorlet{Klasse A}{red}
+\colorlet{Klasse B}{blue}
+\colorlet{probe color}{Klasse A}
+\colorlet{correct color}{Klasse A}
+\colorlet{incorrect color}{Klasse A}
+\colorlet{testproben}{gray!20}
+
+\def\vmark{}
+
+\tikzset{
+    tight fit/.style={inner sep=0pt, outer sep=0pt},
+    probe color/.code={\colorlet{probe color}{#1}},
+    correct color/.code={\colorlet{correct color}{#1}},
+    incorrect color/.code={\colorlet{incorrect color}{#1}},
+    probe/.style args={#1-#2}{%
+        outer sep=0pt,
+        shape=rectangle,
+        probe #1-#2/.try,
+        execute at begin node={%
+            % Hide the testproben spike in a style rather than
+            % clutter up the main code.
+            \begin{tikzpicture}[x=2.75pt,y=1.5pt, scale=0.625]
+                \path [draw=probe color] plot [smooth] coordinates {(0,0) 
+                (1,2) (2,10) (3,1) (4,3) (5,1) (6,4) (7,0)};
+            \end{tikzpicture}}  
+    },
+    vorhesage/.style args={#1-#2}{
+        shape=circle,
+        draw=correct color,
+        text=white,
+        font=\bf\small,
+        vorhesage #1-#2/.try,
+        incorrect vorhesage #1-#2/.try,
+        minimum size=0.625cm    
+    },
+    surrogat/.style={
+        shape=regular polygon,
+        regular polygon sides=3,
+        minimum height=1cm,
+        draw
+    }
+}
+
+
+\tikzset{
+    % The styles applied to specified testproben and (correct) vorhesage
+    testproben/.style args={#1-#2}{
+        probe #1-#2/.style={
+            fill=testproben
+        },
+        vorhesage #1-#2/.style={
+            fill=correct color,
+            execute at begin node=\def\vmark{\ding{51}}% A tick
+        }
+    },
+    % The styles applied to specified testproben and (incorrect) vorhesage
+    testproben */.style args={#1-#2}{
+        probe #1-#2/.style={
+            fill=testproben
+        },
+        incorrect vorhesage #1-#2/.style={
+            fill=incorrect color,
+            draw=correct color,
+            very thick,
+            execute at begin node=\def\vmark{\ding{55}}% A cross
+        }
+    },
+    Daten A/.style={
+        A/.try,
+        probe color=Klasse A,
+    },
+    Daten B/.style={
+        B/.try,
+        probe color=Klasse B,
+        shift={(5,0)}
+    },
+    Vorhesage A/.style={
+        A/.try,
+        correct color=Klasse A,
+        incorrect color=Klasse B,
+    },
+    Vorhesage B/.style={
+        B/.try,
+        correct color=Klasse B,
+        incorrect color=Klasse A,
+        shift={(5,0)}
+    },      
+    iteration 1/.style={
+        % Define the testproben (and vorhesagen) for iteration 1
+        A/.style={
+            testproben={1-4}, % testproben row 1, column 4
+            testproben={2-3}, testproben={2-5},
+            testproben *={3-1}, testproben={3-2},
+        },
+        B/.style={
+            testproben={1-2}, testproben={1-3},
+            testproben *={2-1},
+            testproben={3-4}
+        },
+    },
+    iteration 2/.style={
+        A/.style={
+            testproben={1-1}, testproben={1-4},testproben={1-5},
+            testproben={2-2},
+            testproben={3-5}
+        },
+        B/.style={
+            testproben={1-2}, testproben={2-1},
+            testproben={3-1}, testproben={3-3}
+        }
+    },
+    iteration 3/.style={
+        A/.style={
+            testproben={1-5}, testproben={1-4},
+            testproben={2-2}, testproben={2-2},
+            testproben *={3-1}
+        },
+        B/.style={
+            testproben={1-2}, 
+            testproben={2-1},
+            testproben={3-3}, testproben={3-4}
+        },
+    }
+}
+
+\begin{figure}[H]
+\tiny
+\begin{tikzpicture}[scale=0.7, >=stealth]
+
+\foreach \itr in {1,2,3}{
+    % Install the A and B styles for this iteration.
+    % The A and B styles define the testproben for Klasse A
+    % and Kasse B.
+    \tikzset{iteration \itr/.try}
+    \foreach \g in {1,2,3}{
+        \ifcase\g
+        \or
+            % Draw the probes
+            \foreach \K/\I/\J in {A/3/5, B/3/4}{%
+                % Install the Daten \K style.
+                % For Daten Klasse A this sets the probe color to blue
+                % For Daten Klasse B this sets the probe color to red
+                % and shifts everything along.
+                % In both cases the relevant style (A or B) is `executed'
+                % defining which probes are testproben.
+                \tikzset{Daten \K/.try}
+                \foreach \i in {1, ..., \I}{%
+                    \foreach \j in {1, ..., \J}{%
+                        \node (probe \itr-\K-\i-\j) at (\j, -\itr*3.5-\i) 
+                           [probe=\i-\j] {};
+                    }
+                }
+                % Define a node that fits around all the nodes for this
+                % particular Daten Klasse.
+                \node [tight fit,fit=(probe \itr-\K-1-1) 
+                (probe \itr-\K-\I-\J)] 
+                    (iteration \itr\space daten \K){};
+            }
+        \or
+            % Now draw the Surrogats (Surrogaten?)
+            \foreach \I in {1,2,3}{
+                \tikzset{shift=(probe \itr-B-1-4.east)}
+                \node (surrogat \itr-\I) at (1.125,1-\I) [surrogat] {};
+                \draw [ultra thick, ->] 
+                    (surrogat \itr-\I.west) ++(-0.625,0) -- ++(0.5,0);
+                \draw [ultra thick, ->] 
+                    (surrogat \itr-\I.east) ++(0.125,0) -- ++(0.5,0);
+            }
+        \or
+            % Finally the Forcasts
+            %
+            % Shift things along a but from the surrogats.
+            \tikzset{shift={(surrogat \itr-1)}, shift=(0:0.5)}
+            \foreach \K/\I/\J in {A/3/5, B/3/4}{
+                % This is the same as for the Daten Klasse,
+                % execept tis time the vorhesage proben are drawn.
+                \tikzset{Vorhesage \K/.try}
+                \foreach \i in {1, ..., \I}{
+                    \foreach \j in {1, ..., \J}{
+                        \node (vorhesage \itr-\K-\i-\j) at (\j, -\i+1) 
+                        [vorhesage=\i-\j] {\vmark};
+                    }
+                },
+                % Draw a node around each set of vorhesage nodes.
+                \node [tight fit, 
+                   fit=(vorhesage \itr-\K-1-1) (vorhesage \itr-\K-\I-\J)] 
+                (iteration \itr\space vorhesage \K){};
+            }               
+        \fi%
+    }
+}
+
+% Now add the labels and delimiters.
+
+\foreach \itr in {1,2,3}{
+    \node [tight fit, fit={(iteration \itr\space daten A)}, left 
+    delimiter=\{, label={[xshift=-0.5cm]left:\itr. 
+    Iteration}] {};
+}
+\foreach \K in {A, B}{
+
+    \node [tight fit, fit={(iteration 1 daten \K)}, above 
+    delimiter=\{,label={[yshift=0.5cm]90:Daten Klassen \K}] {};
+
+    \node [tight fit, fit={(iteration 1 vorhesage \K)}, above 
+        delimiter=\{,label={[yshift=0.5cm, align=center]90:{Vorhesage 
+        \\Proben \K}}] {};
+}
+
+\node [fill=testproben, rounded corners=1ex, below=0.25cm, anchor=north west]  
+(testprobe)
+    at (probe 3-A-3-1.south east){Testprobe};
+
+\draw [very thick, ->, rounded corners=1ex]
+    (testprobe.west) -| (probe 3-A-3-1.south);
+
+\node [below=0.25cm, anchor=north west]  
+(trainingsprobe)
+    at (probe 3-A-3-4.south east){Trainingsprobe};
+
+\draw [very thick, ->, rounded corners=1ex]
+    (trainingsprobe.west) -| (probe 3-A-3-4.south);
+
+\node [below=1cm, anchor=north east]  
+(surrogatsmodelle)
+    at (surrogat 3-3.south west){$i=3\times k=3$ Surrogatsmodelle};
+
+\draw [very thick, ->, rounded corners=1ex]
+    (surrogatsmodelle.east) -| (surrogat 3-3.south);
+
+\node [below=0.5cm, align=left, anchor=north west] (eingeordnet)
+    at (vorhesage 3-A-3-1.south east){Testprobe aus Klasse \textcolor{Klasse 
+    A}{A} wird \\als Klasse \textcolor{Klasse B}{B} eingeordnet};
+
+\draw [very thick, ->, rounded corners=1ex]
+    (eingeordnet.west) -| (vorhesage 3-A-3-1.south);
+
+\end{tikzpicture}
+\caption[Template: TikZ node referencing]{Caption under figure.}
+\label{fig:tikzlabel_06}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TABLE WITH ALTERNATING ROW COLORS          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Needed librairies:
+%  - matrix
+
+\tikzset{ 
+    table/.style = {
+        matrix of nodes,
+        nodes in empty cells,
+        row sep        = -\pgflinewidth,
+        column sep     = -\pgflinewidth,
+        minimum height = 1.5em,
+        text depth     = 0.5ex,
+        text height    = 2ex,
+        nodes = {
+            rectangle,
+            draw  = black,
+            align = center
+        },
+        every even row/.style = {
+            nodes = {fill=gray!20}
+        },
+        column 1/.style = {
+            nodes = {
+                text width = 2em,
+                font       = \bfseries
+            }
+        },
+        row 1/.style = {
+            nodes = {
+                fill = black,
+                text = white,
+                font = \bfseries
+            }
+        }
+    }
+}
+
+\begin{table}[H]
+    \caption[Template: TikZ table with alternating row colors]{Caption over table.}
+    \label{tab:tikzlabel_02}
+
+    \vspace{-\baselineskip}
+    \begin{center}
+        \begin{tikzpicture}
+            \matrix (first) [table, text width=6em]{
+                & Monday & Tuesday & Wednesday & Thursday & Friday\\
+                1 & A & B & C & D & E \\
+                2 & F & G & H & J & K \\
+                3 & A & B & C & D & E \\
+                4 & F & G & H & J & K \\
+            };
+        \end{tikzpicture}
+    \end{center}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FANCY TABLE                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Needed librairies:
+%  - matrix
+%  - calc
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\begin{table}[H]
+    \caption[Template: TikZ fancy table]{Caption over table.}
+    \label{tab:tikzlabel_03}
+
+    \vspace{-\baselineskip}
+    \begin{center}
+        \begin{tikzpicture}
+            \matrix (magic) [
+                matrix of nodes,
+                draw,
+                inner sep = 0,
+                nodes     = {
+                    minimum width  = 3cm,
+                    minimum height = 1cm,
+                    draw,
+                    very thin
+                }
+            ] {
+                |[fill=red!70]|8 & 1 & 6 \\
+                3 & |[left color=cyan,right color=orange]| 5 & 7 \\
+                4 & 9 & |[text=red,blue]|2 \\
+            };
+            
+            \draw[thick, violet] (magic-2-1.east) to[out=180,in=270,looseness=0.5] (magic-2-1.north) to[out=270,in=0,looseness=0.5] (magic-2-1.west) to[out=0,in=90,looseness=0.5] (magic-2-1.south) to[out=90,in=180,looseness=0.5] (magic-2-1.east);
+            
+            \draw[rounded corners=2pt, densely dashed, green!50!gray] ($(magic-1-2.center)+(-0.15,-0.25)$) rectangle ($(magic-1-3.center)+(0.15,0.25)$);
+        \end{tikzpicture}
+    \end{center}
+\end{table}

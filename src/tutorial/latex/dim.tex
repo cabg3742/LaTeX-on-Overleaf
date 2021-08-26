@@ -1,0 +1,117 @@
+Dimensions are useful to specify or create new length \glspl{command}. \TeX{} engines give you a lot of options to accommodate your needs. Conversions to most of the available dimensions can be found in table \ref{tab:tutorial/latex/dim}.
+
+It's important to know what the different options are for. Some are relative, like ex or em: they're better suited for text manipulation. Most are set in stone, like in or cm: they might fit invariant elements better. In any case though, you should know that \TeX{} uses fixed point arithmetic, and thus precision issues start to appear when you need five significant digits or more. The smaller the unit used, the lesser of a problem it becomes.
+
+\noindent The available units are:
+\begin{itemize}
+    \item sp: scaled point, the smallest \TeX{} unit (1~sp = 1/65536~pt);
+    \item pt: point, smallest unit of measurement in typography (1~pt = 1/72.27~in);
+    \item bp: big point, also known as the PostScript point (1~bp = 1/72~in). Most used as a normal point in other software suites;
+    \item dd: Didot point (1157~dd = 1238~pt);
+    \item mm: millimeter;
+    \item ex: nominal height or the distance between the baseline and the mean line of lower-case letters;
+    \item em: nominal width corresponding to the currently specified point size;
+    \item pc: pica (1~pc = 12~pt);
+    \item cc: cicero (1~cc = 12~dd);
+    \item cm: centimeter;
+    \item in: inch (1~in = 72~bp);
+    \item mu: math unit (1~em = 18~mu, where em is taken from the math symbols family). Various lengths are derived from it (see \S~\ref{sec:tutorial/latex/text/spacing});
+    \item px: available when using the \glsdisp{PDF}{pdf}\TeX{} or Lua\TeX{} engines (see \S~\ref{sec:tutorial/overleaf/engine}), it corresponds to the inverse of the \gls{DPI} resolution.
+\end{itemize}
+
+\begingroup
+    \scriptsize
+    \setlength{\columnA}{\dimexpr \linewidth/16}
+    \setlength{\columnB}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnC}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnD}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnE}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnF}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnG}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnH}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnI}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnJ}{\dimexpr \linewidth/10-\columnA/10}
+    \setlength{\columnK}{\dimexpr \linewidth/10-\columnA/10}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-12\vbar/11}
+    \setlength{\columnB}{\columnB-2\tabcolsep-12\vbar/11}
+    \setlength{\columnC}{\columnC-2\tabcolsep-12\vbar/11}
+    \setlength{\columnD}{\columnD-2\tabcolsep-12\vbar/11}
+    \setlength{\columnE}{\columnE-2\tabcolsep-12\vbar/11}
+    \setlength{\columnF}{\columnF-2\tabcolsep-12\vbar/11}
+    \setlength{\columnG}{\columnG-2\tabcolsep-12\vbar/11}
+    \setlength{\columnH}{\columnH-2\tabcolsep-12\vbar/11}
+    \setlength{\columnI}{\columnI-2\tabcolsep-12\vbar/11}
+    \setlength{\columnJ}{\columnJ-2\tabcolsep-12\vbar/11}
+    \setlength{\columnK}{\columnK-2\tabcolsep-12\vbar/11}
+    
+    \def\tableentry{\convertwithrounding{5}1\colunit\to\rowunit}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{pt}}%
+             m{\columnB}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{bp}}%
+             m{\columnC}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{dd}}%
+             m{\columnD}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{mm}}%
+             m{\columnE}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{ex}}%
+             m{\columnF}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{em}}%
+             m{\columnG}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{pc}}%
+             m{\columnH}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{cc}}%
+             m{\columnI}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{cm}}%
+             m{\columnJ}<{\tableentry}|%
+         >{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}\def\colunit{in}}%
+             m{\columnK}<{\tableentry}|%
+        }
+        \caption[\LaTeX{} typographic dimensions]{\LaTeX{} typographic dimensions.}%
+        \label{tab:tutorial/latex/dim}\\
+        
+        \cline{2-11}
+        \multicolumn{1}{c|}{~}
+        &\multicolumn{1}{\CC{\columnB}|}{\textbf{pt}}
+        &\multicolumn{1}{\CC{\columnC}|}{\textbf{bp}}
+        &\multicolumn{1}{\CC{\columnD}|}{\textbf{dd}}
+        &\multicolumn{1}{\CC{\columnE}|}{\textbf{mm}}
+        &\multicolumn{1}{\CC{\columnF}|}{\textbf{ex}}
+        &\multicolumn{1}{\CC{\columnG}|}{\textbf{em}}
+        &\multicolumn{1}{\CC{\columnH}|}{\textbf{pc}}
+        &\multicolumn{1}{\CC{\columnI}|}{\textbf{cc}}
+        &\multicolumn{1}{\CC{\columnJ}|}{\textbf{cm}}
+        &\multicolumn{1}{\CC{\columnK}|}{\textbf{in}}
+        \\\cline{2-11}
+        \endfirsthead
+        
+        \cline{2-11}
+        \multicolumn{1}{c|}{~}
+        &\multicolumn{1}{\CC{\columnB}|}{\textbf{pt}}
+        &\multicolumn{1}{\CC{\columnC}|}{\textbf{bp}}
+        &\multicolumn{1}{\CC{\columnD}|}{\textbf{dd}}
+        &\multicolumn{1}{\CC{\columnE}|}{\textbf{mm}}
+        &\multicolumn{1}{\CC{\columnF}|}{\textbf{ex}}
+        &\multicolumn{1}{\CC{\columnG}|}{\textbf{em}}
+        &\multicolumn{1}{\CC{\columnH}|}{\textbf{pc}}
+        &\multicolumn{1}{\CC{\columnI}|}{\textbf{cc}}
+        &\multicolumn{1}{\CC{\columnJ}|}{\textbf{cm}}
+        &\multicolumn{1}{\CC{\columnK}|}{\textbf{in}}
+        \\\cline{2-11}
+        \endhead
+        
+        \textbf{pt} &\gdef\rowunit{pt} & & & & & & & & & \\\hline
+        \textbf{bp} &\gdef\rowunit{bp} & & & & & & & & & \\\hline
+        \textbf{dd} &\gdef\rowunit{dd} & & & & & & & & & \\\hline
+        \textbf{mm} &\gdef\rowunit{mm} & & & & & & & & & \\\hline
+        \textbf{ex} &\gdef\rowunit{ex} & & & & & & & & & \\\hline
+        \textbf{em} &\gdef\rowunit{em} & & & & & & & & & \\\hline
+        \textbf{pc} &\gdef\rowunit{pc} & & & & & & & & & \\\hline
+        \textbf{cc} &\gdef\rowunit{cc} & & & & & & & & & \\\hline
+        \textbf{cm} &\gdef\rowunit{cm} & & & & & & & & & \\\hline
+        \textbf{in} &\gdef\rowunit{in} & & & & & & & & & \\\hline
+    \end{longtable}
+\endgroup

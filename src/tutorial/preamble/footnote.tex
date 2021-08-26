@@ -1,0 +1,18 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {17},
+    lastline    = {17},
+    firstnumber = {17},
+    caption     = {[Footnotes settings]Footnotes settings.},
+    label       = {lst:tutorial/preamble/footnote}
+]{tools/settings.tex}
+
+The \texttt{footmisc} \gls{package} allows us to modify how footnotes are displayed. Some of the \glspl{parameter} can be tweaked within the language setup (see \S~\ref{sec:tutorial/preamble/language/options}), but most can be found here. The \glspl{argument} selected in this document to standardize the formatting for the \citelist{report:udes-writing-guide}{institution} are:
+\begin{itemize}
+    \item \texttt{multiple}:~adds a separator when adding multiple footnotes at the same spot inside the text;
+    \item \texttt{bottom}:~forces footnotes at the bottom of the page;
+    \item \texttt{flushmargin}:~sets the footnote marker flush with, but just inside the margin from, the footnote content;
+    \item \texttt{hang}:~sets the footnote marker flush with the margin.
+\end{itemize}
+
+Loading the \gls{package} before \texttt{babel} (see \S~\ref{sec:tutorial/preamble/language}) suppresses the behavior of the \texttt{multiple} \gls{argument}. Loading it after suppresses the \gls{hyperlink} functionality of footnotes provided by the \texttt{hyperref} \gls{package} and adds a warning about the footnote mark redefinition. No known fix exists, so choose which functionality matters more to you... \textit{or be the one to fix it!}

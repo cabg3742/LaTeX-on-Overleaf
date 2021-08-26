@@ -1,0 +1,41 @@
+\begin{figure}[H]
+    \centering
+    \begin{forest}
+        for tree = {
+            font=\ttfamily,
+            grow'=0,
+            child anchor=west,
+            parent anchor=south,
+            anchor=west,
+            calign=first,
+            edge path={
+                \noexpand\path [draw, thick, \forestoption{edge}]
+                (!u.south west) +(15pt,0) |- node[circle,fill,inner sep=2pt] {} (.child anchor)\forestoption{edge label};
+            },
+            before typesetting nodes={
+                if n=1
+                {insert before={[,phantom]}}
+                {}
+            },
+            fit=band,
+            before computing xy={l=30pt},
+        }
+        [src/
+            [templates/
+                [acronym.tex]
+                [fig.tex]
+                [glossary.tex]
+                [list.tex]
+                [math.tex]
+                [table.tex]
+                [template.bib]
+                [tikz.tex]
+                [...]
+            ]
+        ]
+    \end{forest}
+    \caption[Architecture of template files]{Architecture of template files.}
+    \label{fig:tutorial/architecture/templates}
+\end{figure}
+
+This folder contains all the various templates for \LaTeX{} \glspl{macro} and \glspl{environment} that are not obvious to set up. By using templates every time we need to add a figure, table, equation, etc., we make sure that we respect the formatting rules we have to abide to (the caption positioning, for instance). You can also see the result of some of the templates in \S~\ref{sec:tutorial/templates}. Acronyms, glossary entries, and \glspl{source} are more akin to databases: they don't show any compilation result inside the document. Thus, the templates for these are more of a convention than a necessity.

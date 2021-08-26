@@ -1,0 +1,24 @@
+The \texttt{lstlisting} \gls{environment} is a kind of extensible / configurable typesetting \gls{environment}, much like a supercharged version of \texttt{verbatim}:
+\begin{itemize}
+    \item it displays code as-is;
+    \item it provides \glsdisp{label}{labelling} of code chunks with the \texttt{\textbackslash{}caption\{[]\}} / \texttt{\textbackslash{}label\{\}} (see \S~\ref{sec:tutorial/latex/crossref/label}). Notice the difference between the caption \gls{command} in \S~\ref{sec:tutorial/latex/fig} or \S~\ref{sec:tutorial/latex/table/cmds} and this one: the name for the list of listings must be declared inside the braces, with the name under the listing;
+    \item it provides syntax highlighting for a variety of programming languages. One can even set their own language.
+\end{itemize}
+
+The \gls{environment} is set with \verb"\begin{lstlisting}[]". Options such as language, caption, and \gls{label} are set between the brackets.
+\bigskip
+
+\begin{lstlisting}[
+    language   = LaTeX,
+    caption    = {[\LaTeX{} listing \glsentrytext{environment}]\LaTeX{} listing \gls{environment}.},
+    label      = {lst:tutorial/latex/listing},
+    mathescape = true
+]
+\begin{lstlisting}[
+    language = LaTeX,
+    caption  = {[\LaTeX{} listing \glsentrytext{environment}]\LaTeX{} listing \gls{environment}.},
+    label    = {lst:tutorial/latex/listing}
+]
+...
+\$$end{lstlisting}
+\end{lstlisting}

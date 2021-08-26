@@ -1,0 +1,97 @@
+% File:                 cover.tex
+% Author(s):            Cabana, Gabriel | cabg2101
+% Creation date:        2021-05-03
+% Last modification:    2021-08-23
+% Description:          Page couverture.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PAGE STYLE                                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+    % \let\footnotesize\small
+    % \let\footnoterule\relax
+    % \let \footnote \thanks
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% HEADER                                     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \null\vfil
+% \null
+% \vskip 0.5in
+% \vskip 60\p@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONTENTS                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+    \MakeUppercase{Université de Sherbrooke}\\
+    Faculté de génie\\
+    Département de génie électrique et de génie informatique\\
+    Département de génie mécanique\par
+    
+    \vfill {\LARGE\bfseries\scshape \title}\\
+    {\large\bfseries\scshape Division \subteam}
+    
+    \vfill \programtitle\\
+    \programid
+    
+    \vfill Présenté à \\
+    \tutorA
+    
+    \vfill Présenté par\\
+    \ifthenelse{\equal{\teamname}{}}{}{Équipe \teamname\\}
+    \begingroup
+        \renewcommand{\arraystretch}{1}
+        \setlength{\tabcolsep}{0pt}
+        \setlength\columnA{\dimexpr .5\textwidth}
+        \setlength\columnB{\dimexpr .03\linewidth}
+        \setlength\columnC{\dimexpr .5\textwidth}
+        
+        \begin{tabular}{%
+            >{\raggedleft}m{\columnA-2\tabcolsep-0.5\columnB}%
+            >{\centering}m{\columnB-2\tabcolsep}%
+            p{\columnC-2\tabcolsep-0.5\columnB}%
+        }
+            \ifthenelse{\equal{\firstnameA}{}}{}{\firstnameA~\lastnameA &-- &\cipA}
+            \ifthenelse{\equal{\firstnameB}{}}{}{\\ \firstnameB~\lastnameB &-- &\cipB}
+            \ifthenelse{\equal{\firstnameC}{}}{}{\\ \firstnameC~\lastnameC &-- &\cipC}
+            \ifthenelse{\equal{\firstnameD}{}}{}{\\ \firstnameD~\lastnameD &-- &\cipD}
+            \ifthenelse{\equal{\firstnameE}{}}{}{\\ \firstnameE~\lastnameE &-- &\cipE}
+            \ifthenelse{\equal{\firstnameF}{}}{}{\\ \firstnameF~\lastnameF &-- &\cipF}
+            \ifthenelse{\equal{\firstnameG}{}}{}{\\ \firstnameG~\lastnameG &-- &\cipG}
+            \ifthenelse{\equal{\firstnameH}{}}{}{\\ \firstnameH~\lastnameH &-- &\cipH}
+            \ifthenelse{\equal{\firstnameI}{}}{}{\\ \firstnameI~\lastnameI &-- &\cipI}
+        \end{tabular}
+    \endgroup
+    \par
+    
+    \vfill Sherbrooke -- \today
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FOOTER                                     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % \par
+% \vfil\null
+% \null
+% % \vskip 0.5in
+
+\clearpage
+    
+% Reset page count and style
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BLANK PAGE OPTION                          %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\equal{\rectoverso}{false}}{
+    \hfill
+    \thispagestyle{empty}
+    \clearpage
+}{}

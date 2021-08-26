@@ -1,0 +1,25 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {413},
+    lastline    = {489},
+    firstnumber = {413},
+    caption     = {[Table settings]Table settings.},
+    label       = {lst:tutorial/preamble/table}
+]{tools/settings.tex}
+
+The \texttt{multirow} and \texttt{multicolumn} \glspl{package} are obviously used to provide multi-row and multi-column functionalities for tables. The \texttt{longtable} \gls{package} allows the creation of tables that support page breaks. The \texttt{booktabs} \gls{package} provides quality enhancement and optimisation to tables, especially for those trying to avoid the \guil{prison} style with many vertical and horizontal bars. The \texttt{array} \gls{package} extends the available column types and gives more format specification options. \Glspl{package} \texttt{nicematrix}, \texttt{makecell}, and \texttt{supertabular} are not used in this document at the moment. New \glspl{package} could be introduced to supplement or replace the existing ones as I keep looking for the simplest solution that supports page breaks, multi-row and multi-column functionalities, text wrapping, and horizontal and vertical alignments.
+
+Lines 422--424, which are currently commented out, define the separation above and below rulers for tables created with \texttt{booktabs} utilities.
+
+Lines 426--428 define the stretching factor of table cells, which here is the same as the line spacing, and the padding on each side of a cell.
+
+Lines 430--436 define custom spacing after table headers, which gives the appearance of a floating header. This is just a matter of personal preference.
+
+Lines 438--467 defines 9 new column types to accommodate all of your alignment needs (see \S~\ref{sec:tutorial/latex/custom/table}):
+\begin{itemize}
+    \item \texttt{\textbackslash{}raggedleft}~/~\texttt{\textbackslash{}centering}~/~\texttt{\textbackslash{}raggedright}:~defines the horizontal alignement;
+    \item \texttt{b\{\}}~/~\texttt{m\{\}}~/~\texttt{p\{\}}:~selects the right column type from the \texttt{array} \gls{package} to provide vertical alignement;
+    \item \texttt{\textbackslash{}let\textbackslash{}newline\textbackslash{}\textbackslash{}\textbackslash{}arraybackslash\textbackslash{}hspace\{0pt\}}:~restore text wrapping and line breaking functionalities.
+\end{itemize}
+
+Lines 469--489 define custom lengths, such as single and double vertical bars as well as custom column widths for latter use in tables (see \S~\ref{sec:tutorial/latex/custom/table}).

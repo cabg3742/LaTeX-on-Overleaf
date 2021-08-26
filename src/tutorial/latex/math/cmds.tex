@@ -1,0 +1,136 @@
+A lot of special \glspl{command} are required for proper mathematical formulas. Table \ref{tab:tutorial/latex/math/commands} lists the most common and interesting ones. A full list of math symbols can be found on \citename{web:math-symbols}{author}'s portal at \citename{web:math-symbols}{editor} \parencite{web:math-symbols}.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .28\linewidth}
+    \setlength{\columnB}{\dimexpr .15\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} mathematical \glsentryplural{command}]{\LaTeX{} mathematical \glspl{command}.}%
+        \label{tab:tutorial/latex/math/commands}\\
+        
+        \hline
+        \textbf{\Gls{command}}
+            &\textbf{Examples}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{\Gls{command}}
+            &\textbf{Examples}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \verb"\mathcal{}"
+        \newline \verb"\mathfrak{}"
+        \newline \verb"\mathbb{}"
+            &$\mathcal{L}$
+             \newline $\mathfrak{R}$
+             \newline $\mathbb{O}$
+            &Math fonts for special characters (Calligraphic, Fraktur, Blackboard).
+        \\\hline
+        
+        \verb"\mathsf{}"
+        \newline \verb"\mathtt{}"
+            &$\mathsf{ABC}$
+             \newline $\mathtt{ABC}$
+            &Math families (sans serif and typewriter).
+        \\\hline
+        
+        \verb"\mathbf{}"
+            &$\mathbf{ABC}$
+            &Math series (bold).
+             \newline -- May not work with every font;
+             \newline -- Conflicts with \gls{package} \texttt{newtxmath}.
+        \\\hline
+        
+        \verb"\mathit{}"
+            &$\mathit{ABC}$
+            &Math shape (italic).
+             \newline -- May not work with every font;
+             \newline -- Conflicts with \gls{package} \texttt{newtxmath}.
+        \\\hline
+        
+        \verb"\mathrm{}"
+        \newline \verb"\text{}"
+            &$\mathrm{ABC}$
+             \newline $\text{ABC}$
+            &Remove math \gls{environment}.
+             \newline -- \verb"\mathrm{}" for symbols;
+             \newline -- \verb"\text{}" for text.
+        \\\hline
+        
+        \verb"\frac{}{}"
+        \newline \verb"\cfrac{}{}"
+        \newline \verb"\tfrac{}{}"
+            &$\frac{A}{B}$
+            &Fraction.
+             \newline -- \verb"\cfrac{}{}": constant height fraction;
+             \newline -- \verb"\tfrac{}{}": text fraction.
+        \\\hline
+        
+        \verb"\int"
+        \newline \verb"\iint"
+        \newline \verb"\iiint"
+        \newline \verb"\idotsint"
+            &$\int$
+             \newline $\iint$
+             \newline $\iiint$
+             \newline $\idotsint$
+            &Simple, double, triple, and $n$ integrals.
+        \\\hline
+        
+        \verb"\oint"
+        \newline \verb"\oiint"
+        \newline \verb"\varoiint"
+            &$\oint$
+             \newline $\oiint$
+             \newline $\varoiint$
+            &Path and surface integrals.
+        \\\hline
+        
+        \verb"\sum"
+        \newline \verb"\prod"
+        \newline \verb"\coprod"
+            &$\sum$
+             \newline $\prod$
+             \newline $\coprod$
+            &Sum, product, and coproduct.
+        \\\hline
+        
+        \verb"\cos"
+        \newline \verb"\sin"
+        \newline \verb"\tan"
+            &$\cos$
+             \newline $\sin$
+             \newline $\tan$
+            &Trigonometric functions.
+             \newline -- For adjustable parentheses after the function, use the custom \gls{macro} in \S~\ref{sec:tutorial/latex/custom}.
+        \\\hline
+        
+        \verb"\alpha"
+        \newline \verb"\beta"
+        \newline \texttt{\ldots}
+            &$\alpha$
+             \newline $\beta$
+             \newline $\cdots$
+            &Greek letters.
+        \\\hline
+        
+        \verb"\limits_{}^{}"
+            &$\int\limits_{0}^{\infty}$
+             \newline $\sum\limits_{n=0}^{N}$
+            &Subscripts and superscripts under and over a symbol.
+        \\\hline
+    \end{longtable}
+\endgroup

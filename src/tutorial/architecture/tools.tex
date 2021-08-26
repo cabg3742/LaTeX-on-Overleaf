@@ -1,0 +1,44 @@
+\begin{figure}[H]
+    \centering
+    \begin{forest}
+        for tree = {
+            font=\ttfamily,
+            grow'=0,
+            child anchor=west,
+            parent anchor=south,
+            anchor=west,
+            calign=first,
+            edge path={
+                \noexpand\path [draw, thick, \forestoption{edge}]
+                (!u.south west) +(15pt,0) |- node[circle,fill,inner sep=2pt] {} (.child anchor)\forestoption{edge label};
+            },
+            before typesetting nodes={
+                if n=1
+                {insert before={[,phantom]}}
+                {}
+            },
+            fit=band,
+            before computing xy={l=30pt},
+        }
+        [tools/
+            [acronyms.tex]
+            [cover.tex]
+            [glossary.tex]
+            [ref.bib]
+            [settings.tex]
+            [styles.tex]
+            [...]
+        ]
+    \end{forest}
+    \caption[Architecture of tool files]{Architecture of tool files.}
+    \label{fig:tutorial/architecture/tools}
+\end{figure}
+
+This folder contains settings, databases, and other global properties for the project. Current files are:
+\begin{itemize}
+    \item \texttt{acronyms.tex} and \texttt{glossary.tex}, which hold the acronym and glossary entries. If the number of entries becomes overwhelming, it could be broken into small files nested in the \texttt{src/} architecture of the document they're used in;
+    \item \texttt{ref.bib}, which holds the \gls{source} data. If the number of \glspl{source} becomes overwhelming, it could be broken into small files nested in the \texttt{src/} architecture of the document they're used in;
+    \item \texttt{cover.tex}, which represent the global cover page. Different cover pages can be defined either in the compilation file of a document or in its \texttt{src/} hierarchy;
+    \item \texttt{styles.tex}, which defines the various page styles that can be used in your documents (more on that in \S~\ref{sec:tutorial/preamble/listing/style}, \S~\ref{sec:tutorial/preamble/headfoot/style}, and \S~\ref{sec:tutorial/preamble/glossary/style});
+    \item \texttt{settings.tex}, which represents the global document preamble. It must be included in every document if you want it to compile, \textbf{no exceptions} (see \S~\ref{sec:tutorial/preamble}).
+\end{itemize}

@@ -1,0 +1,26 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {214},
+    lastline    = {257},
+    firstnumber = {214},
+    caption     = {[Table of contents and lists settings]\glsdisp{ToC}{Table of contents} and lists settings.},
+    label       = {lst:tutorial/preamble/toc}
+]{tools/settings.tex}
+
+The \texttt{tocloft} \gls{package} allows us modify the appearance of the \gls{ToC} and the plethora of lists we could create: \gls{LoF}, \gls{LoL}, \gls{LoT}, and more. The \texttt{titles} \gls{argument} causes the titles to be typeset with the default \LaTeX{} methods. This means that all titles follow global setup and we don't need to change them manually.
+
+Lines 216--225 add the \gls{LoL} to \texttt{tocloft}. The \gls{package} \texttt{listings} creates the \gls{LoL} automatically, but we need the \gls{command} to allow modification through \texttt{tocloft}'s implementation. This is a good time to mention that the \gls{LoL} title will not be positioned correctly if the \gls{package} \texttt{listings} is loaded after the \gls{package} \texttt{float}: there will be extra vertical space that we can't get rid of. 
+
+Line 236 makes sure that the allocated space for numbered \glspl{bookmark} on the \gls{LoL} is the same as other lists.
+
+Lines 238--240 modify the font formatting for the various section levels of the document. In this case, we only need to tweak the series of the section (see \S~\ref{sec:tutorial/latex/text/format}) per the requirement of the \citelist{report:udes-writing-guide}{institution}.
+
+Lines 242 and 243 control the dotted leader lines inside the \gls{ToC} and the lists. This is a matter of preference: feel free to use either option to your heart's content. If you use dotted header lines, the reason to avoid the dot at the end of a caption for the various lists (see \S~\ref{sec:tutorial/latex/fig}, \S~\ref{sec:tutorial/latex/table/cmds}, and \S~\ref{sec:tutorial/latex/listing}) becomes evident: if we leave a dot in the caption, the spacing is non-uniform with the header lines.
+
+Lines 245--249 control the indentation of the section levels and floats. Subsection are indented such that the numbered \gls{bookmark} aligns with the section text, ditto for the sub-subsection \gls{bookmark} with the subsection text. Float references are left without indentation.
+
+Lines 252--254 control the vertical space around the section levels in the \gls{ToC}. In our case, we only need extra spacing around sections to follow the guidelines of the \citelist{report:udes-writing-guide}{institution}.
+
+Line 256 defines the number of levels that appear in the \gls{ToC}, and line 257 defines the number of section levels that receive numbered \glspl{bookmark}.
+
+\noindent For more configuration \glspl{macro} with \texttt{tocloft}, refer to its \gls{CTAN} documentation \parencite{web:ctan-tocloft}.

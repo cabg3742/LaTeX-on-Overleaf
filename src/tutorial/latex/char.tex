@@ -1,0 +1,290 @@
+Like every programming language, \LaTeX{} reserves some characters for very specific purposes. They can be included in text with either an escape sequence or a special \gls{command}. Although this should not be an issue with \hologo{XeTeX} or Lua\TeX, some \TeX{} engines also have a hard time dealing with non-\gls{ASCII} input, thus we also need to escape some diacritics.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .13\linewidth}
+    \setlength{\columnB}{\dimexpr .27\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CT{\columnA}|%
+          \CT{\columnB}|%
+          \LT{\columnC}|%
+        }
+        \caption[\LaTeX{} reserved characters]{\LaTeX{} reserved characters.}%
+        \label{tab:tutorial/latex/char}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Character}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Escape Sequence}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Character}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Escape Sequence}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \&
+            &\verb"\&"
+            &Used for alignment in certain \glspl{environment}.
+        \\\hline
+        
+        \%
+            &\verb"\%"
+            &Used mostly for comments.
+        \\\hline
+        
+        \$
+            &\verb"\$"
+            &Used for inline math.
+        \\\hline
+        
+        \#
+            &\verb"\#"
+            &Used for \glspl{parameter} in \gls{macro} declarations.
+        \\\hline
+        
+        \{
+            &\verb"\{"
+            &Used for \glsdisp{group}{grouping}.
+        \\\hline
+        
+        \}
+            &\verb"\}"
+            &Used for \glsdisp{group}{grouping}.
+        \\\hline
+        
+        \_
+            &\verb"\_"
+            &Used for subscripts in math mode.
+        \\\hline
+        
+        \textasciicircum
+            &\verb"\textasciicircum"
+            &Used for superscripts in math mode.
+        \\\hline
+        
+        \textasciitilde
+            &\verb"\textasciitilde"
+            &Used for non-breakable space.
+        \\\hline
+        
+        \textbackslash
+            &\verb"\textbackslash"
+            &Used to declare \glspl{macro}.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .13\linewidth}
+    \setlength{\columnB}{\dimexpr .27\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CT{\columnA}|%
+          \CT{\columnB}|%
+          \LT{\columnC}|%
+        }
+        \caption[\LaTeX{} diacritics]{\LaTeX{} diacritics.}%
+        \label{tab:tutorial/latex/diacritics}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Character}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Escape Sequence}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Character}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Escape Sequence}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \`{o}
+            &\texttt{\textbackslash{}`\{o\}}
+            &Grave accent.
+        \\\hline
+        
+        \'{o}
+            &\texttt{\textbackslash{}'\{o\}}
+            &Acute accent.
+        \\\hline
+        
+        \^{o}
+            &\texttt{\textbackslash{}\textasciicircum\{o\}}
+            &Circumflex accent.
+        \\\hline
+        
+        \"{o}
+            &\texttt{\textbackslash{}"\{o\}}
+            &Umlaut, trema or dieresis.
+        \\\hline
+        
+        \H{o}
+            &\texttt{\textbackslash{}H\{o\}}
+            &Hungarian umlaut (double acute accent).
+        \\\hline
+        
+        \~{o}
+            &\texttt{\textbackslash{}\textasciitilde\{o\}}
+            &Tilde.
+        \\\hline
+        
+        \c{c}
+            &\texttt{\textbackslash{}c\{c\}}
+            &Cedilla.
+        \\\hline
+        
+        \k{a}
+            &\texttt{\textbackslash{}k\{a\}}
+            &Ogonek.
+        \\\hline
+        
+        \={o}
+            &\texttt{\textbackslash{}=\{o\}}
+            &Macron.
+        \\\hline
+        
+        \b{o}
+            &\texttt{\textbackslash{}b\{o\}}
+            &Underline.
+        \\\hline
+        
+        \.{o}
+            &\texttt{\textbackslash{}.\{o\}}
+            &Dot over the letter.
+        \\\hline
+        
+        \d{o}
+            &\texttt{\textbackslash{}d\{o\}}
+            &Dot under the letter.
+        \\\hline
+        
+        \r{a}
+            &\texttt{\textbackslash{}r\{a\}}
+            &Ring over the letter.
+        \\\hline
+        
+        \u{o}
+            &\texttt{\textbackslash{}u\{o\}}
+            &Breve over the letter.
+        \\\hline
+        
+        \v{c}
+            &\texttt{\textbackslash{}v\{c\}}
+            &Caron or háček over the letter.
+        \\\hline
+        
+        \t{oa}
+            &\texttt{\textbackslash{}t\{oa\}}
+            &Tie over two letters.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .13\linewidth}
+    \setlength{\columnB}{\dimexpr .27\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CT{\columnA}|%
+          \CT{\columnB}|%
+          \LT{\columnC}|%
+        }
+        \caption[\LaTeX{} special letters]{\LaTeX{} special letters.}%
+        \label{tab:tutorial/latex/letters}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Character}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Escape Sequence}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Character}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Escape Sequence}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \oe{} $\left.\middle/\right.$ \OE
+            &\texttt{\textbackslash{}oe\{\}} $\left.\middle/\right.$ \texttt{\textbackslash{}OE\{\}}
+            &French ligature \guil{oe}.
+        \\\hline
+        
+        \ae{} $\left.\middle/\right.$ \AE
+            &\texttt{\textbackslash{}ae\{\}} $\left.\middle/\right.$ \texttt{\textbackslash{}AE\{\}}
+            &Latin or scandinavian \guil{ae}.
+        \\\hline
+        
+        \aa{} $\left.\middle/\right.$ \AA
+            &\texttt{\textbackslash{}aa\{\}} $\left.\middle/\right.$ \texttt{\textbackslash{}AA\{\}}
+            &Scandinavian \guil{a} with circle.
+        \\\hline
+        
+        \l{} $\left.\middle/\right.$ \L
+            &\texttt{\textbackslash{}l\{\}} $\left.\middle/\right.$ \texttt{\textbackslash{}L\{\}}
+            &Barred \guil{l}.
+        \\\hline
+        
+        \o{} $\left.\middle/\right.$ \O
+            &\verb"\o{}" $\left.\middle/\right.$ \verb"\O{}"
+            &Slashed \guil{o}.
+        \\\hline
+        
+        \i
+            &\texttt{\textbackslash{}i\{\}}
+            &Dotless \guil{i}.
+        \\\hline
+        
+        \j
+            &\texttt{\textbackslash{}j\{\}}
+            &Dotless \guil{j}.
+        \\\hline
+        
+        \ss
+            &\texttt{\textbackslash{}ss\{\}}
+            &German sharp \guil{s}.
+        \\\hline
+        
+        \S
+            &\texttt{\textbackslash{}S\{\}}
+            &Section mark.
+        \\\hline
+        
+        \P
+            &\texttt{\textbackslash{}P\{\}}
+            &Paragraph mark.
+        \\\hline
+        
+        \dag
+            &\texttt{\textbackslash{}dag\{\}}
+            &Dagger.
+        \\\hline
+        
+        \ddag
+            &\texttt{\textbackslash{}ddag\{\}}
+            &Double dagger.
+        \\\hline
+    \end{longtable}
+\endgroup

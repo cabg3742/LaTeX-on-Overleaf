@@ -1,0 +1,11 @@
+It can often be useful to create your own \glspl{command} to simplify usage or provide another layer of abstraction for quick and dirty modifications of a document. Some of the most important ones I created are:
+
+\begin{itemize}
+    \item \texttt{\textbackslash{}guil\{\}}:~adds quotation marks. This layer of abstraction allows us to redefine the \gls{command} depending on the document language (``~" for English, \guillemotleft~\guillemotright{} for French, etc.);
+    \item \texttt{\textbackslash{}inp\{\}}:~parentheses that adjust to the content's height in math mode. Improves the aesthetics of equations while being simpler to implement than the underlying code;
+    \item \texttt{\textbackslash{}insb\{\}}:~brackets that adjust to the content's height in math mode. Improves the aesthetics of equations while being simpler to implement than the underlying code;
+    \item \texttt{\textbackslash{}incb\{\}}:~braces that adjust to the content's height in math mode. Improves the aesthetics of equations while being simpler to implement than the underlying code;
+    \item \texttt{\textbackslash{}sfrac\{\}\{\}}:~a custom slanted fraction that doesn't rely on specialty \glspl{package};
+    \item \texttt{\textbackslash{}figsize}:~defines a ratio between 0 and 1 to scale figures;
+    \item \texttt{\textbackslash{}tabitem}:~defines a bullet for lists inside float \glspl{environment} that don't support \texttt{itemize} or \texttt{enumerate}.
+\end{itemize}

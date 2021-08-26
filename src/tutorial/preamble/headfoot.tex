@@ -1,0 +1,12 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {406},
+    lastline    = {407},
+    firstnumber = {406},
+    caption     = {[Header and footer settings]Header and footer settings.},
+    label       = {lst:tutorial/preamble/headfoot}
+]{tools/settings.tex}
+
+The \texttt{fancyhdr} \gls{package} provides \glspl{macro} to customize the appearance and easily swap between styles of headers and footers. You can select one with \glspl{command} \texttt{\textbackslash{}thispagestyle} for a single page or \texttt{\textbackslash{}pagestyle} for the following pages. Standard styles include \texttt{empty}, \texttt{plain}, \texttt{headings}, and \texttt{myheadings}. You can also define custom styles (see \S~\ref{sec:tutorial/preamble/headfoot/style}).
+
+The \texttt{lastpage} \gls{package} provides a \gls{command} to refer to the total number of pages of your document. This is currently used in the footer of this document.

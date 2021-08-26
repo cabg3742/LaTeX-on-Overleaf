@@ -1,0 +1,14 @@
+Contrary to what we're used to with Microsoft Word, Apache OpenOffice Writer, Google Docs, or Apple Pages, \LaTeX{} doesn't display the text as it will appear in the final document when you're writing it. They use the \gls{WYSIWYG} approach, while \LaTeX{} use \gls{WYSIWYM} (appearance vs structure-based approach) Is it plain text, that uses code, or \glspl{macro}, to change its appearance and behavior. Tables and figures must be added with \glspl{macro} too: they even have their own \gls{environment} so that their special behavior is isolated from the rest of the document (\texttt{\textbackslash{}begin\{<env>\}}$\ldots$\texttt{\textbackslash{}end\{<env>\}}). It makes it a pain to setup, but once it's done, it is a powerful tool that can help automate your writing by:
+\begin{itemize}
+    \item automatically setting up the bibliography;
+    \item writing acronyms and technical words in different ways depending on how much you want to clue in the reader, and put them in a list of acronyms and/or a glossary;
+    \item add \glspl{conditional}, \glspl{loop}, and \glspl{hook};
+    \item draw graphics;
+    \item use arithmetic functions to work out the result of a formula;
+    \item and much more.
+\end{itemize}
+It also allows us to sync the files with a version control software to get a much more appealing history of modifications compared to Word's markup.
+
+For you, it will be a \textit{little} harder than writing with Word since you have to use code to modify your text. Fear not, all the major \glspl{macro} needed for our reports will be listed here. You can also skim through the files to see how they can be used or look at the templates (see \S~\ref{sec:tutorial/templates}).
+
+\textbf{Disclosure}: This guide is written \textit{to the best of my knowledge}. If some information becomes deprecated, some errors are found, or a better way to solve a certain issue can be added to the project, let me know.

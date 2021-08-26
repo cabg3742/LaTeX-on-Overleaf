@@ -1,0 +1,207 @@
+\noindent Text formatting can be split into three categories:
+\begin{itemize}
+    \item family:~defines the font type;
+    \item series:~defines the line thickness;
+    \item shape:~defines the form of the letters.
+\end{itemize}
+
+Note that \texttt{\underline{\textit{\textsc{\textbf{you can combine them all as you wish}}}}}, though the result might not be aesthetically pleasing. Also note that not all fonts support the various options, and some of them are not orthogonal within a font: some options will conflict and the resulting text won't look like you expected. Tables \ref{tab:tutorial/latex/text/format/family} to \ref{tab:tutorial/latex/text/format/other} document the most common text \glspl{command}. 
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .30\linewidth}
+    \setlength{\columnB}{\dimexpr .13\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} text formatting (family)]{\LaTeX{} text formatting (family).}%
+        \label{tab:tutorial/latex/text/format/family}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{\Gls{command}}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Example}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{\Gls{command}}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Example}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \texttt{\textbackslash{}textrm\{\}}
+            &\textrm{Text}
+            &Roman text.
+        \\\hline
+        
+        \texttt{\textbackslash{}textsf\{\}}
+            &\textsf{Text}
+            &Sans serif text.
+        \\\hline
+        
+        \texttt{\textbackslash{}texttt\{\}}
+            &\texttt{Text}
+            &Typewriter / code text.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .30\linewidth}
+    \setlength{\columnB}{\dimexpr .13\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} text formatting (series)]{\LaTeX{} text formatting (series).}%
+        \label{tab:tutorial/latex/text/format/series}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{\Gls{command}}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Example}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{\Gls{command}}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Example}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \texttt{\textbackslash{}textbf\{\}}
+            &\textbf{Text}
+            &Bold text.
+             \newline -- Shortcut: {\small \tcbox{\texttt{Ctrl}} + \tcbox{\texttt{B}}}
+        \\\hline
+        
+        \texttt{\textbackslash{}textmd\{\}}
+            &\textmd{Text}
+            &Medium text.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .30\linewidth}
+    \setlength{\columnB}{\dimexpr .13\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} text formatting (shape)]{\LaTeX{} text formatting (shape).}%
+        \label{tab:tutorial/latex/text/format/shape}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{\Gls{command}}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Example}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{\Gls{command}}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Example}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \texttt{\textbackslash{}textit\{\}}
+            &\textit{Text}
+            &Italic text.
+             \newline -- Shortcut: {\small \tcbox{\texttt{Ctrl}} + \tcbox{\texttt{I}}}
+        \\\hline
+        
+        \texttt{\textbackslash{}textsl\{\}}
+            &\textsl{Text}
+            &Slanted text.
+        \\\hline
+        
+        \texttt{\textbackslash{}textup\{\}}
+            &\textup{Text}
+            &Upright text.
+        \\\hline
+        
+        \texttt{\textbackslash{}textsc\{\}}
+            &\textsc{Text}
+            &Small uppercase text.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .30\linewidth}
+    \setlength{\columnB}{\dimexpr .13\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} text formatting (other)]{\LaTeX{} text formatting (other).}%
+        \label{tab:tutorial/latex/text/format/other}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{\Gls{command}}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Example}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{\Gls{command}}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Example}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \texttt{\textbackslash{}emph\{\}}
+            &\emph{Text}
+            &Emphasized text. This \gls{command} is context aware: if used in normal font text, it will default to italic, and vice-versa.
+        \\\hline
+        
+        \texttt{\textbackslash{}underline\{\}}
+            &\underline{Text}
+            &Underlined text. \emph{Not recommended}: the \gls{command} encloses its \gls{argument} in a box, which doesn't allow line breaks.
+        \\\hline
+        
+        \texttt{\textbackslash{}textsubscript\{\}}
+            &\textsubscript{Text}
+            &Subscript inside text.
+        \\\hline
+        
+        \texttt{\textbackslash{}textsuperscript\{\}}
+            &\textsuperscript{Text}
+            &Superscript inside text.
+        \\\hline
+    \end{longtable}
+\endgroup

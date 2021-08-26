@@ -1,0 +1,16 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {711},
+    lastline    = {714},
+    firstnumber = {711},
+    caption     = {[Custom \glsentryplural{package}]Custom \glspl{package}.},
+    label       = {lst:tutorial/preamble/custom}
+]{tools/settings.tex}
+
+Custom \glspl{package} regroup custom \glspl{macro} by theme. Admittedly, I am not defining my \glspl{package} in a proper \TeX{}nician way and would need to better split \glspl{package} from general settings. Nonetheless, this template include at the moment four \glspl{package}:
+\begin{itemize}
+    \item \texttt{local\_basics}, which include many mathematical \glspl{command} and other utilities;
+    \item \texttt{local\_conversions}, which include functions to convert between units. This was more of a \LaTeX{} experiment than a truly useful \gls{package} for me;
+    \item \texttt{local\_kinematics}, which defines more mathematical \glspl{command} for some of the \citelist{report:udes-writing-guide}{institution}'s courses;
+    \item \texttt{local\_physics}, which defines mathematical \glspl{command} for physics.
+\end{itemize}

@@ -1,0 +1,41 @@
+\begin{figure}[H]
+    \centering
+    \begin{forest}
+        for tree = {
+            font=\ttfamily,
+            grow'=0,
+            child anchor=west,
+            parent anchor=south,
+            anchor=west,
+            calign=first,
+            edge path={
+                \noexpand\path [draw, thick, \forestoption{edge}]
+                (!u.south west) +(15pt,0) |- node[circle,fill,inner sep=2pt] {} (.child anchor)\forestoption{edge label};
+            },
+            before typesetting nodes={
+                if n=1
+                {insert before={[,phantom]}}
+                {}
+            },
+            fit=band,
+            before computing xy={l=30pt},
+        }
+        [cmds/
+            [local\_basics.sty]
+            [local\_conversions.sty]
+            [local\_kinematics.sty]
+            [local\_physics.sty]
+            [...]
+        ]
+    \end{forest}
+    \caption[Architecture of \glsentryplural{package}]{Architecture of \glspl{package}.}
+    \label{fig:tutorial/architecture/cmds}
+\end{figure}
+
+This folder contains custom \glspl{package} and other \glspl{package} found on the web that might be useful and are not taken in charge by Overleaf (see \S~\ref{sec:tutorial/preamble/custom}). Currently, it holds:
+\begin{itemize}
+    \item \texttt{local\_basics.sty}, which contains useful \glspl{macro} for any document;
+    \item \texttt{local\_conversions.sty}, which contains conversion \glspl{macro} using the \texttt{fp} \gls{package} for floating point arithmetic (see \S~\ref{sec:tutorial/preamble/math});
+    \item \texttt{local\_kinematics.sty}, which contains useful kinematics / dynamics \glspl{command} created for courses at the \citelist{report:udes-writing-guide}{institution}, such as ING225, GRO303, GRO640, and others;
+    \item \texttt{local\_physics.sty}, which contains useful \glspl{command} for physics equations and mathematical proofs.
+\end{itemize}

@@ -1,0 +1,20 @@
+\noindent Tables are definitely the \gls{environment} that requires the most \glspl{command} to create and customize:
+\begin{itemize}
+    \item \texttt{\textbackslash{}arraystretch}:~specifies the row padding. I usually set it the same as the line spacing, which is defined by \texttt{\textbackslash{}baselinestretch} and can be modified with \texttt{\textbackslash{}linespread\{\}}. To do this, you need to renew the \gls{command}:
+    \begin{center}
+        \verb"\renewcommand{\arraystretch}{\baselinestretch}"
+    \end{center}
+    You can either do this for every table if you want different \glspl{value}, or set it globally in the preamble (see \S~\ref{sec:tutorial/preamble/table});
+    \item \texttt{\textbackslash{}tabcolsep}:~specifies the column padding. I recommend setting this \gls{value} according to the font size selected for the table (see \S~\ref{sec:tutorial/latex/text/size}), so the proportions stay consistent between tables. You can set the \gls{value} with \texttt{\textbackslash{}setlength\{\textbackslash{}tabcolsep\}\{\}};
+    \item \texttt{\textbackslash{}linewidth}:~defines the width of a line in the local \gls{environment}. I use this length and a ratio between 0 and 1 to specify the column width of each column;
+    \item \texttt{\textbackslash{}hline}:~draws a horizontal line. Before using it, you must use \texttt{\textbackslash\textbackslash} to change row inside the table;
+    \item \texttt{\textbackslash{}cline\{\}}:~draws a horizontal line only between the specified columns. Before using it, you must use \texttt{\textbackslash\textbackslash} to change row inside the table. The range should be specified with two numbers separated by a hyphen;
+    \item \texttt{\textbackslash{}newline}:~allows you to start a new line within a cell;
+    \item {\large \texttt{\&}}, the column separator. It allows you to switch columns when adding content to your table;
+    \item \texttt{\textbackslash{}endfirsthead}:~defines, in the \texttt{longtable} \gls{environment}, everything above it and below the last \gls{environment}-specific \gls{macro} to be the first header of the table. When the table overflows to the next page, that header will not appear. It will be necessary to specify a separate header for the first page for captions and \glspl{label} on top: else, they will be repeated on every page and create warnings;
+    \item \texttt{\textbackslash{}endhead}:~defines, in the \texttt{longtable} \gls{environment}, everything above it and below the last \gls{environment}-specific \gls{macro} to be the default header of the table. When the table overflows to the next page, this header will be repeated. It will also act as the first header of the table unless \texttt{\textbackslash{}endfirsthead} is used;
+    \item \texttt{\textbackslash{}multicolumn\{\}\{\}\{\}}:~allows us to define multi-column content. The first \gls{argument} is the number of columns to cover, the second is the structure of that new multi-column (type and vertical bars if needed), and the third is the content;
+    \item \texttt{\textbackslash{}multirow\{\}\{\}\{\}}:~allows us to define multi-row content. The first \gls{argument} is the number of rows to cover, the second is the width (use an asterisk for the \guil{natural} width of those cells, though it doesn't allow wrapping; else, use the width of that column), and the third is the content. Vertical alignment is not supported;
+    \item \texttt{\textbackslash{}caption[]\{\}}:~defines the name of the table. The first \gls{argument} is the name as seen in a list of tables, the second is the one displayed over or under the table;
+    \item \texttt{\textbackslash{}label\{\}}:~see \S~\ref{sec:tutorial/latex/crossref/label}.
+\end{itemize}

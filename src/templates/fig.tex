@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SINGLE FIGURE                              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\figsize\columnwidth]{data/udes/udes.pdf}
+    \caption[Template: single figure]{Caption under figure.}
+    \label{fig:figlabel_01}
+\end{figure}
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Template: single figure]Template: single figure.},
+    label    = {lst:tutorial/templates/fig/single}
+]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\figsize\columnwidth]{data/udes/udes.pdf}
+    \caption[Template: single figure]{Caption under figure.}
+    \label{fig:figlabel_01}
+\end{figure}
+\end{lstlisting}
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Template: single figure, top caption]Template: single figure, top caption.},
+    label    = {lst:tutorial/templates/fig/single-top-caption}
+]
+\begin{figure}[H]
+    \centering
+    \caption[Template: single figure, top caption]{Caption over figure.}
+    \includegraphics[width=\figsize\columnwidth]{data/udes/udes.pdf}
+    \label{fig:figlabel_01}
+\end{figure}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FIGURE WITH SUBFIGURES                     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\figsize\columnwidth]{data/udes/3it.pdf}
+        \caption{Caption under subfigure.}
+        \label{fig:figsublabel_01}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\figsize\columnwidth]{data/udes/udes.pdf}
+        \caption{Caption under subfigure.}
+        \label{fig:figsublabel_02}
+    \end{subfigure}
+    \caption[Template: figure with subfigures]{Caption under figure.}
+    \label{fig:figlabel_02}
+\end{figure}
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Template: figure with subfigures]Template: figure with subfigures.},
+    label    = {lst:tutorial/templates/fig/subfigures}
+]
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\figsize\columnwidth]{data/udes/3it.pdf}
+        \caption{Caption under subfigure.}
+        \label{fig:figsublabel_01}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\figsize\columnwidth]{data/udes/udes.pdf}
+        \caption{Caption under subfigure.}
+        \label{fig:figsublabel_02}
+    \end{subfigure}
+    \caption[Template: figure with subfigures]{Caption under figure.}
+    \label{fig:figlabel_02}
+\end{figure}
+\end{lstlisting}

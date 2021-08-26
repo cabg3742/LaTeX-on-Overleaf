@@ -1,0 +1,20 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {116},
+    lastline    = {150},
+    firstnumber = {116},
+    caption     = {[Glossary style]Glossary style.},
+    label       = {lst:tutorial/preamble/glossary/style}
+]{tools/styles.tex}
+
+The \texttt{\textbackslash{}newglossarystyle\{\}\{\}} \gls{macro} is used to create a custom layout for a glossary or a list of acronyms. In this case, I've defined a new layout for acronyms. The standard \texttt{long3col} style and its derivatives lacked a couple features that I've implemented in this one, such as:
+\begin{itemize}
+    \item the table width, which is equal to the text area;
+    \item the cell padding has been deleted so the longest acronym sits flush with the left margin;
+    \item acronyms have been right-aligned and their series has been set to bold;
+    \item space for page \glspl{reference} has been doubled;
+    \item extra vertical space between acronyms that start with different letters has been suppressed;
+    \item descriptions always start with a capitalized letter.
+\end{itemize}
+
+\noindent For more info on tables in general, see \S~\ref{sec:tutorial/latex/table}.

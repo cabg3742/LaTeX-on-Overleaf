@@ -1,0 +1,560 @@
+You can also control the size of your text. The \gls{command} \texttt{\textbackslash{}normalsize} only needs to be used to bring back the standard font size inside an \gls{environment} that uses a smaller size (e.g., a footnote). With some fonts, the text can seem of a different size depending on the family: though this is not the case in reality, you can adjust it by using \texttt{\{\textbackslash{}small~...\}} on the seemingly bigger font family. Just make sure it's consistent throughout the document. Last but not least, it is possible to specify a custom size with \texttt{\textbackslash{}fontsize\{\}\{\}\textbackslash{}selectfont} inside a \gls{group}, where the first \gls{argument} defines the font size, and the second the line skip size, both written as plain numbers. Line skip usually is the closest integer to 120~\% the font size.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth-\columnA}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
+    \setlength{\columnB}{\columnB-2\tabcolsep-3\vbar/2}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+        }
+        \caption[\LaTeX{} text size \glsentryplural{command}]{\LaTeX{} text size \glspl{command}.}%
+        \label{tab:tutorial/latex/text/size/commands}\\
+        
+        \hline
+        \textbf{Command}
+            &\textbf{Example}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{Command}
+            &\textbf{Example}
+        \\\hline
+        
+        \endhead
+        \texttt{\textbackslash{}miniscule}
+            &Supported by the \textit{memoir} document class
+        \\\hline
+        \texttt{\textbackslash{}tiny}
+            &{\tiny Text}
+        \\\hline
+        \texttt{\textbackslash{}scriptsize}
+            &{\scriptsize Text}
+        \\\hline
+        \texttt{\textbackslash{}footnotesize}
+            &{\footnotesize Text}
+        \\\hline
+        \texttt{\textbackslash{}small}
+            &{\small Text}
+        \\\hline
+        \texttt{\textbackslash{}normalsize}
+            &{\normalsize Text}
+        \\\hline\vspace{2pt}
+        \texttt{\textbackslash{}large}
+            &{\large Text}
+        \\\hline\vspace{5pt}
+        \texttt{\textbackslash{}Large}
+            &{\Large Text}
+        \\\hline\vspace{8pt}
+        \texttt{\textbackslash{}LARGE}
+            &{\LARGE Text}
+        \\\hline\vspace{13pt}
+        \texttt{\textbackslash{}huge}
+            &{\huge Text}
+        \\\hline\vspace{13pt}
+        \texttt{\textbackslash{}Huge}
+            &{\Huge Text}
+        \\\hline
+        \texttt{\textbackslash{}HUGE}
+            &Supported by the \textit{memoir} document class
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth/3-\columnA/3}
+    \setlength{\columnC}{\dimexpr \columnB}
+    \setlength{\columnD}{\dimexpr \columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-5\vbar/4}
+    \setlength{\columnB}{\columnB-2\tabcolsep-5\vbar/4}
+    \setlength{\columnC}{\columnC-2\tabcolsep-5\vbar/4}
+    \setlength{\columnD}{\columnD-2\tabcolsep-5\vbar/4}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \CC{\columnC}|%
+          \CC{\columnD}|%
+        }
+        \caption[\LaTeX{} text size (article, report, book, letter)]{\LaTeX{} text size (article, report, book, letter).}%
+        \label{tab:tutorial/latex/text/size/article}\\
+        
+        \hline
+        \textbf{Command}
+            &\multicolumn{3}{c|}{\textbf{Size (pt)}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{Command}
+            &\multicolumn{3}{c|}{\textbf{Size (pt)}}
+        \\\hline
+        \endhead
+        
+        \texttt{\textbackslash{}tiny}
+            &5
+            &6
+            &6
+        \\\hline
+        
+        \texttt{\textbackslash{}scriptsize}
+            &7
+            &8
+            &8
+        \\\hline
+        
+        \texttt{\textbackslash{}footnotesize}
+            &8
+            &9
+            &10
+        \\\hline
+        
+        \texttt{\textbackslash{}small}
+            &9
+            &10
+            &11
+        \\\hline
+        
+        \rowcolor{gray!20} \texttt{\textbackslash{}normalsize}
+            &10
+            &11
+            &12
+        \\\hline
+        
+        \texttt{\textbackslash{}large}
+            &12
+            &12
+            &14
+        \\\hline
+        
+        \texttt{\textbackslash{}Large}
+            &14
+            &14
+            &17
+        \\\hline
+        
+        \texttt{\textbackslash{}LARGE}
+            &17
+            &17
+            &20
+        \\\hline
+        
+        \texttt{\textbackslash{}huge}
+            &20
+            &20
+            &25
+        \\\hline
+        
+        \texttt{\textbackslash{}Huge}
+            &25
+            &25
+            &25
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth/12-\columnA/12}
+    \setlength{\columnC}{\dimexpr \columnB}
+    \setlength{\columnD}{\dimexpr \columnB}
+    \setlength{\columnE}{\dimexpr \columnB}
+    \setlength{\columnF}{\dimexpr \columnB}
+    \setlength{\columnG}{\dimexpr \columnB}
+    \setlength{\columnH}{\dimexpr \columnB}
+    \setlength{\columnI}{\dimexpr \columnB}
+    \setlength{\columnJ}{\dimexpr \columnB}
+    \setlength{\columnK}{\dimexpr \columnB}
+    \setlength{\columnL}{\dimexpr \columnB}
+    \setlength{\columnM}{\dimexpr \columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-14\vbar/13}
+    \setlength{\columnB}{\columnB-2\tabcolsep-14\vbar/13}
+    \setlength{\columnC}{\columnC-2\tabcolsep-14\vbar/13}
+    \setlength{\columnD}{\columnD-2\tabcolsep-14\vbar/13}
+    \setlength{\columnE}{\columnE-2\tabcolsep-14\vbar/13}
+    \setlength{\columnF}{\columnF-2\tabcolsep-14\vbar/13}
+    \setlength{\columnG}{\columnG-2\tabcolsep-14\vbar/13}
+    \setlength{\columnH}{\columnH-2\tabcolsep-14\vbar/13}
+    \setlength{\columnI}{\columnI-2\tabcolsep-14\vbar/13}
+    \setlength{\columnJ}{\columnJ-2\tabcolsep-14\vbar/13}
+    \setlength{\columnK}{\columnK-2\tabcolsep-14\vbar/13}
+    \setlength{\columnL}{\columnL-2\tabcolsep-14\vbar/13}
+    \setlength{\columnM}{\columnM-2\tabcolsep-14\vbar/13}
+    \small
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \CC{\columnC}|%
+          \CC{\columnD}|%
+          \CC{\columnE}|%
+          \CC{\columnF}|%
+          \CC{\columnG}|%
+          \CC{\columnH}|%
+          \CC{\columnI}|%
+          \CC{\columnJ}|%
+          \CC{\columnK}|%
+          \CC{\columnL}|%
+          \CC{\columnM}|%
+        }
+        \caption[\LaTeX{} text size (memoir)]{\LaTeX{} text size (memoir).}%
+        \label{tab:tutorial/latex/text/size/memoir}\\
+        
+        \hline
+        \textbf{Command}
+            &\multicolumn{12}{c|}{\textbf{Size (pt)}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{Command}
+            &\multicolumn{12}{c|}{\textbf{Size (pt)}}
+        \\\hline
+        \endhead
+        
+        \texttt{\textbackslash{}miniscule}
+            &4
+            &5
+            &6
+            &7
+            &8
+            &9
+            &10
+            &11
+            &12
+            &14
+            &17
+            &20
+        \\\hline
+        
+        \texttt{\textbackslash{}tiny}
+            &5
+            &6
+            &7
+            &8
+            &9
+            &10
+            &11
+            &12
+            &14
+            &17
+            &20
+            &25
+        \\\hline
+        
+        \texttt{\textbackslash{}scriptsize}
+            &6
+            &7
+            &8
+            &9
+            &10
+            &11
+            &12
+            &14
+            &17
+            &20
+            &25
+            &30
+        \\\hline
+        
+        \texttt{\textbackslash{}footnotesize}
+            &7
+            &8
+            &9
+            &10
+            &11
+            &12
+            &14
+            &17
+            &20
+            &25
+            &30
+            &36
+        \\\hline
+        
+        \texttt{\textbackslash{}small}
+            &8
+            &9
+            &10
+            &11
+            &12
+            &14
+            &17
+            &20
+            &25
+            &30
+            &36
+            &48
+        \\\hline
+        
+        \rowcolor{gray!20} \texttt{\textbackslash{}normalsize}
+            &9
+            &10
+            &11
+            &12
+            &14
+            &17
+            &20
+            &25
+            &30
+            &36
+            &48
+            &60
+        \\\hline
+        
+        \texttt{\textbackslash{}large}
+            &10
+            &11
+            &12
+            &14
+            &17
+            &20
+            &25
+            &30
+            &36
+            &48
+            &60
+            &72
+        \\\hline
+        
+        \texttt{\textbackslash{}Large}
+            &11
+            &12
+            &14
+            &17
+            &20
+            &25
+            &30
+            &36
+            &48
+            &60
+            &72
+            &84
+        \\\hline
+        
+        \texttt{\textbackslash{}LARGE}
+            &12
+            &14
+            &17
+            &20
+            &25
+            &30
+            &36
+            &48
+            &60
+            &72
+            &84
+            &96
+        \\\hline
+        
+        \texttt{\textbackslash{}huge}
+            &14
+            &17
+            &20
+            &25
+            &30
+            &36
+            &48
+            &60
+            &72
+            &84
+            &96
+            &108
+        \\\hline
+        
+        \texttt{\textbackslash{}Huge}
+            &17
+            &20
+            &25
+            &30
+            &36
+            &48
+            &60
+            &72
+            &84
+            &96
+            &108
+            &120
+        \\\hline
+        
+        \texttt{\textbackslash{}HUGE}
+            &20
+            &25
+            &30
+            &36
+            &48
+            &60
+            &72
+            &84
+            &96
+            &108
+            &120
+            &132
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth/8-\columnA/8}
+    \setlength{\columnC}{\dimexpr \columnB}
+    \setlength{\columnD}{\dimexpr \columnB}
+    \setlength{\columnE}{\dimexpr \columnB}
+    \setlength{\columnF}{\dimexpr \columnB}
+    \setlength{\columnG}{\dimexpr \columnB}
+    \setlength{\columnH}{\dimexpr \columnB}
+    \setlength{\columnI}{\dimexpr \columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-10\vbar/9}
+    \setlength{\columnB}{\columnB-2\tabcolsep-10\vbar/9}
+    \setlength{\columnC}{\columnC-2\tabcolsep-10\vbar/9}
+    \setlength{\columnD}{\columnD-2\tabcolsep-10\vbar/9}
+    \setlength{\columnE}{\columnE-2\tabcolsep-10\vbar/9}
+    \setlength{\columnF}{\columnF-2\tabcolsep-10\vbar/9}
+    \setlength{\columnG}{\columnG-2\tabcolsep-10\vbar/9}
+    \setlength{\columnH}{\columnH-2\tabcolsep-10\vbar/9}
+    \setlength{\columnI}{\columnI-2\tabcolsep-10\vbar/9}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \CC{\columnC}|%
+          \CC{\columnD}|%
+          \CC{\columnE}|%
+          \CC{\columnF}|%
+          \CC{\columnG}|%
+          \CC{\columnH}|%
+          \CC{\columnI}|%
+        }
+        \caption[\LaTeX{} text size (beamer)]{\LaTeX{} text size (beamer).}%
+        \label{tab:tutorial/latex/text/size/beamer}\\
+        
+        \hline
+        \textbf{Command}
+            &\multicolumn{8}{c|}{\textbf{Size (pt)}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{Command}
+            &\multicolumn{8}{c|}{\textbf{Size (pt)}}
+        \\\hline
+        \endhead
+        
+        \texttt{\textbackslash{}tiny}
+            &5
+            &5
+            &5
+            &6
+            &6
+            &6
+            &8
+            &10
+        \\\hline
+        
+        \texttt{\textbackslash{}scriptsize}
+            &5
+            &6
+            &7
+            &8
+            &8
+            &8
+            &10
+            &12
+        \\\hline
+        
+        \texttt{\textbackslash{}footnotesize}
+            &6
+            &7
+            &8
+            &9
+            &10
+            &10
+            &12
+            &14
+        \\\hline
+        
+        \texttt{\textbackslash{}small}
+            &7
+            &8
+            &9
+            &10
+            &11
+            &12
+            &14
+            &17
+        \\\hline
+        
+        \rowcolor{gray!20} \texttt{\textbackslash{}normalsize}
+            &8
+            &9
+            &10
+            &11
+            &12
+            &14
+            &17
+            &20
+        \\\hline
+        
+        \texttt{\textbackslash{}large}
+            &10
+            &10
+            &12
+            &12
+            &14
+            &17
+            &20
+            &25
+        \\\hline
+        
+        \texttt{\textbackslash{}Large}
+            &11
+            &11
+            &14
+            &14
+            &17
+            &20
+            &25
+            &29.86
+        \\\hline
+        
+        \texttt{\textbackslash{}LARGE}
+            &12
+            &12
+            &17
+            &17
+            &20
+            &25
+            &29.86
+            &35.83
+        \\\hline
+        
+        \texttt{\textbackslash{}huge}
+            &14
+            &14
+            &20
+            &20
+            &25
+            &29.86
+            &35.83
+            &42.99
+        \\\hline
+        
+        \texttt{\textbackslash{}Huge}
+            &17
+            &17
+            &25
+            &25
+            &25
+            &35.83
+            &42.99
+            &51.59
+        \\\hline
+    \end{longtable}
+\endgroup

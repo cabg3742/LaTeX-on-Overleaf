@@ -1,0 +1,10 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {12},
+    lastline    = {26},
+    firstnumber = {12},
+    caption     = {[Header and footer style]Header and footer style.},
+    label       = {lst:tutorial/preamble/headfoot/style}
+]{tools/styles.tex}
+
+This is a custom header and footer style for my reports. We first start by resetting the default formatting with \texttt{\textbackslash{}fancyhf\{\}}. We can then declare anything we want inside the header or the footer with \texttt{\textbackslash{}fancyhead\{\}} or \texttt{\textbackslash{}fancyfoot\{\}} respectively. The \texttt{L}~/~\texttt{C}~/~\texttt{R} option sets the position (left, center, right). The \glspl{command} \texttt{\textbackslash{}leftmark} and \texttt{\textbackslash{}rightmark} \glsdisp{reference}{refer} to the top and bottom section levels respectively. The rulers \texttt{\textbackslash{}headrulewidth} and \texttt{\textbackslash{}footrulewidth} can be redefined or commented out if you want separators for your header and footer or not. Finally, the \gls{command} \texttt{\textbackslash{}fancyheadoffset\{\}} is reset to allow automatic adjustment of the header and footer when changing the geometry of the document (see \S~\ref{sec:tutorial/preamble/geometry}).

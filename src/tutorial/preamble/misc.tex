@@ -1,0 +1,22 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {593},
+    lastline    = {622},
+    firstnumber = {593},
+    caption     = {[Miscellaneous settings]Miscellaneous settings.},
+    label       = {lst:tutorial/preamble/misc}
+]{tools/settings.tex}
+
+\noindent Other useful \glspl{package} we could use are:
+\begin{itemize}
+    \item \texttt{import}:~allows file input from relative paths;
+    \item \texttt{comment}:~creates an \gls{environment} to selectively include or exclude text from the document;
+    \item \texttt{cmap}:~makes \gls{PDF} files searchable and copyable. This is natively supported for engines \hologo{XeTeX} and Lua\TeX{}, and thus only necessary with \glsdisp{PDF}{pdf}\TeX{} (see \S~\ref{sec:tutorial/overleaf/engine});
+    \item \texttt{stackengine}:~provides functionalities for stacking objects vertically;
+    \item \texttt{keyval}:~processes \gls{key}-\gls{value} pairs inside \gls{package} and \gls{command} \glspl{argument} (already called by the \texttt{graphicx} \gls{package};
+    \item \texttt{xspace}:~provides automatic insertion of space when necessary. When defining a \gls{command} with \texttt{\textbackslash{}xspace} at the end, you don't have to include closing braces to make sure there will be space after the \gls{command} is called;
+    \item \texttt{xargs}:~provides extended versions of \texttt{\textbackslash{}newcommand\{\}\{\}} which allows for easy and robust definition of \glspl{macro} with optional \glspl{parameter};
+    \item \texttt{chngcntr}:~defines \glspl{command} to reset the way counters are incremented;
+    \item \texttt{eso-pic}:~provides utilities to add background pictures to a document;
+    \item \texttt{todonotes}:~helps mark things to do inside the \gls{PDF}, so they're not missed when writing the document. Useful for collaborative projects, although Overleaf provides its own utility for writing down comments.
+\end{itemize}

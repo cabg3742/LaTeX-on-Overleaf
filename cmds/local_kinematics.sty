@@ -1,0 +1,88 @@
+% File:                 local_kinematics.sty
+% Author(s):            Gabriel Cabana
+% Creation date:        2021-05-02
+% Last modification:    2021-05-02
+% Description:          Definition of "local_kinematics" package.
+
+%%% PRELIMINARY DECLARATIONS %%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{local_kinematics}[2021/05/02]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\newvect}[7][]{
+    %%%-----------Vecteurs-----------%%%
+    % Tenseur
+    \ifthenelse{\equal{#1}{1}}
+        {\vec{\vec{\boldsymbol{#2}}}^{\,\raisemath{3pt}{\rfrac{#4}{#5}}}}
+        {}
+    % Moment vectoriel
+    \ifthenelse{\equal{#1}{3}}
+        {\overset{#3 \longrightarrow \rfrac{#5}{#6}}{\boldsymbol{#2}\hspace{#7}}}
+        {}
+    % Vecteur entre deux bases
+    \ifthenelse{\equal{#1}{5}}
+        {\overset{\raisemath{3pt}{#3 \longrightarrow #4}}{\boldsymbol{#2}\hspace{#7}}}
+        {}
+    % Vecteur base à position
+    \ifthenelse{\equal{#1}{7}}
+        {\overset{\raisemath{3pt}{#3 \longrightarrow #5}}{\boldsymbol{#2}\hspace{#7}}}
+        {}
+    % Position vectorielle
+    \ifthenelse{\equal{#1}{9}}
+        {\boldsymbol{#2}^{\raisemath{3pt}{\rfrac{#5}{#6}}}}
+        {}
+    %%%-----------Scalaires----------%%%
+    % Tenseur (scalaire)
+    \ifthenelse{\equal{#1}{2}}
+        {#2^{\raisemath{3pt}{\rfrac{#4}{#5}}}}
+        {}
+    % Moment scalaire
+    \ifthenelse{\equal{#1}{4}}
+        {\overset{#3 \longrightarrow \rfrac{#5}{#6}}{#2\hspace{#7}}}
+        {}
+    % Scalaire entre deux bases
+    \ifthenelse{\equal{#1}{6}}
+        {\overset{\raisemath{3pt}{#3 \longrightarrow #4}}{#2\hspace{#7}}}
+        {}
+    % Scalaire base à position
+    \ifthenelse{\equal{#1}{8}}
+        {\overset{\raisemath{3pt}{#3 \longrightarrow #5}}{#2\hspace{#7}}}
+        {}
+    % Position scalaire
+    \ifthenelse{\equal{#1}{10}}
+        {#2^{\raisemath{3pt}{\rfrac{#5}{#6}}}}
+        {}
+    %%%-----------Matrices-----------%%%
+    % Matrice de rotation
+    \ifthenelse{\equal{#1}{11}}
+        {\overset{#3 \hspace{8pt} #4}{#2\hspace{#7}}}
+        {}
+}
+
+% Dérivée
+\newcommand{\scalderiv}[5][]{
+    \ifthenelse{\isempty{#1}}
+        {\hphantom{0} \shiftleft{5pt}{{}^{{}^{\raisemath{5pt}{#2}}}} \frac{\mathrm{d}^{#4}}{\mathrm{d}#3^{#4}}
+            \left(#5\right)}
+        {\frac{\mathrm{d}^{#4}}{\mathrm{d}#3^{#4}} \left(#5\right)}
+}
+
+% Derivée vectorielle
+\newcommand{\vectderiv}[3]{\hphantom{0}\shiftleft{5pt}{{}^{{}^{\raisemath{5pt}{#1}}}}\frac{\mathrm{d^{#3}}}{\mathrm{d}#2^{#3}}}
+
+% Tenseur alternatif (2D)
+\newcommand{\tensor}[3]{
+    \smash[t]{
+        \highoverset{\rightharpoonup}{
+            \tightoverset{\rightharpoonup}{\boldsymbol{#1}}
+        }
+    }^{\,\raisemath{3pt}{\rfrac{#2}{#3}}}
+}
+
+% Vecteur unitaire
+\newcommand{\unitvect}[2]{\hat{#1}_{#2}}
+
+% Notation pour le centre de masse
+\newcommand{\cm}{_{\mathrm{cm}}}

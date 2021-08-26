@@ -1,0 +1,140 @@
+Standard column types have a pretty limited usage: they either don't allow text wrapping and/or don't provide vertical alignment and/or don't provide horizontal alignment. That's why I created nine new column types, that provide every type of vertical or horizontal alignment while all supporting text wrapping. They all have width as an \gls{argument}.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth-\columnA}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
+    \setlength{\columnB}{\columnB-2\tabcolsep-3\vbar/2}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \LC{\columnB}|%
+        }
+        \caption[Custom table columns]{Custom table columns.}%
+        \label{tab:tutorial/latex/custom/table}\\
+        
+        \hline
+        \textbf{\Gls{command}}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{\Gls{command}}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \texttt{\textbackslash{}LT\{\}}
+            &Left-aligned horizontally, top-aligned vertically.
+        \\\hline
+        
+        \texttt{\textbackslash{}CT\{\}}
+            &Centered horizontally, top-aligned vertically.
+        \\\hline
+        
+        \texttt{\textbackslash{}RT\{\}}
+            &Right-aligned horizontally, top-aligned vertically.
+        \\\hline
+        
+        \texttt{\textbackslash{}LC\{\}}
+            &Left-aligned horizontally, centered vertically.
+        \\\hline
+        
+        \texttt{\textbackslash{}CC\{\}}
+            &Centered horizontally, centered vertically.
+        \\\hline
+        
+        \texttt{\textbackslash{}RC\{\}}
+            &Right-aligned horizontally, centered vertically.
+        \\\hline
+        
+        \texttt{\textbackslash{}LB\{\}}
+            &Left-aligned horizontally, bottom-aligned vertically.
+        \\\hline
+        
+        \texttt{\textbackslash{}CB\{\}}
+            &Centered horizontally, bottom-aligned vertically.
+        \\\hline
+        
+        \texttt{\textbackslash{}RB\{\}}
+            &Right-aligned horizontally, bottom-aligned vertically.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+Column width can also be finicky. For instance, if we want the table to be \textit{exactly} the width of the text area, we need to take the table column separation and the vertical rule thickness into account. These \glspl{value} can all be expressed as a ratio of \texttt{\textbackslash{}linewidth}, $k\in\{0,1\}$:
+
+\begin{equation}
+    1 
+        = \sum\limits_{n=1}^{N} k_n + 2Nk_{\,\text{tabcolsep}} + M_{\,|}k_{\,|} + M_{\,||}k_{\,||}
+    \label{eq:tutorial/latex/custom/table/width}
+\end{equation}
+
+\begin{itemize}
+    \item $k_n$ is the thickness of each column;
+    \item $k_{\,\text{tabcolsep}}$ is the thickness of the tabular separation between columns. It appears twice between columns and once on each side of the table;
+    \item $k_{\,|}$ is the thickness of a singular vertical bar, defined as \texttt{\textbackslash{}vbar};
+    \item $k_{\,||}$ is the thickness of a double vertical bar, defined as \texttt{\textbackslash{}doublevbar};
+    \item $M_{\,|}$ is the number of single vertical bars;
+    \item $M_{\,||}$ is the number of double vertical bars;
+    \item $N$ is the number of columns.
+\end{itemize}
+
+For our next table, we must redefine columns so the sum of all elements in equation \ref{eq:tutorial/latex/custom/table/width} is always equal to \texttt{\textbackslash{}linewidth}. To do this, we can first start splitting our columns as if table column separation and vertical bars didn't exist, like so:
+\bigskip
+
+\begin{lstlisting}[%
+    language = {LaTeX},
+    caption  = {[Column length assignment (I)]Column length assignment (I).},
+    label    = {lst:tutorial/latex/custom/table/column1}
+]
+\setlength{\columnA}{16\linewidth\31}
+\setlength{\columnB}{8\linewidth\31}
+\setlength{\columnC}{4\linewidth\31}
+\setlength{\columnD}{2\linewidth\31}
+\setlength{\columnE}{\linewidth-\columnA-\columnB-\columnC-\columnD}
+\end{lstlisting}
+
+Then, we need to account for the dimensions we just ignored. Every column as padding on both sides, so this one is easy. Vertical bars are trickier: assuming we separate every column with vertical bars, and our table has a frame, we have one more bar than there are columns. We can then split our total bar thickness by the number of columns for each column. If there were a mix of single and double vertical bars, same principle applies: divide the number of single bars by the number of columns for each, and the number of double bars by the numbers of columns for each:
+\bigskip
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Column length assignment (II)]Column length assignment (II).},
+    label    = {lst:tutorial/latex/custom/table/column2}
+]
+\setlength{\columnA}{\columnA-2\tabcolsep-6\vbar/5-0\doublevbar/5}
+\setlength{\columnB}{\columnB-2\tabcolsep-6\vbar/5-0\doublevbar/5}
+\setlength{\columnC}{\columnC-2\tabcolsep-6\vbar/5-0\doublevbar/5}
+\setlength{\columnD}{\columnD-2\tabcolsep-6\vbar/5-0\doublevbar/5}
+\setlength{\columnE}{\columnE-2\tabcolsep-6\vbar/5-0\doublevbar/5}
+\end{lstlisting}
+
+If we use \texttt{\textbackslash{}multicolumn\{\}\{\}\{\}} later inside the table, we may not need to specify the width: if we want it to use all the available space, we can specify the default column types \texttt{l}, \texttt{c}, and \texttt{r} (see table \ref{tab:tutorial/latex/table/column}). However, if we need to specify the vertical alignment, we will need to use custom column types (table \ref{tab:tutorial/latex/custom/table}) that take width as an argument. To do this, you need to assign it the sum of all column widths + whatever there is in between. Continuing further with our example:
+\bigskip
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Multi-column with custom column widths]Multi-column with custom column widths.},
+    label    = {lst:tutorial/latex/custom/table/multicolumn}
+]
+\begin{longtable}%
+    {|\RC{\columnA}|% Right  + center alignment
+      \CC{\columnB}|% Center + center alignment
+      \CC{\columnC}|% Center + center alignment
+      \CC{\columnD}|% Center + center alignment
+      \LC{\columnE}|% Left   + center alignment
+    }
+    ...
+    
+    % First header
+    \hline
+    \multicolumn{1}{|\CT{\columnA}|}{Column title \#1}
+        & \multicolumn{3}{\CT{\columnB+\columnC+\columnD+4\tabcolsep+2\vbar}}{Column title \#2}
+        & \multicolumn{1}{\CT{\columnE}|}{Column title \#3}
+    \\\hline
+    \endfirsthead
+    ...
+\end{lstlisting}

@@ -1,0 +1,76 @@
+\glsdisp{label}{Labelling} and \glsdisp{reference}{referencing} is very easy. It only requires two \glspl{command}: \texttt{\textbackslash{}\gls{label}\{\}} and \texttt{\textbackslash{}\glsdisp{reference}{ref}\{\}}. The former creates an \gls{argument} that can be used by the latter to create a \gls{hyperlink} associated with a specific floating \gls{environment} instance, or object, at a specific spot in the document. Most templates (see \S~\ref{sec:tutorial/templates}) add a \gls{label} where most appropriate, except for lists: only ordered lists support \glsdisp{label}{labelling} properly, and their appeal is limited since only items can be \glsdisp{label}{labelled} and not the list itself. Glossary entries, acronyms and \glspl{source} have their own independent, integrated approach: the two \glspl{command} above are unnecessary.
+
+Since the same \glspl{command} can be used to \gls{reference} almost anything, it might get a bit confusing when a lot of \glspl{reference} are introduced. Two mitigation strategies can be used to make it easier to find the right one:
+\begin{itemize}
+    \item add a few letters to the \gls{label} to describe what you are \glsdisp{reference}{referencing} (see table \ref{tab:tutorial/latex/crossref/label}). It's common practice among \LaTeX{} users. Some \glspl{package}, such as \texttt{fancyref}, rely on this metadata;
+    \item add your directory inside the \gls{label}. \Glspl{label} can get quite lengthy with that method, but it's easier to find when looking at the document structure and using the auto-completion feature of Overleaf.
+\end{itemize}
+
+Examples of \glspl{label} can be seen in table \ref{tab:tutorial/latex/crossref/label}. Note that, past the colon (:), words like \guil{doc}, \guil{sec}, \guil{subsec}, and other \glsdisp{reference}{refer} to the name of the document, the section, the subsection, etc., inside the project architecture. For instance, if the document folder is named \guil{tutorial}, you can replace \guil{doc} with it in all your \glspl{label} inside that document (more information about the project architecture in \S~\ref{sec:tutorial/architecture}).
+
+\begingroup
+    \setlength{\columnA}{\dimexpr \linewidth/8}
+    \setlength{\columnB}{\dimexpr \columnA}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} labelling examples]{\LaTeX{} \glsdisp{label}{labelling} examples.}%
+        \label{tab:tutorial/latex/crossref/label}\\
+        
+        \hline
+        \multicolumn{2}{|c|}{\textbf{Type}}
+            &\multicolumn{1}{c|}{\textbf{Examples}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{2}{|c|}{\textbf{Type}}
+            &\multicolumn{1}{c|}{\textbf{Examples}}
+        \\\hline
+        \endhead
+        
+        Section
+            &\texttt{sec:}
+            &-- \verb"\label{sec:doc/sec}"
+             \newline -- \verb"\label{sec:doc/sec/subsec}"
+             \newline -- \verb"\label{sec:doc/sec/subsec/subsubsec}"
+             \newline -- \ldots
+        \\\hline
+        
+        Figure
+            &\texttt{fig:}
+            &-- \verb"\label{fig:doc/sec/fig}"
+             \newline -- \verb"\label{fig:doc/sec/subsec/fig/subfig}"
+             \newline -- \ldots
+        \\\hline
+        
+        Table
+            &\texttt{tab:}
+            &-- \verb"\label{tab:doc/sec/tab}"
+             \newline -- \verb"\label{tab:doc/sec/subsec/tab/subtab}"
+             \newline -- \ldots
+        \\\hline
+        
+        Equation
+            &\texttt{eq:}
+            &-- \verb"\label{eq:doc/sec/equation}"
+             \newline -- \verb"\label{eq:doc/sec/subsec/equation}"
+             \newline -- \ldots
+        \\\hline
+        
+        Code listing
+            &\texttt{lst:}
+            &-- \verb"\label{lst:doc/sec/code}"
+             \newline -- \verb"\label{lst:doc/sec/subsec/code}"
+             \newline -- \ldots
+        \\\hline
+    \end{longtable}
+\endgroup

@@ -1,0 +1,22 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {134},
+    lastline    = {161},
+    firstnumber = {134},
+    caption     = {[Font settings]Font settings.},
+    label       = {lst:tutorial/preamble/font}
+]{tools/settings.tex}
+
+The \texttt{fontenc} and \texttt{fontspec} \glspl{package} are required to define the encoding and an interface for \gls{AAT} and OpenType fonts on \hologo{XeTeX} or Lua\TeX{} (see \S~\ref{sec:tutorial/overleaf/engine}). The T1 encoding is 8-bit, comparatively to Computer Modern's 7-bit encoding, OT1. T1 allows us to:
+\begin{itemize}
+    \item hyphenate words with accented characters;
+    \item copy and paste text output without any issue;
+    \item avoid unexpected results with some special characters.
+\end{itemize}
+Other \glspl{package}, such as \texttt{inputenc} and \texttt{ae} can be used if you need to support legacy \LaTeX{} code or run \TeX{} on older machines.
+
+The various font setting \glspl{command} are used to change the font: the standard one is Computer Modern, and the one in this document is a Times New Roman clone, per the requirement of the \citelist{report:udes-writing-guide}{institution}.
+
+The next set of lines redefines the Computer Modern font to make the bold and small caps operations orthogonal, meaning they can be combined. That is not the case by default. These have been commented out since the document uses another font.
+
+The last few lines add symbol \glspl{package} for better display of particular symbols. The last two define new \glspl{command} based on symbols available in the \texttt{pifont} \gls{package}: the checkmark (\cmark), and the X mark (\xmark).

@@ -1,0 +1,149 @@
+% File:                 local_basics.sty
+% Author(s):            Gabriel Cabana
+%                       Jean-Olivier Simoneau
+% Creation date:        2015-05-04
+% Last modification:    2021-03-30
+% Description:          Definition of "local_basics" package.
+
+%%% PRELIMINARY DECLARATIONS %%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{local_basics}[2015/05/04]
+
+%%% PUNCTUATION MARK AND DIACRITICS %%%%%%%%%%%
+
+% French quotation marks
+\newcommand{\guil}[1]{\guillemotleft{ #1 }\guillemotright}
+
+% English quotation marks
+%\newcommand{\guil}[1]{``#1''}
+
+% Parentheses
+\newcommand{\inp}[1]{\left(#1\right)}
+
+% Brackets
+\newcommand{\insb}[1]{\left[#1\right]}
+
+% Braces
+\newcommand{\incb}[1]{\left\{#1\right\}}
+
+% List item for tables
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+%%% CHARACTER ALIGNMENT %%%%%%%%%%%%%%%%%%%%%%%
+
+% Stacked characters (tight)
+\newcommand{\tightoverset}[2]{
+    \mathop{#2}\limits^{
+        \vbox to -.5ex{
+            \kern-0.75ex\hbox{$#1$}\vss
+        }
+    }
+}
+\newcommand{\highoverset}[2]{
+    \mathop{#2}\limits^{
+        \vbox to -.5ex{
+            \kern-1.5ex\hbox{$#1$}\vss
+        }
+    }
+}
+
+% Character alignment (vertical)
+\makeatletter
+\newcommand{\raisemath}[1]{\mathpalette{\raisem@th{#1}}}
+\newcommand{\raisem@th}[3]{\raisebox{#1}{$#2#3$}}
+\makeatother
+
+% Character alignment (horizontal)
+\newcommand{\shiftleft}[2]{\mathmakebox[0pt][r]{\makebox[#1][l]{$#2$}}}
+
+%%% MATH GLYPHS AND SYMBOLS %%%%%%%%%%%%%%%%%%%
+
+% Vertical bar (evaluation)
+\newcommand{\inev}[2]{\left.#1\right|_{#2}}
+
+% Angle brackets (average)
+\newcommand{\mean}[1]{\left<#1\right>}
+
+% Vertical bars (absolute)
+\newcommand{\abs}[1]{\left|#1\right|}
+
+% Total derivative
+\newcommand{\deriv}[3]{\frac{\text{d}^{#1}#2}{\text{d}#3^{#1}}}
+
+% Partial derivative
+\newcommand{\pderiv}[3]{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
+
+% Curl
+\newcommand{\curl}[1]{\vec\nabla\times\vec{#1}}
+
+% Divergence
+\newcommand{\divergence}[1]{\vec\nabla\cdot\mathbf{#1}}
+
+% Laplacian 
+\newcommand{\laplacian}[1]{\nabla^2{#1}}
+
+% Gradient
+\newcommand{\gradient}[1]{\nabla#1}
+
+% Indefinite integral
+\newcommand{\inti}[1][]{%
+   \def\cmdDefaultA{#1}%
+   \intd
+ }
+ 
+% Definite integral
+\newcommand{\intd}[3][]{%
+	 \int_{\cmdDefaultA}^{#1} #2\, \mathd #3
+}
+
+% Surface integral
+%\newcommand{\ints}[1][]{\varoiint_S\vec{#1}\cdot\dd\vec{S}}
+
+% Vector
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+% Units
+\newcommand{\unit}[1]{\mathrm{~#1}}
+
+% Decimal notation
+\newcommand{\ee}[1]{\times 10^{#1}}
+
+% Character with vector arrow
+\newcommand{\harpoon}{\overset{\rightharpoonup}}
+\newcommand{\tightharpoon}{\tightoverset{\rightharpoonup}}
+\newcommand{\highharpoon}{\highoverset{\rightharpoonup}}
+
+% Stylised fraction
+\newcommand*\sfrac[2]{{}^{#1}\!/_{#2}}
+
+% Smaller approximation number
+\makeatletter
+\newcommand{\smallsym}[2]{#1{\mathpalette\make@small@sym{#2}}}
+\newcommand{\make@small@sym}[2]{%
+  \vcenter{\hbox{$\m@th\downgrade@style#1#2$}}%
+}
+\newcommand{\downgrade@style}[1]{%
+  \ifx#1\displaystyle\scriptstyle\else
+    \ifx#1\textstyle\scriptstyle\else
+      \scriptscriptstyle
+  \fi\fi
+}
+\makeatother
+
+% Smaller equivalence symbol
+\newcommand{\smallsim}{\smallsym{\mathrel}{\sim}}
+
+% Wider hat symbol
+\renewcommand{\hat}{\widehat}
+
+%%% GRAPHICS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Horizontal line
+\newcommand{\hr}{\noindent\rule[0.7ex]{\linewidth}{\arrayrulewidth}}
+
+% Include SVG graphics
+\newcommand{\incfig}[3]{%
+    \def\svgwidth{#3}
+    \import{./#1}{#2.pdf_tex}
+}

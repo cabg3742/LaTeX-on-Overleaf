@@ -1,0 +1,33 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {11},
+    lastline    = {11},
+    firstnumber = {11},
+    caption     = {[Document \glsentrytext{class} settings]Document \gls{class} settings.},
+    label       = {lst:tutorial/preamble/doc}
+]{tools/settings.tex}
+
+The \texttt{\textbackslash{}document\gls{class}[]\{\}} \gls{macro} is \textit{the essential \LaTeX{} \gls{macro}}. It is use to define a multitude of \glspl{argument} for your documents, the necessary one being the document \gls{class} in between braces. A comprehensive list of document \glspl{class} openly available can be found on the \gls{CTAN} \parencite{web:ctan-documentclass}. Some standard ones include:
+\begin{itemize}
+    \item \texttt{article}:~articles in scientific journals, presentations, short reports, program documentation, invitations, etc. It's the document type most people default to;
+    \item \texttt{beamer}:~presentations, akin to PowerPoint for instance;
+    \item \texttt{book}:~longer books;
+    \item \texttt{letter}:~letters;
+    \item \texttt{memoir}:~based on the book \gls{class}, but you can create any kind of document with it;
+    \item \texttt{minimal}:~as small as it can get. It only sets a page size and a base font. Mainly used for debugging purposes;
+    \item \texttt{report}:~longer reports with several chapters, small books, thesis, and more.
+\end{itemize}
+
+\noindent Some optional \glspl{parameter}---in between brackets---for standard \glspl{class} include:
+\begin{itemize}
+    \item document dimensions (\texttt{letterpaper}, \texttt{a4paper}, \texttt{legalpaper}, \texttt{executivepaper}, \texttt{a5paper}, \texttt{b5paper}). Defaults to letter or A4 depending on the distribution and engine;
+    \item font size (see \S~\ref{sec:tutorial/latex/text/size});
+    \item number of sides (\texttt{oneside}, \texttt{twoside});
+    \item number of columns (\texttt{onecolumn}, \texttt{twocolumn}). \Gls{package} \texttt{multicol} can extend that functionality to more than two columns;
+    \item presence of a title page (\texttt{titlepage}, \texttt{notitlepage});
+    \item equation options (\texttt{fleqn} for left alignment of equations, \texttt{leqno} for equation labels to the left);
+    \item chapter opening page (\texttt{openright}, \texttt{openany});
+    \item change print mode with \texttt{landscape};
+    \item change compiling option with \texttt{draft};
+    \item show the page frame with \texttt{showframe}. It comes in pretty handy to spot alignment and margin issues.
+\end{itemize}

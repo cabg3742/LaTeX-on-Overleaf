@@ -1,0 +1,90 @@
+This folder contains the images for figures, the code for listings, and the data for function plots in the document. For simplicity, I would recommend using the same architecture inside \texttt{data/} as the one in \texttt{src/}, as seen in figure \ref{fig:tutorial/architecture/data/comparison}:
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \begin{forest}
+            for tree = {
+                font=\ttfamily,
+                grow'=0,
+                child anchor=west,
+                parent anchor=south,
+                anchor=west,
+                calign=first,
+                edge path={
+                    \noexpand\path [draw, thick, \forestoption{edge}]
+                    (!u.south west) +(10pt,0) |- node[circle,fill,inner sep=2pt] {} (.child anchor)\forestoption{edge label};
+                },
+                before typesetting nodes={
+                    if n=1
+                    {insert before={[,phantom]}}
+                    {}
+                },
+                fit=band,
+                before computing xy={l=20pt},
+            }
+            [src/
+                [doc/
+                    [sec/
+                        [subsec/
+                            [subsubsec.tex]
+                        ]
+                    ]
+                ]
+            ]
+        \end{forest}
+        \caption{Section file architecture.}
+        \label{fig:tutorial/architecture/data/comparison/src}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.10\textwidth}
+        \centering
+        \raisebox{15mm}{$\Longleftrightarrow$}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \begin{forest}
+            for tree = {
+                font=\ttfamily,
+                grow'=0,
+                child anchor=west,
+                parent anchor=south,
+                anchor=west,
+                calign=first,
+                edge path={
+                    \noexpand\path [draw, thick, \forestoption{edge}]
+                    (!u.south west) +(10pt,0) |- node[circle,fill,inner sep=2pt] {} (.child anchor)\forestoption{edge label};
+                },
+                before typesetting nodes={
+                    if n=1
+                    {insert before={[,phantom]}}
+                    {}
+                },
+                fit=band,
+                before computing xy={l=20pt},
+            }
+            [data/
+                [doc/
+                    [sec/
+                        [subsec/
+                            [subsubsec/
+                                [file.\glsdisp{PDF}{pdf}]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        \end{forest}
+        \caption{Data file architecture.}
+        \label{fig:tutorial/architecture/data/comparison/img}
+    \end{subfigure}
+    \caption[Comparison of section file and data file architectures]{Comparison of section file and data file architectures.}
+    \label{fig:tutorial/architecture/data/comparison}
+\end{figure}
+
+It will create a hierarchy that may be bloated for small projects, but allows the project to change in scope and size pretty easily. Including the image in a figure becomes as simple as knowing the document name, looking at the document structure in the table of contents or the tree browser of the Overleaf project, and knowing the image file name (more details about figures in general in \S~\ref{sec:tutorial/latex/fig}):
+\begin{center}
+    \texttt{\textbackslash{}includegraphics[width=\textbackslash{}figsize\textbackslash{}columnwidth]\%}
+    \par
+    \texttt{\{data/doc/sec/subsec/subsubsec/file.\glsdisp{PDF}{pdf}\}}
+\end{center}

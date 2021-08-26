@@ -1,0 +1,14 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {49},
+    lastline    = {121},
+    firstnumber = {49},
+    caption     = {[Bibliography options]Bibliography options.},
+    label       = {lst:tutorial/preamble/bib/options}
+]{tools/settings.tex}
+
+The first set of \glspl{macro}, replaces the \guil{dumb} parentheses or brackets of \gls{citation} \glspl{command} with a context-aware version. This means that, when a \gls{citation} is called inside parentheses, the \gls{citation} itself will use brackets, and vice-versa. This helps avoid the chance of seeing double parentheses or double brackets.
+
+The second set adds \glsdisp{hyperlink}{hyperlinking} functionality to the author field inside a \gls{citation}. When using the \texttt{authoryear-comp} \gls{citation} style, the author name is not a clickable link to the \gls{source} in the base \texttt{biblatex} \gls{package}, only the year. These patches redefine the \gls{citation} \glspl{command} to include that author \gls{hyperlink}.
+
+The last two lines add a separator between the author name and the year in that same \gls{citation} style, to comply with another suggested formatting by the \citelist{report:udes-writing-guide}{institution}.

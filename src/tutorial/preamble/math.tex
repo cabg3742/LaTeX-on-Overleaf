@@ -1,0 +1,21 @@
+\lstinputlisting[%
+    language    = LaTeX,
+    firstline   = {495},
+    lastline    = {555},
+    firstnumber = {495},
+    caption     = {[Mathematics and arithmetic settings]Mathematics and arithmetic settings.},
+    label       = {lst:tutorial/preamble/math}
+]{tools/settings.tex}
+
+Since \TeX{} was created mostly for proper display of equations in documents, there is a plethora of \glspl{package} to choose from, the ones in use at the moment being:
+\begin{itemize}
+    \item \texttt{mathtools}:~provides extensible symbols and more \glspl{environment} to supplement the \LaTeX-required \texttt{amsmath} \gls{package};
+    \item \texttt{amssymb}:~provides extra symbols and font utilities for mathematical typesetting;
+    \item \texttt{upgreek}:~adds upright Greek letters;
+    \item \texttt{esint}:~extends the set of integral symbols;
+    \item \texttt{siunitx}:~consistent interface to define the number and unit conventions;
+    \item \texttt{nicefrac}:~adds a new fraction style;
+    \item \texttt{cancel}:~add cancellation symbols for mathematical developments.
+\end{itemize}
+
+As for the arithmetic side of things, the only \gls{package} in use is \texttt{xintfrac}. It provides operations on long numbers, which increases the precision of various calculations. Its commands are use in lines 511--555 to define units of length and conversion \glspl{macro} to create table \ref{tab:tutorial/latex/dim}. Its use would be very limited in other cases, but you could still want to create functions for quick and flexible arithmetic.

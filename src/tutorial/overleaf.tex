@@ -1,0 +1,78 @@
+\textit{This project was implemented in Overleaf. It is not necessary to understand the section, although it provides examples of what is discussed. For proper illustration of my words, start a project with your own Overleaf account and follow along, or ask for viewing privileges on this project if you know me personally.}
+
+\hr
+
+If you go over the Overleaf menu of this project, most settings will be straightforward to you, especially those that have already programmed and are familiar working with an \gls{IDE}. You will see settings such as \guil{spell check}, \guil{code check}, \guil{auto-completion}, etc. They are pretty self-explanatory. All fine and dandy, until you get to \guil{compiler} and \guil{\TeX{} Live version}:
+\begin{itemize}
+    \item What's \TeX{} Live?
+    \item What \TeX{} Live version should I use? Always the most up-to-date?
+    \item What compiler should I choose for my project?
+    \item What distinguishes the different compilers?
+\end{itemize} 
+
+Fear not. Most of the different options can be found in table \ref{tab:tutorial/overleaf/tex}, and then some. Each level will be described in more details in the following subsections. More information is also available on Overleaf \parencite{web:overleaf-flavours-tex}. For simplicity, \guil{\LaTeX} may be used pretty loosely in the rest of the document to refer to the typesetting system in part or in its entirety.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .16\linewidth}
+    \setlength{\columnB}{\dimexpr .16\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CT{\columnA}|%
+          \LT{\columnB}|%
+          \LT{\columnC}|%
+        }
+        \caption[\TeX{} architecture]{\TeX{} architecture.}%
+        \label{tab:tutorial/overleaf/tex}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Level}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Examples}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Level}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Examples}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        Engine
+            &-- \TeX
+             \newline -- \glsdisp{PDF}{pdf}\TeX
+             \newline -- \hologo{XeTeX}
+             \newline -- Lua\TeX
+             \newline -- $\cdots$
+            &These are the executable binaries which implement different \TeX{} variants, known as the \guil{compiler} option in Overleaf.
+        \\\hline
+        
+        Format
+            &-- \TeX
+             \newline -- \LaTeX
+             \newline -- Op\TeX
+             \newline -- $\cdots$
+            &These are the \TeX-based languages in which one actually writes documents. When someone says \guil{\TeX{} is giving me a mysterious error}, they usually mean a format. If no special format is defined, one can write in plain \TeX.
+        \\\hline
+        
+        Distribution
+            &-- \TeX{} Live
+             \newline -- MiK\TeX
+             \newline -- $\cdots$
+            &These are the large, coherent collections of \TeX-related software to be downloaded and installed. When someone says \guil{I need to install \TeX{} on my machine}, they're usually looking for a distribution.
+        \\\hline
+        
+        Editor
+            &-- Overleaf
+             \newline -- \hologo{LyX}
+             \newline -- Vim
+             \newline -- $\cdots$
+            &These editors are what you use to create or modify a document file.
+        \\\hline
+    \end{longtable}
+\endgroup

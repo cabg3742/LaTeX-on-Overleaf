@@ -1,0 +1,53 @@
+When beginning a table \gls{environment}, one of the first \glspl{argument} we must declare is the structure. This can be comprised of any number of columns, of any type. Table \ref{tab:tutorial/latex/table/column} lists the standard column types. Columns in the declared structure can be split with some characters, such as \texttt{|} for vertical bars between them, or \texttt{||} for double vertical bars.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr \linewidth-\columnA}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
+    \setlength{\columnB}{\columnB-2\tabcolsep-3\vbar/2}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \LC{\columnB}|%
+        }
+        \caption[\LaTeX{} table columns]{\LaTeX{} table columns.}%
+        \label{tab:tutorial/latex/table/column}\\
+        
+        \hline
+        \textbf{Column}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \textbf{Column}
+            &\multicolumn{1}{c|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \texttt{l}
+            &Left-justified column.
+        \\\hline
+        
+        \texttt{c}
+            &Centered column.
+        \\\hline
+        
+        \texttt{r}
+            &Right-justified column.
+        \\\hline
+        
+        \verb"p{}"
+            &Paragraph column with text vertically aligned at the top. Width must be specified.
+        \\\hline
+        
+        \verb"m{}"
+            &Paragraph column with text vertically aligned in the middle. Width must be specified. Requires the \texttt{array} \gls{package} (\S~\ref{sec:tutorial/preamble/table}).
+        \\\hline
+        
+        \verb"b{}"
+            &Paragraph column with text vertically aligned at the bottom. Width must be specified. Requires the \texttt{array} \gls{package} (\S~\ref{sec:tutorial/preamble/table}).
+        \\\hline
+    \end{longtable}
+\endgroup

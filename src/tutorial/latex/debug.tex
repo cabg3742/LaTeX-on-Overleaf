@@ -1,0 +1,26 @@
+If you wish to find the length of a \gls{variable}, some characters, a text excerpt, etc., you can use \glspl{command} in listing \ref{lst:tutorial/latex/debug/length} to display them in text instead of searching for the \gls{value} in the compilation logs.
+\bigskip
+
+\begin{lstlisting}[%
+    language = LaTeX,
+    caption  = {[Display length in text]Display length in text.},
+    label    = {lst:tutorial/latex/debug/length}
+]
+% Create new length
+\newlength{\mylength}
+\newlength{\mywidth}
+\newlength{\myheight}
+\newlength{\mydepth}
+
+% Set length
+\setlength{\mylength}{...}
+\settowidth{\mywidth}{...}
+\settoheight{\myheight}{...}
+\settodepth{\mydepth}{...}
+
+% Display length
+\the\mylength
+\the\mywidth
+\the\myheight
+\the\mydepth
+\end{lstlisting}

@@ -1,0 +1,324 @@
+% doi / eprint+eprinttype+eprintclass / isbn / eid
+% author / authortype
+% year / month / day / date
+% editor / editortype: editor, compiler, founder, continuator, redactor, reviser, collaborator, organizer.
+% corporate author: double braces
+% version
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PERIODICAL ARTICLE (article)               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{template:article,
+    %%% Required
+    author       = {Author},
+    title        = {Article title},
+    journaltitle = {Periodical title},
+    % year         = {}, % Choose if you only know the year
+    % month        = {}, % Pair with 'year' if you don't know the day
+    date         = {2000-01-01}, % Choose if you know the entire date
+    pages        = {\#\#--\#\#}, % Choose for single page or range of pages
+    % pagetotal    = {}, % Choose for page total
+    
+    %%% Provide if exists
+    location     = {Location},
+    volume       = {5},
+    number       = {Number},
+    
+    %%% Suggested (pick at least one type)
+    doi          = {10.1109/AERO.2014.6836308}, % Digital Object Identifier
+    % eid          = {}, % Electronic Identifier
+    % eprint       = {}, % Electronic publishing identifier (ex.: 1008.2849v1)
+    % eprinttype   = {}, % Electronic publishing type (ex.: arxiv)
+    % eprintclass  = {}, % Electronic publishing class (ex. cs.DS)
+    % isbn         = {}, % International Standard Book Number
+    % issn         = {}, % International Standard Serial Number
+    % url          = {},
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PROCEEDINGS ARTICLE (inproceedings)        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{template:inproceedings,
+    %%% Required
+    author       = {Author},
+    title        = {Article title},
+    booktitle    = {Proceedings title},
+    publisher    = {Publishing house},
+    % year         = {}, % Choose if you only know the year
+    % month        = {}, % Pair with 'year' if you don't know the day
+    date         = {2000-01-01}, % Choose if you know the entire date
+    pages        = {\#\#--\#\#}, % Choose for single page or range of pages
+    % pagetotal    = {}, % Choose for page total
+    
+    %%% Provide if exists
+    editor       = {Editor},
+    organisation = {Organisation},
+    series       = {Collection},
+    location     = {Location},
+    volume       = {5},
+    
+    %%% Suggested (pick at least one type)
+    % doi          = {}, % Digital Object Identifier
+    % eid          = {}, % Electronic Identifier
+    eprint       = {1008.2849v1}, % Electronic publishing identifier
+    eprinttype   = {arxiv}, % Electronic publishing type
+    eprintclass  = {cs.DS}, % Electronic publishing class
+    % isbn         = {}, % International Standard Book Number
+    % issn         = {}, % International Standard Serial Number
+    % url          = {},
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BOOK (book)                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@book{template:book,
+    %%% Required
+    author       = {Author},
+    % editor       = {Editor}, % Choose if author unknown
+    title        = {Book title},
+    year         = {2000},
+    edition      = {2},
+    publisher    = {Publishing house},
+    % pages        = {}, % Choose for single page or range of pages
+    pagetotal    = {420}, % Choose for page total
+    
+    %%% Provide if exists
+    location     = {Location},
+    volume       = {5},
+    
+    %%% Suggested (pick at least one type)
+    % doi          = {}, % Digital Object Identifier
+    % eid          = {}, % Electronic Identifier
+    % eprint       = {}, % Electronic publishing identifier (ex.: 1008.2849v1)
+    % eprinttype   = {}, % Electronic publishing type (ex.: arxiv)
+    % eprintclass  = {}, % Electronic publishing class (ex. cs.DS)
+    isbn         = {978-1-4799-1622-1}, % International Standard Book Number
+    % issn         = {}, % International Standard Serial Number
+    % url          = {},
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PART OF A BOOK (inbook)                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inbook{template:inbook,
+    %%% Required
+    author       = {Author},
+    % editor       = {Editor}, % Choose if author unknown
+    title        = {Part title},
+    booktitle    = {Book title},
+    year         = {2000},
+    edition      = {2},
+    publisher    = {Publishing house},
+    % pages        = {}, % Choose for single page or range of pages
+    pagetotal    = {420}, % Choose for page total
+    
+    %%% Provide if exists
+    location     = {Location},
+    volume       = {5},
+    
+    %%% Suggested (pick at least one type)
+    % doi          = {}, % Digital Object Identifier
+    % eid          = {}, % Electronic Identifier
+    % eprint       = {}, % Electronic publishing identifier (ex.: 1008.2849v1)
+    % eprinttype   = {}, % Electronic publishing type (ex.: arxiv)
+    % eprintclass  = {}, % Electronic publishing class (ex. cs.DS)
+    isbn         = {978-1-4799-1622-1}, % International Standard Book Number
+    % issn         = {}, % International Standard Serial Number
+    % url          = {},
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ESSAY / DISSERTATION / THESIS (thesis)     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@thesis{template:thesis,
+    %%% Required
+    author       = {Author},
+    title        = {Title},
+    year         = {2000},
+    type         = {Degree level},
+    institution  = {Institution},
+    location     = {Location},
+    pages        = {\#\#--\#\#}, % Choose for single page or range of pages
+    % pagetotal    = {}, % Choose for page total
+    
+    %%% Suggested (pick at least one type)
+    doi          = {10.1109/AERO.2014.6836308}, % Digital Object Identifier
+    % eid          = {}, % Electronic Identifier
+    % eprint       = {}, % Electronic publishing identifier (ex.: 1008.2849v1)
+    % eprinttype   = {}, % Electronic publishing type (ex.: arxiv)
+    % eprintclass  = {}, % Electronic publishing class (ex. cs.DS)
+    % isbn         = {}, % International Standard Book Number
+    % issn         = {}, % International Standard Serial Number
+    % url          = {},
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TECHNICAL REPORT (report)                  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@report{template:report,
+    %%% Required
+    author      = {Author},
+    title       = {Title},
+    year        = {2000},
+    institution = {Institution},
+    pages        = {\#\#--\#\#}, % Choose for single page or range of pages
+    % pagetotal    = {}, % Choose for page total
+    
+    %%% Provide if exists
+    location    = {Location},
+    type        = {Report type},
+    number      = {Number},
+    
+    %%% Suggested (pick at least one type)
+    % doi          = {}, % Digital Object Identifier
+    % eid          = {}, % Electronic Identifier
+    % eprint       = {}, % Electronic publishing identifier (ex.: 1008.2849v1)
+    % eprinttype   = {}, % Electronic publishing type (ex.: arxiv)
+    % eprintclass  = {}, % Electronic publishing class (ex. cs.DS)
+    % isbn         = {}, % International Standard Book Number
+    issn         = {0317-8471}, % International Standard Serial Number
+    % url          = {},
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% WEBSITE (www)                              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@www{template:website,
+    %%% Required
+    author       = {IEEE},
+    title        = {IEEE Xplore},
+    year         = {2014}, % Choose if you only know the year
+    url          = {https://ieeexplore.ieee.org/document/6836308},
+    urldate      = {2021-05-15},
+    
+    %%% Provide if exists
+    month        = {03}, % Pair with 'year' if you don't know the day
+    % date         = {}, % Choose if you know the entire date
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% WEB DOCUMENT (www)                         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@www{template:web-doc,
+    %%% Required
+    author     = {David Klaus and Robert Ocampo and Christine Fanchiang},
+    editor     = {IEEE},
+    title      = {IEEE Xplore}, % Website title
+    titleaddon = {Spacecraft human-rating: Historical overview and implementation considerations}, % Resource title
+    year       = {2014},
+    url        = {https://ieeexplore.ieee.org/document/6836308},
+    urldate    = {2021-05-15},
+    
+    %%% Provide if exists
+    month        = {03}, % Pair with 'year' if you don't know the day
+    % date         = {}, % Choose if you know the entire date
+    
+    %%% Suggested (pick at least one type)
+    doi          = {10.1109/AERO.2014.6836308}, % Digital Object Identifier
+    % eid          = {}, % Electronic Identifier
+    % eprint       = {}, % Electronic publishing identifier (ex.: 1008.2849v1)
+    % eprinttype   = {}, % Electronic publishing type (ex.: arxiv)
+    % eprintclass  = {}, % Electronic publishing class (ex. cs.DS)
+    isbn         = {978-1-4799-1622-1}, % International Standard Book Number
+    issn         = {1095-323X}, % International Standard Serial Number
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LEGISLATION (misc)                         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@misc{template:legislation,
+    %%% Required
+    title    = {Legislation title},
+    type     = {Jurisdiction},
+    note     = {Number},
+    
+    %%% Provide if exists
+    year     = {2000},
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% NORM (book)                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@book{template:norm,
+    %%% Required
+    author    = {Author},
+    title     = {Title},
+    year      = {2000},
+    publisher = {Publishing house},
+    pages        = {\#\#--\#\#}, % Choose for single page or range of pages
+    % pagetotal    = {}, % Choose for page total
+    
+    %%% Provide if exists
+    location  = {Location},
+    number    = {Number},
+    
+    %%% Suggested (pick at least one type)
+    % doi          = {}, % Digital Object Identifier
+    % eid          = {}, % Electronic Identifier
+    % eprint       = {}, % Electronic publishing identifier (ex.: 1008.2849v1)
+    % eprinttype   = {}, % Electronic publishing type (ex.: arxiv)
+    % eprintclass  = {}, % Electronic publishing class (ex. cs.DS)
+    % isbn         = {}, % International Standard Book Number
+    % issn         = {}, % International Standard Serial Number
+    % url          = {},
+    
+    %%% Utilities
+    % crossref     = {}, % Inherit fields from other reference
+    % keywords     = {keyword_01, keyword_02} % For filtered bibliographies
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% OTHERS                                     %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% See section 2 of the CTAN documentation.
+% https://muug.ca/mirror/ctan/macros/latex/contrib/biblatex/doc/biblatex.pdf
+
+% Cheat sheet:
+% http://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf

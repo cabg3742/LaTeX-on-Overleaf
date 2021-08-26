@@ -1,0 +1,48 @@
+\begin{figure}[H]
+    \centering
+    \begin{forest}
+        for tree = {
+            font=\ttfamily,
+            grow'=0,
+            child anchor=west,
+            parent anchor=south,
+            anchor=west,
+            calign=first,
+            edge path={
+                \noexpand\path [draw, thick, \forestoption{edge}]
+                (!u.south west) +(15pt,0) |- node[circle,fill,inner sep=2pt] {} (.child anchor)\forestoption{edge label};
+            },
+            before typesetting nodes={
+                if n=1
+                {insert before={[,phantom]}}
+                {}
+            },
+            fit=band,
+            before computing xy={l=30pt},
+        }
+        [src/
+            [doc/
+                [sec/
+                    [subsec/
+                        [subsubsec.tex]
+                        [...]
+                    ]
+                    [subsec.tex]
+                    [...]
+                ]
+                [sec.tex]
+                [...]
+            ]
+            [doc.tex]
+            [...]
+        ]
+    \end{forest}
+    \caption[Architecture of section files]{Architecture of section files.}
+    \label{fig:tutorial/architecture/src}
+\end{figure}
+
+This folder contains the \TeX{} files which represent the sections, subsections, and sub-subsections of a document. Every set of sections / subsections / sub-subsections is stored inside a folder that represents a single compiled document (e.g., \texttt{doc/}), which is defined inside a \TeX{} file at the top level of \texttt{src/} (e.g., \texttt{doc.tex}). Every section can have its own content defined in a \TeX{} file, and then every subsection inside that section does the same in a folder with the section name. Same principle applies for the sub-subsections. Top level files represent the compilation file of each document, which defines everything: settings, cover page, content, etc. In a previous version of my template, these top level files were stored in a separate folder on root, named \texttt{comp/}: this was quickly abandoned because I don't find any significant advantage in separating them from the rest of the document structure. As I said in \S~\ref{sec:tutorial/architecture/data}, it will create a hierarchy that seems bloated for small projects, but allows the project to change in scope and size pretty easily.
+
+I suggest finding short handles for your section names, so it's easier to read in the tree browser on Overleaf. If your document has a lot of sections, or a section has a lot of subsections, etc., you can add a numbering scheme in your \TeX{} file names, though now your naming scheme is tied to the document structure and should be modified when the structure is altered.
+
+In this template, we stop at three division levels, but it's possible to adapt it to include more or less levels (more on that in \S~\ref{sec:tutorial/latex/sec} and \S~\ref{sec:tutorial/preamble/toc}).

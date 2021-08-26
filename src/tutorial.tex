@@ -1,0 +1,637 @@
+% File:                 tutorial.tex
+% Author(s):            Cabana, Gabriel | cabg2101
+% Creation date:        2021-05-03
+% Last modification:    2021-07-21
+% Description:          Aide-mémoire. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PREAMBLE                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Most packages and settings
+\include{tools/settings}
+
+% Glossaries, because they don't play nice when moved
+\usepackage[acronym,nopostdot,toc,numberline]{glossaries}
+\renewcommand*{\glstextformat}[1]{\textcolor{ForestGreen}{#1}}
+\renewcommand*{\glsseelist}[1]{\textcolor{ForestGreen}{#1}}
+\makeglossaries
+\loadglsentries{tools/acronyms}
+\loadglsentries{tools/glossary}
+
+% Styles
+\include{tools/styles}
+
+% Renew quotes for English
+\renewcommand{\guil}[1]{``#1''}
+
+% Renew typewriter font
+% \let\oldtexttt\texttt
+% \renewcommand{\texttt}[1]{\oldtexttt{\small #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BEGIN DOCUMENT                             %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Set language for this document only
+\selectlanguage{american}
+
+% Define landscape geometry for future use
+\newgeometry{
+    left   = 1in,
+    right  = 1in,
+    top    = 1in,
+    bottom = 1in,
+    landscape
+}
+\savegeometry{landscape}
+\restoregeometry
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DEFINITIONS                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{defs/tutorial}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% COVER PAGE                                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Set pdf page label as "Cover"
+\renewcommand{\thepage}{\CoverName}
+
+\AddToShipoutPicture*{
+    \put(0,0){%
+        \parbox[b][\paperheight]{\paperwidth}{%
+        \vfill
+        \centering
+        \includegraphics[width=\paperwidth,height=\paperheight]{data/tutorial/overleaf.pdf}%
+        \vfill
+        }
+    }
+}
+
+\thispagestyle{empty}
+\begin{center}
+    \null\mbox{}\vfill
+    {\Huge\bfseries\scshape \title}
+    \par
+    {\Large\bfseries\scshape \subtitle}
+    \par\mbox{}\par
+    by \MakeUppercase{\firstnameA~\lastnameA}
+    \vfill\null
+    \textbf{V\version}
+    \par
+    \today
+\end{center}
+
+\clearpage
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+\hfill
+\thispagestyle{empty}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CHANGE LOG                                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Add to table of contents
+\pagestyle{udes}
+% \phantomsection
+% \addcontentsline{toc}{section}{\protect\numberline{}Changelog}%
+\section*{Changelog}
+\input{src/tutorial/log}
+\label{sec:tutorial/log}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONTENTS AND LISTS OF FLOATS               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \renewcommand{\contentsname}{Table of Contents}
+% \renewcommand{\listfigurename}{List of Figures}
+% \renewcommand{\listtablename}{List of Tables}
+% \renewcommand{}{}
+
+\AddToShipoutPicture{
+    \put(0,0){%
+        \parbox[b][\paperheight]{\paperwidth}{%
+        \vfill
+        \centering
+        \includegraphics[width=\paperwidth,height=\paperheight]{data/tutorial/latex.pdf}%
+        \vfill
+        }
+    }
+}
+
+\tableofcontents\pagebreak
+\listoffigures\pagebreak
+\listoftables\pagebreak
+\lstlistoflistings\pagebreak
+\ClearShipoutPicture
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% GLOSSARY                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+% \glsaddallunused
+\printacronyms[style=glscustom]
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FOREWORD                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Add to table of contents
+\phantomsection
+\addcontentsline{toc}{section}{\protect\numberline{}Foreword}%
+\section*{Foreword}
+\input{src/tutorial/foreword}
+\label{sec:tutorial/foreword}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT STRUCTURE                         %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addtocontents{toc}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\newpage
+\section{\LaTeX{} on Overleaf}
+\label{sec:tutorial/overleaf}
+\input{src/tutorial/overleaf}
+
+    \subsection{Engine}
+    \label{sec:tutorial/overleaf/engine}
+    \input{src/tutorial/overleaf/engine}
+    
+    \subsection{Format}
+    \label{sec:tutorial/overleaf/format}
+    \input{src/tutorial/overleaf/format}
+
+    \subsection{Distribution}
+    \label{sec:tutorial/overleaf/dist}
+    \input{src/tutorial/overleaf/dist}
+    
+    \subsection{Editor}
+    \label{sec:tutorial/overleaf/edit}
+    \input{src/tutorial/overleaf/edit}
+    
+    \subsection{File types}
+    \label{sec:tutorial/overleaf/file}
+    \input{src/tutorial/overleaf/file}
+
+\newpage
+\section{\LaTeX{} basics}
+\label{sec:tutorial/latex}
+\input{src/tutorial/latex}
+
+    \subsection{Special characters}
+    \label{sec:tutorial/latex/char}
+    \input{src/tutorial/latex/char}
+    
+    \subsection{Dimensions}
+    \label{sec:tutorial/latex/dim}
+    \input{src/tutorial/latex/dim}
+
+    \subsection{Text}
+    \label{sec:tutorial/latex/text}
+    \input{src/tutorial/latex/text}
+    
+        \subsubsection{Formatting}
+        \label{sec:tutorial/latex/text/format}
+        \input{src/tutorial/latex/text/format}
+        
+        \subsubsection{Size}
+        \label{sec:tutorial/latex/text/size}
+        \input{src/tutorial/latex/text/size}
+        
+        \subsubsection{Spacing}
+        \label{sec:tutorial/latex/text/spacing}
+        \input{src/tutorial/latex/text/spacing}
+
+    \subsection{Sections}
+    \label{sec:tutorial/latex/sec}
+    \input{src/tutorial/latex/sec}
+
+    \phantomsection
+    \refstepcounter{subsection}
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Links and references}
+    \subsection*{\thesubsection\hspace{1em}Links and \glspl{reference}}
+    \label{sec:tutorial/latex/crossref}
+    \input{src/tutorial/latex/crossref}
+        
+        \phantomsection
+        \refstepcounter{subsubsection}
+        \addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Labelling}
+        \subsubsection*{\thesubsubsection\hspace{1em}\glsdisp{label}{Labelling}}
+        \label{sec:tutorial/latex/crossref/label}
+        \input{src/tutorial/latex/crossref/label}
+        
+        \phantomsection
+        \refstepcounter{subsubsection}
+        \addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Hyperlinks}
+        \subsubsection*{\thesubsubsection\hspace{1em}\Glspl{hyperlink}}
+        \label{sec:tutorial/latex/crossref/hyper}
+        \input{src/tutorial/latex/crossref/hyper}
+    
+        \subsubsection{Bibliography}
+        \label{sec:tutorial/latex/crossref/bibtex}
+        \input{src/tutorial/latex/crossref/bibtex}
+        
+        \subsubsection{Glossary}
+        \label{sec:tutorial/latex/crossref/glossary}
+        \input{src/tutorial/latex/crossref/glossary}
+
+        \subsubsection{Acronyms}
+        \label{sec:tutorial/latex/crossref/acronyms}
+        \input{src/tutorial/latex/crossref/acronyms}
+        
+    \subsection{List}
+    \label{sec:tutorial/latex/list}
+    \input{src/tutorial/latex/list}
+
+    \subsection{Math}
+    \label{sec:tutorial/latex/math}
+    \input{src/tutorial/latex/math}
+    
+        \phantomsection
+        \refstepcounter{subsubsection}
+        \addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Environments}
+        \subsubsection*{\thesubsubsection\hspace{1em}\Glspl{environment}}
+        \label{sec:tutorial/latex/math/env}
+        \input{src/tutorial/latex/math/env}
+
+        \phantomsection
+        \refstepcounter{subsubsection}
+        \addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Macros}
+        \subsubsection*{\thesubsubsection\hspace{1em}\Glspl{macro}}
+        \label{sec:tutorial/latex/math/cmds}
+        \input{src/tutorial/latex/math/cmds}
+
+    \subsection{Figure}
+    \label{sec:tutorial/latex/fig}
+    \input{src/tutorial/latex/fig}
+
+    \subsection{Table}
+    \label{sec:tutorial/latex/table}
+    \input{src/tutorial/latex/table}
+    
+        \phantomsection
+        \refstepcounter{subsubsection}
+        \addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Environments}
+        \subsubsection*{\thesubsubsection\hspace{1em}\Glspl{environment}}
+        \label{sec:tutorial/latex/table/env}
+        \input{src/tutorial/latex/table/env}
+        
+        \subsubsection{Columns}
+        \label{sec:tutorial/latex/table/column}
+        \input{src/tutorial/latex/table/column}
+        
+        \phantomsection
+        \refstepcounter{subsubsection}
+        \addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}Macros}
+        \subsubsection*{\thesubsubsection\hspace{1em}\Glspl{macro}}
+        \label{sec:tutorial/latex/table/cmds}
+        \input{src/tutorial/latex/table/cmds}
+        
+    \subsection{Typesetting}
+    \label{sec:tutorial/latex/listing}
+    \input{src/tutorial/latex/listing}
+    
+    \subsection{Graphics}
+    \label{sec:tutorial/latex/graphics}
+    \input{src/tutorial/latex/graphics}
+
+    \phantomsection
+    \refstepcounter{subsection}
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Custom macros}
+    \subsection*{\thesubsection\hspace{1em}Custom \glspl{macro}}
+    \label{sec:tutorial/latex/custom}
+    \input{src/tutorial/latex/custom}
+        
+        \subsubsection{Table columns}
+        \label{sec:tutorial/latex/custom/table}
+        \input{src/tutorial/latex/custom/table}
+        
+    \subsection{Debugging tools}
+    \label{sec:tutorial/latex/debug}
+    \input{src/tutorial/latex/debug}
+
+\newpage    
+\section{\TeX{}nician basics}
+\label{sec:tutorial/texnician}
+\input{src/tutorial/texnician}
+
+    % \subsection{Category codes}
+    % \label{sec:tutorial/texnician/code-cat}
+    % \input{src/tutorial/texnician/code-cat}
+    
+    % \subsection{Command codes}
+    % \label{sec:tutorial/texnician/code-cmd}
+    % \input{src/tutorial/texnician/code-cmd}
+    
+    % \subsection{Command modifiers}
+    % \label{sec:tutorial/texnician/modif}
+    % \input{src/tutorial/texnician/modif}
+    
+    % \subsection{\TeX{} tokens}
+    % \label{sec:tutorial/texnician/token}
+    % \input{src/tutorial/texnician/token}
+    
+    % \subsection{Equivalents table}
+    % \label{sec:tutorial/texnician/equiv}
+    % \input{src/tutorial/texnician/equiv}
+    
+    % \subsection{Macros}
+    % \label{sec:tutorial/texnician/macro}
+    % \input{src/tutorial/texnician/macro}
+    
+    % \subsection{Macro delimiters}
+    % \label{sec:tutorial/texnician/macro-delim}
+    % \input{src/tutorial/texnician/macro-delim}
+    
+    % \subsection{Macro expansion}
+    % \label{sec:tutorial/texnician/macro-expansion}
+    % \input{src/tutorial/texnician/macro-expansion}
+    
+\addtocontents{toc}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+% \addtocontents{lof}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+\addtocontents{lot}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+\addtocontents{lol}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+
+\newpage
+\section{Architecture}
+\label{sec:tutorial/architecture}
+\input{src/tutorial/architecture}
+
+    \subsection{Root files}
+    \label{sec:tutorial/architecture/root}
+    \input{src/tutorial/architecture/root}
+    
+        \phantomsection
+        \refstepcounter{subsubsection}
+        \addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubsection}latexmkrc}
+        \subsubsection*{\thesubsubsection\hspace{1em}latexmk\glsdisp{RC}{rc}}
+        \label{sec:tutorial/architecture/root/latexmkrc}
+        \input{src/tutorial/architecture/root/latexmkrc}
+    
+        \subsubsection{main.tex}
+        \label{sec:tutorial/architecture/root/main}
+        \input{src/tutorial/architecture/root/main}
+        
+        \subsubsection{Other options}
+        \label{sec:tutorial/architecture/root/other}
+        \input{src/tutorial/architecture/root/other}
+    
+    \subsection{cmds/}
+    \label{sec:tutorial/architecture/cmds}
+    \input{src/tutorial/architecture/cmds}
+    
+    \subsection{data/}
+    \label{sec:tutorial/architecture/data}
+    \input{src/tutorial/architecture/data}
+    
+    \subsection{defs/}
+    \label{sec:tutorial/architecture/defs}
+    \input{src/tutorial/architecture/defs}
+    
+    \subsection{src/}
+    \label{sec:tutorial/architecture/src}
+    \input{src/tutorial/architecture/src}
+    
+        \subsubsection{templates/}
+        \label{sec:tutorial/architecture/src/template}
+        \input{src/tutorial/architecture/src/template}
+    
+    \subsection{tools/}
+    \label{sec:tutorial/architecture/tools}
+    \input{src/tutorial/architecture/tools}
+    
+\newpage
+\section{Preamble}
+\label{sec:tutorial/preamble}
+\input{src/tutorial/preamble}
+
+    \phantomsection
+    \refstepcounter{subsection}
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Document class}
+    \subsection*{\thesubsection\hspace{1em}Document \gls{class}}
+    \label{sec:tutorial/preamble/doc}
+    \input{src/tutorial/preamble/doc}
+    
+    \subsection{Footnotes}
+    \label{sec:tutorial/preamble/footnote}
+    \input{src/tutorial/preamble/footnote}
+    
+    \subsection{Language}
+    \label{sec:tutorial/preamble/language}
+    \input{src/tutorial/preamble/language}
+    
+        \subsubsection{Language options}
+        \label{sec:tutorial/preamble/language/options}
+        \input{src/tutorial/preamble/language/options}
+    
+    \subsection{Bibliography}
+    \label{sec:tutorial/preamble/bib}
+    \input{src/tutorial/preamble/bib}
+    
+        \subsubsection{Bibliography options}
+        \label{sec:tutorial/preamble/bib/options}
+        \input{src/tutorial/preamble/bib/options}
+    
+    \subsection{Date and time}
+    \label{sec:tutorial/preamble/datetime}
+    \input{src/tutorial/preamble/datetime}
+    
+    \subsection{Fonts}
+    \label{sec:tutorial/preamble/font}
+    \input{src/tutorial/preamble/font}
+    
+    \subsection{Geometry}
+    \label{sec:tutorial/preamble/geometry}
+    \input{src/tutorial/preamble/geometry}
+    
+    \subsection{Typesetting}
+    \label{sec:tutorial/preamble/listing}
+    \input{src/tutorial/preamble/listing}
+    
+        \subsubsection{Typesetting style}
+        \label{sec:tutorial/preamble/listing/style}
+        \input{src/tutorial/preamble/listing/style}
+    
+    \phantomsection
+    \refstepcounter{subsection}
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Table of contents and lists}
+    \subsection*{\thesubsection\hspace{1em}\glsdisp{ToC}{Table of contents} and lists}
+    \label{sec:tutorial/preamble/toc}
+    \input{src/tutorial/preamble/toc}
+    
+    \subsection{Figures}
+    \label{sec:tutorial/preamble/fig}
+    \input{src/tutorial/preamble/fig}
+    
+    \subsection{Colors}
+    \label{sec:tutorial/preamble/color}
+    \input{src/tutorial/preamble/color}
+    
+    \subsection{TikZ}
+    \label{sec:tutorial/preamble/tikz}
+    \input{src/tutorial/preamble/tikz}
+    
+    \subsection{Text}
+    \label{sec:tutorial/preamble/text}
+    \input{src/tutorial/preamble/text}
+    
+    \phantomsection
+    \refstepcounter{subsection}
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Conditionals}
+    \subsection*{\thesubsection\hspace{1em}\Glspl{conditional}}
+    \label{sec:tutorial/preamble/conditional}
+    \input{src/tutorial/preamble/conditional}
+    
+    \subsection{Header and footer}
+    \label{sec:tutorial/preamble/headfoot}
+    \input{src/tutorial/preamble/headfoot}
+    
+        \subsubsection{Header and footer style}
+        \label{sec:tutorial/preamble/headfoot/style}
+        \input{src/tutorial/preamble/headfoot/style}
+    
+    \subsection{Tables}
+    \label{sec:tutorial/preamble/table}
+    \input{src/tutorial/preamble/table}
+    
+    \subsection{Mathematics and arithmetic}
+    \label{sec:tutorial/preamble/math}
+    \input{src/tutorial/preamble/math}
+    
+    \phantomsection
+    \refstepcounter{subsection}
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Hyperlinks}
+    \subsection*{\thesubsection\hspace{1em}\Glspl{hyperlink}}
+    \label{sec:tutorial/preamble/ref}
+    \input{src/tutorial/preamble/ref}
+    
+    \subsection{Counters and numbering}
+    \label{sec:tutorial/preamble/count}
+    \input{src/tutorial/preamble/count}
+    
+    \subsection{Sections}
+    \label{sec:tutorial/preamble/sec}
+    \input{src/tutorial/preamble/sec}
+    
+    \subsection{Lists}
+    \label{sec:tutorial/preamble/list}
+    \input{src/tutorial/preamble/list}
+    
+    \subsection{Glossary}
+    \label{sec:tutorial/preamble/glossary}
+    \input{src/tutorial/preamble/glossary}
+    
+        \subsubsection{Glossary style}
+        \label{sec:tutorial/preamble/glossary/style}
+        \input{src/tutorial/preamble/glossary/style}
+    
+    \phantomsection
+    \refstepcounter{subsection}
+    \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Custom packages}
+    \subsection*{\thesubsection\hspace{1em}Custom \glspl{package}}
+    \label{sec:tutorial/preamble/custom}
+    \input{src/tutorial/preamble/custom}
+    
+    \subsection{Miscellaneous}
+    \label{sec:tutorial/preamble/misc}
+    \input{src/tutorial/preamble/misc}
+    
+\addtocontents{toc}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+\addtocontents{lof}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+% \addtocontents{lot}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+\addtocontents{lol}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+
+\newpage
+\section{Templates}
+\label{sec:tutorial/templates}
+
+    \subsection{Equations}
+    \label{sec:tutorial/templates/math}
+    \input{src/templates/math}
+    
+    \newpage
+    \subsection{Lists}
+    \label{sec:tutorial/templates/list}
+    \input{src/templates/list}
+
+    \subsection{Figures}
+    \label{sec:tutorial/templates/fig}
+    \input{src/templates/fig}
+    
+    \subsection{Tables}
+    \label{sec:tutorial/templates/table}
+    \input{src/templates/table}
+        
+    \subsection{TikZ}
+    \label{sec:tutorial/templates/tikz}
+    \input{src/templates/tikz}
+    
+    \newpage
+    \subsection{\hologo{BibTeX}}
+    \label{sec:tutorial/templates/bib}
+    \input{src/tutorial/templates/bib}
+    
+    \newpage
+    \subsection{Glossary}
+    \label{sec:tutorial/templates/glossary}
+    \input{src/templates/glossary}
+    
+    \subsection{Acronyms}
+    \label{sec:tutorial/templates/acronym}
+    \input{src/templates/acronym}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% APPENDICES                                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addtocontents{toc}{\protect\addvspace{\baselineskip}\hrule\protect\addvspace{\baselineskip}}
+
+% \appendix\newpage
+% \renewcommand\thesection{\Alph{section}}
+% \renewcommand\thesubsection{\Alph{section}.\arabic{subsection}}
+% \renewcommand{\thetable}{\Alph{section}.\arabic{table}}
+% \renewcommand{\thefigure}{\Alph{section}.\arabic{figure}}
+% \renewcommand{\theequation}{\Alph{section}.\arabic{equation}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BIBLIOGRAPHY                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Entire bibliography
+\newpage
+\phantomsection\addcontentsline{toc}{section}{\protect\numberline{}Sources}
+\printbibliography[title={\Glspl{source}}]
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% GLOSSARY                                   %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+% \phantomsection
+% \addcontentsline{toc}{section}{\protect\numberline{}Glossary}
+% \glsaddallunused
+\renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
+\printglossary[style=glscustom]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% END DOCUMENT                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
