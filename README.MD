@@ -25,7 +25,7 @@
                         <p><a href="./latexmkrc"> Compiling parameters </a></p>
                     </li>
                     <li>
-                        <p><a href="./def/"> Definitions </a></p>
+                        <p><a href="./defs/"> Definitions </a></p>
                     </li>
                     <li>
                         <p><a href="./data/"> Data </a></p>
@@ -34,7 +34,7 @@
                         <p><a href="./main.tex"> Main file </a></p>
                     </li>
                     <li>
-                        <p><a href="./src/"> Section file </a></p>
+                        <p><a href="./src/"> Documents and sections </a></p>
                     </li>
                     <li>
                         <p><a href="./tools/"> Tools and settings </a></p>

@@ -1,0 +1,315 @@
+\vfill
+\begin{center}
+    \Huge \MakeUppercase{Add rules from \TeX{}book}
+\end{center}
+\vfill
+
+Font dimensions are font parameters used by \TeX{} to build the bounding boxes of each and every element in the document. For example, you can think of an equation as a big box broken down into smaller and smaller boxes until you're defining the size for each individual character. \TeX{} uses rules to calculate these boxes, and most parameters must be supplied by the font. There are parameters for text (first family, or \texttt{\textbackslash{}fam1}), for math symbols (\texttt{\textbackslash{}fam2}), and for extension fonts (\texttt{\textbackslash{}fam3}). Each parameter can be found in tables \ref{tab:tutorial/latex/dim/font/text} to \ref{tab:tutorial/latex/dim/font/extension}. More details about the rules can be found in \citename{book:knuth-tex-metafont}{author}'s \citefield{book:knuth-typesetting-a}{title} \parencite{book:knuth-typesetting-a}.
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr .25\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} text font dimensions]{\LaTeX{} text font dimensions.}%
+        \label{tab:tutorial/latex/dim/font/text}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Command}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Name}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Command}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Name}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \verb"\fontdimen1"
+            &Slant per point
+            &Used for italic correction.
+        \\\hline
+        
+        \verb"\fontdimen2"
+            &Interword space
+            &Standard width of the control space.
+        \\\hline
+        
+        \verb"\fontdimen3"
+            &Interword stretch
+            &Amount of stretch applied to the control space.
+        \\\hline
+        
+        \verb"\fontdimen4"
+            &Interword shrink
+            &Amount of shrink applied to the control space.
+        \\\hline
+        
+        \verb"\fontdimen5"
+            &\guil{x} height
+            &Used to determine the ex unit.
+        \\\hline
+        
+        \verb"\fontdimen6"
+            &Quad width
+            &Used to determine the em unit.
+        \\\hline
+        
+        \verb"\fontdimen7"
+            &Extra space
+            &Additional space after sentence punctuation.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr .25\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} math symbols font dimensions]{\LaTeX{} math symbols font dimensions.}%
+        \label{tab:tutorial/latex/dim/font/math}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Command}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Name}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Command}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Name}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \verb"\fontdimens1"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{
+                \multirow{4}{\linewidth}{
+                    \centering
+                    Same as text font dimensions (see table \ref{tab:tutorial/latex/dim/font/text}).
+                }
+            }
+        \\\cline{1-1}
+        
+        \verb"\fontdimens2"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\cline{1-1}
+        
+        \verb"\fontdimens3"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\cline{1-1}
+        
+        \verb"\fontdimens4"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\hline
+        
+        \verb"\fontdimens5"
+            &\guil{x} height
+            &Used to determine the math ex unit.
+        \\\hline
+        
+        \verb"\fontdimens6"
+            &Quad width
+            &Used to determine the math em unit.
+        \\\hline
+        
+        \verb"\fontdimens7"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{Same as text font dimensions (see table \ref{tab:tutorial/latex/dim/font/text}).}
+        \\\hline
+        
+        \verb"\fontdimens8"
+            &Numerator \#1
+            &Standard size numerator shift.
+        \\\hline
+        
+        \verb"\fontdimens9"
+            &Numerator \#2
+            &Alternative numerator shift.
+        \\\hline
+        
+        \verb"\fontdimens10"
+            &Numerator \#3
+            &Alternative numerator shift.
+        \\\hline
+        
+        \verb"\fontdimens11"
+            &Denominator \#1
+            &Standard size denominator shift.
+        \\\hline
+        
+        \verb"\fontdimens12"
+            &Denominator \#2
+            &Alternative denominator shift.
+        \\\hline
+        
+        \verb"\fontdimens13"
+            &Superscript \#1
+            &Standard size superscript position.
+        \\\hline
+        
+        \verb"\fontdimens14"
+            &Superscript \#2
+            &Alternative superscript position.
+        \\\hline
+        
+        \verb"\fontdimens15"
+            &Superscript \#3
+            &Alternative superscript position.
+        \\\hline
+        
+        \verb"\fontdimens16"
+            &Subscript \#1
+            &Standard size subscript position.
+        \\\hline
+        
+        \verb"\fontdimens17"
+            &Subscript \#2
+            &Alternative subscript position.
+        \\\hline
+        
+        \verb"\fontdimens18"
+            &Superscript drop
+            &Standard superscript shift.
+        \\\hline
+        
+        \verb"\fontdimens19"
+            &Subscript drop
+            &Standard subscript shift.
+        \\\hline
+        
+        \verb"\fontdimens20"
+            &Delimiter \#1
+            &Minimum display math delimiter size.
+        \\\hline
+        
+        \verb"\fontdimens21"
+            &Delimiter \#2
+            &Minimum text math delimiter size.
+        \\\hline
+        
+        \verb"\fontdimens22"
+            &Axis height
+            &Height of operator~/~delimiter center axis.
+        \\\hline
+    \end{longtable}
+\endgroup
+
+\begingroup
+    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnB}{\dimexpr .25\linewidth}
+    \setlength{\columnC}{\dimexpr \linewidth-\columnA-\columnB}
+    
+    \setlength{\columnA}{\columnA-2\tabcolsep-4\vbar/3}
+    \setlength{\columnB}{\columnB-2\tabcolsep-4\vbar/3}
+    \setlength{\columnC}{\columnC-2\tabcolsep-4\vbar/3}
+    
+    \begin{longtable}%
+        {|\CC{\columnA}|%
+          \CC{\columnB}|%
+          \LC{\columnC}|%
+        }
+        \caption[\LaTeX{} extension font dimensions]{\LaTeX{} extension font dimensions.}%
+        \label{tab:tutorial/latex/dim/font/extension}\\
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Command}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Name}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endfirsthead
+        
+        \hline
+        \multicolumn{1}{|\CC{\columnA}|}{\textbf{Command}}
+            &\multicolumn{1}{\CC{\columnB}|}{\textbf{Name}}
+            &\multicolumn{1}{\CC{\columnC}|}{\textbf{Description}}
+        \\\hline
+        \endhead
+        
+        \verb"\fontdimenx1"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{
+                \multirow{7}{\linewidth}{
+                    \centering
+                    Same as text font dimensions (see table \ref{tab:tutorial/latex/dim/font/text}).
+                }
+            }
+        \\\cline{1-1}
+        
+        \verb"\fontdimenx2"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\cline{1-1}
+        
+        \verb"\fontdimenx3"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\cline{1-1}
+        
+        \verb"\fontdimenx4"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\cline{1-1}
+        
+        \verb"\fontdimenx5"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\cline{1-1}
+        
+        \verb"\fontdimenx6"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\cline{1-1}
+        
+        \verb"\fontdimenx7"
+            &\multicolumn{2}{\CC{\columnB+\columnC+2\tabcolsep+\vbar}|}{}
+        \\\hline
+        
+        \verb"\fontdimenx8"
+            &Default rule thickness
+            &-- Default fraction line;
+             \newline -- Minimum subscript / superscript separation.
+        \\\hline
+        
+        \verb"\fontdimenx9"
+            &Operator spacing \#1
+            &Used to control limits spacing.
+        \\\hline
+        
+        \verb"\fontdimenx10"
+            &Operator spacing \#2
+            &Alternative limits spacing.
+        \\\hline
+        
+        \verb"\fontdimenx11"
+            &Operator spacing \#3
+            &Alternative limits spacing.
+        \\\hline
+        
+        \verb"\fontdimenx12"
+            &Operator spacing \#4
+            &Alternative limits spacing.
+        \\\hline
+        
+        \verb"\fontdimenx13"
+            &Operator spacing \#5
+            &Alternative limits spacing.
+        \\\hline
+    \end{longtable}
+\endgroup

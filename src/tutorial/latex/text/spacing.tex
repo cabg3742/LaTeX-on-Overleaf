@@ -17,7 +17,7 @@ The lengths can be specified in any of the legal \TeX{} dimensions, but the stre
 Normally, \texttt{fil} is reserved for standard \glspl{macro}, and \texttt{fill} is for user \glspl{macro} that override the previous order infinities. \texttt{filll} is seldom used and should be reserved for emergency cases. Continuing with our example, if \TeX{} finds \texttt{\textbackslash{}vfill}---same as \texttt{\textbackslash{}vspace\{0pt plus 1fill\}}---in a page, uses of \texttt{\textbackslash{}smallskip} found in the page will be at most 3~pt wide, as the infinite component \guil{wins}.
 
 \begingroup
-    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnA}{\dimexpr .3\linewidth}
     \setlength{\columnB}{\dimexpr \linewidth-\columnA}
     
     \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
@@ -87,7 +87,7 @@ Normally, \texttt{fil} is reserved for standard \glspl{macro}, and \texttt{fill}
             &Negative equivalent to \texttt{\textbackslash;}.
         \\\hline
         
-        \texttt{\textbackslash\textvisiblespace}
+        \texttt{\textbackslash{}textvisiblespace}
             &Control space. The \textvisiblespace{} character only highlights the necessary empty space.
         \\\hline
         
@@ -154,11 +154,15 @@ Normally, \texttt{fil} is reserved for standard \glspl{macro}, and \texttt{fill}
         \texttt{\textbackslash{}hss}
             &Horizontal glue that is both infinitely stretchable and shrinkable. \textit{Handle with care.}
         \\\hline
+        
+        \texttt{\textbackslash{}unskip}
+            &Remove the previous glue element. \textit{Handle with care.}
+        \\\hline
     \end{longtable}
 \endgroup
 
 \begingroup
-    \setlength{\columnA}{\dimexpr .25\linewidth}
+    \setlength{\columnA}{\dimexpr .3\linewidth}
     \setlength{\columnB}{\dimexpr \linewidth-\columnA}
     
     \setlength{\columnA}{\columnA-2\tabcolsep-3\vbar/2}
@@ -238,6 +242,10 @@ Normally, \texttt{fil} is reserved for standard \glspl{macro}, and \texttt{fill}
         
         \texttt{\textbackslash{}vss}
             &Vertical glue that is both infinitely stretchable and shrinkable. \textit{Handle with care.}
+        \\\hline
+        
+        \texttt{\textbackslash{}unskip}
+            &Remove the previous glue element. \textit{Handle with care.}
         \\\hline
     \end{longtable}
 \endgroup
