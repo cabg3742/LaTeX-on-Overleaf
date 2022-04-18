@@ -9,9 +9,13 @@
 %%% PAGE STYLES                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand{\subsectionmark}[1]{%
-    \markright{\MakeUppercase{\thesubsection.\ #1}}
-}
+% \renewcommand{\sectionmark}[1]{%
+%     \markleft{\MakeUppercase{\thesection.\ #1}}
+% }
+
+% \renewcommand{\subsectionmark}[1]{%
+%     \markright{\MakeUppercase{\thesubsection.\ #1}}
+% }
 
 \fancypagestyle{udes}{
     \fancyhf{}%
@@ -138,7 +142,7 @@
     
     \renewcommand*{\glossaryheader}{}%
     \renewcommand{\glossentry}[2]{%
-        \glsentryitem{##1}\glstarget{##1}{\bfseries\glossentryname{##1}} 
+        \glsentryitem{##1}\glstarget{##1}{\bfseries\Glossentryname{##1}} 
         &&\parbox[t]{\linewidth}{\Glossentrydesc{##1}}
         &&##2\tabularnewline
     }%

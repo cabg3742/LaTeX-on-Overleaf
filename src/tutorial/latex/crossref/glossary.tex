@@ -25,7 +25,8 @@ When defining your glossary entry, you only have to define a couple fields insid
 \begin{itemize}
     \item \texttt{name=\{\}}:~the word you're adding in the glossary;
     \item \texttt{description=\{\}}:~introduces the reader to the meaning of your entry;
-    \item \texttt{see=[]\{\}}:~\glsdisp{reference}{refers} to another glossary entry if needed. If you're not a fan of the \gls{command}'s behavior, you can also \glsdisp{reference}{refer} to another entry by using \texttt{\textbackslash{}glsseelist\{\}} in the entry's description.
+    \item \texttt{see=[]\{\}}:~\glsdisp{reference}{refers} to another glossary entry if needed. If you're not a fan of the \gls{command}'s behavior, you can also \glsdisp{reference}{refer} to another entry by using \texttt{\textbackslash{}glsseelist\{\}} in the entry's description;
+    \item \texttt{parent=\{\}}:~defines another glossary entry as parent. Useful if you prefer a hierarchical structure.
 \end{itemize}
 
 \noindent For more options and \glspl{macro}, feel free to consult the \gls{CTAN} documentation \parencite{web:ctan-glossaries}.

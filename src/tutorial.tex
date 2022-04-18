@@ -226,6 +226,7 @@
     \refstepcounter{subsection}
     \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Links and references}
     \subsection*{\thesubsection\hspace{1em}Links and \glspl{reference}}
+    \subsectionmark{Links and \glspl{reference}}
     \label{sec:tutorial/latex/crossref}
     \input{src/tutorial/latex/crossref}
         
@@ -646,7 +647,7 @@
 % \phantomsection
 % \addcontentsline{toc}{section}{\protect\numberline{}Glossary}
 % \glsaddallunused
-\renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
+% \renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
 \printglossary[style=glscustom]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
